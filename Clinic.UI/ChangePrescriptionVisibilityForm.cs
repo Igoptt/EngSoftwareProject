@@ -12,7 +12,7 @@ namespace Clinic.UI
 
         private void btn_SavePrescriptionVisibilityChanges_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("As suas alterações foram efetuadas");
+            MessageBox.Show(@"As suas alterações foram efetuadas");
             this.Close();
         }
     }

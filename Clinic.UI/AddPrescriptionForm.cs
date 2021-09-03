@@ -22,7 +22,7 @@ namespace Clinic.UI
 
         private void btn_SavePrescription_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Prescrição adicionada");
+            MessageBox.Show(@"Prescrição adicionada");
             this.Close();
         }
     }

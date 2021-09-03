@@ -84,8 +84,15 @@
         </Compile>
         <Compile Include="DTO\ClientDto.cs" />
         <Compile Include="DTO\DataMapper.cs" />
+        <Compile Include="DTO\ExerciseDto.cs" />
+        <Compile Include="DTO\MedicineDto.cs" />
         <Compile Include="DTO\PrescriptionDto.cs" />
+        <Compile Include="DTO\ServiceDto.cs" />
         <Compile Include="DTO\SessionsDto.cs" />
+        <Compile Include="DTO\TherapistDto.cs" />
+        <Compile Include="DTO\TreatmentDto.cs" />
+        <Compile Include="DTO\UserDto.cs" />
+        <Compile Include="FormHelpers\LoginFormHelper.cs" />
         <Compile Include="LoginForm.cs">
             <SubType>Form</SubType>
         </Compile>

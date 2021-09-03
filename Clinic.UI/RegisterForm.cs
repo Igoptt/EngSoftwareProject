@@ -22,7 +22,7 @@ namespace Clinic.UI
         private void btn_CreateAccount_Click(object sender, EventArgs e)
         {
             
-                if (_registerFormHelper.VeryifyRegisterFields())
+                if (_registerFormHelper.VeryifyRegisterFields(textBox_Register_FirstName.Text,textBox_Register_LastName.Text,textBox_Register_Username.Text,textBox_Register_Password.Text))
                 {
                     if (cb_AccountTypeRegister.SelectedIndex == 0) //cliente
                     {
@@ -34,22 +34,40 @@ namespace Clinic.UI
                             Password = textBox_Register_Password.Text
                         };
                         
-                        _unitOfWork.ClientRepository.Insert(clientDto.MapToDb());
+                        _unitOfWork.ClientRepository.Insert(clientDto.MapToClientDb());
+                        MessageBox.Show($@"Conta criada! Bem vindo {clientDto.FirstName}");
+                        this.Close();
                         var form = new ClientViewForm(_unitOfWork);
                         form.Show();
 
                     }
                     else if (cb_AccountTypeRegister.SelectedIndex == 1)//terapeuta
                     {
-                        //todo create therapist
+                        var therapistDto = new TherapistDto
+                        {
+                            FirstName = textBox_Register_FirstName.Text,
+                            LastName = textBox_Register_LastName.Text,
+                            Username = textBox_Register_Username.Text,
+                            Password = textBox_Register_Password.Text
+                        };
+                        
+                        _unitOfWork.TherapistRepository.Insert(therapistDto.MapToTherapistDb());
+                        MessageBox.Show($@"Conta criada! Bem vindo {therapistDto.FirstName}");
+                        this.Close();
+                        var form = new TherapistViewForm(_unitOfWork);
+                        form.Show();
+                        
                     } 
                 }
                 else
                 {
-                    MessageBox.Show("Todos os campos devem estar preênchidos.");
+                    MessageBox.Show(@"Todos os campos devem estar preênchidos.");
                 }
             
         }
+
+        
+        
 
 
     }

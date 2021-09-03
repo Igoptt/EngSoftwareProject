@@ -32,8 +32,8 @@
             this.btn_register = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
             this.cb_AccountTypeLogin = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox_Username_Login = new System.Windows.Forms.TextBox();
+            this.textBox_Password_Login = new System.Windows.Forms.TextBox();
             this.label_Username = new System.Windows.Forms.Label();
             this.label_Password = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -68,19 +68,20 @@
             this.cb_AccountTypeLogin.TabIndex = 1;
             this.cb_AccountTypeLogin.Text = "Escolha o tipo de conta";
             // 
-            // textBox1
+            // textBox_Username_Login
             // 
-            this.textBox1.Location = new System.Drawing.Point(289, 133);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(239, 20);
-            this.textBox1.TabIndex = 2;
+            this.textBox_Username_Login.Location = new System.Drawing.Point(289, 133);
+            this.textBox_Username_Login.Name = "textBox_Username_Login";
+            this.textBox_Username_Login.Size = new System.Drawing.Size(239, 20);
+            this.textBox_Username_Login.TabIndex = 2;
             // 
-            // textBox2
+            // textBox_Password_Login
             // 
-            this.textBox2.Location = new System.Drawing.Point(290, 182);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(238, 20);
-            this.textBox2.TabIndex = 3;
+            this.textBox_Password_Login.Location = new System.Drawing.Point(290, 182);
+            this.textBox_Password_Login.Name = "textBox_Password_Login";
+            this.textBox_Password_Login.PasswordChar = '*';
+            this.textBox_Password_Login.Size = new System.Drawing.Size(238, 20);
+            this.textBox_Password_Login.TabIndex = 3;
             // 
             // label_Username
             // 
@@ -105,8 +106,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label_Password);
             this.Controls.Add(this.label_Username);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_Password_Login);
+            this.Controls.Add(this.textBox_Username_Login);
             this.Controls.Add(this.cb_AccountTypeLogin);
             this.Controls.Add(this.btn_login);
             this.Controls.Add(this.btn_register);
@@ -119,8 +120,8 @@
         private System.Windows.Forms.Label label_Username;
         private System.Windows.Forms.Label label_Password;
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox_Username_Login;
+        private System.Windows.Forms.TextBox textBox_Password_Login;
 
         private System.Windows.Forms.ComboBox cb_AccountTypeLogin;
 

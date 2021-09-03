@@ -12,7 +12,7 @@ namespace Clinic.UI
 
         private void btn_CreateSession_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Sessão Marcada");
+            MessageBox.Show(@"Sessão Marcada");
             this.Close();
         }
     }

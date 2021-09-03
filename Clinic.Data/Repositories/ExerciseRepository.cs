@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Clinic.Data.Models;
 using Clinic.Data.Repositories.Interfaces;
 
@@ -10,6 +11,44 @@ namespace Clinic.Data.Repositories
         {
         }
 
+        public int Insert(Exercise exercise)
+        {
+            
+            exercise.Id = GetId(); //todo need to increment
+            Database.Exercises.Add(exercise);
+            Save();
+            return Database.Exercises.First(e => e.Id == exercise.Id).Id;
+        }
+
+        private int GetId()
+        {
+            var lastId = Database.LastInsertedExerciseId++;
+            Database.LastInsertedExerciseId = lastId;
+            return lastId;
+        }
+
+        public Exercise GetExerciseById(int exerciseId)
+        {
+            return Database.Exercises.FirstOrDefault(e => e.Id == exerciseId);
+        }
+        
+        
+        public List<Exercise> GetAll()
+        {
+            return Database.Exercises;
+        }
+        public int Update(Exercise exercise)
+        {
+            var dbExercise = Database.Exercises.FirstOrDefault(e => e.Id == exercise.Id);
+            if (dbExercise != null)
+            {
+                var dbIndex = Database.Exercises.IndexOf(dbExercise);
+                Database.Exercises[dbIndex] = exercise;
+                return dbExercise.Id;
+            }
+
+            return 0;
+        }
         // public List<Exercise> GetRecommendedHours(int clientId, int exerciseId)
         // {
         //     

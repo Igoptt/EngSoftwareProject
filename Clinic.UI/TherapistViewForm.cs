@@ -34,9 +34,13 @@ namespace Clinic.UI
 
         private void grid_SessionsTherapistView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grid_ClientsTherapistView.Columns[e.ColumnIndex].Name == "Desmarcar")
+            if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "RemoveAppointmentTherapistView")
             {
-                //remover da DB
+                MessageBox.Show(@"Sessao Desmarcada");
+            }
+            if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "AddSessionNoteTherapistView")
+            {
+                MessageBox.Show(@"Nota Adicionada");
             }
         }
     }

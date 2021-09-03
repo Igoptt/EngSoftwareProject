@@ -6,7 +6,6 @@ namespace Clinic.Data.Repositories.Interfaces
     {
         IClientRepository ClientRepository { get; set; }
         ITherapistRepository TherapistRepository { get; set; }
-        
         IPrescriptionRepository PrescriptionsRepository { get; set; }
         ISessionsRepository SessionsRepository { get; set; }
         IServiceRepository ServicesRepository { get; set; }

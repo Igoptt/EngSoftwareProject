@@ -18,7 +18,7 @@ namespace Clinic.UI
         {
             if (grid_PrescriptionsClientView.Columns[e.ColumnIndex].Name == "Mais")
             {
-                MessageBox.Show("A prescrição tem uma intensidade de X ao longo de Y dias");
+                MessageBox.Show(@"A prescrição tem uma intensidade de X ao longo de Y dias");
             }
             else if (grid_PrescriptionsClientView.Columns[e.ColumnIndex].Name == "Visibilidade")
             {
@@ -38,7 +38,7 @@ namespace Clinic.UI
         {
             if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "DetalhesClientView")
             {
-                MessageBox.Show("A sessão teve uma duração de X minutos e foram realizadas as prescrições Y e Z");
+                MessageBox.Show(@"A sessão teve uma duração de X minutos e foram realizadas as prescrições Y e Z");
             }
             else if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "EditarSessao")
             {
@@ -48,7 +48,7 @@ namespace Clinic.UI
             }
             else if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "DesmarcarClientView")
             {
-                //Apaga aquela sessão
+                MessageBox.Show(@"Sessao Desmarcada!");
             }
         }
     }

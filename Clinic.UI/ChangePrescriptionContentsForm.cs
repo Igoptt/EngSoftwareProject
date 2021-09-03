@@ -12,7 +12,7 @@ namespace Clinic.UI
 
         private void btn_SaveChanges_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Mudanças Guardadas");
+            MessageBox.Show(@"Mudanças Guardadas");
             this.Close();
         }
     }

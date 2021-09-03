@@ -49,6 +49,12 @@ namespace Clinic.Data.Repositories
         {
             return Database.Clients.FirstOrDefault(c => c.FirstName == clientName);
         }
+
+        public Client GetClientByUsername(string clientUsername)
+        {
+            return Database.Clients.FirstOrDefault(c => c.Username == clientUsername);
+        }
+        
         public List<Sessions> GetClientSessions(int clientId)
         {
             throw new NotImplementedException();
