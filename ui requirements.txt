@@ -1,0 +1,61 @@
+vistas necessarias:
+ * login
+   input texto - username
+   input password - password
+   botao - fazer login
+   botao - criar nova conta
+ 
+ * criar conta
+   input combobox - cliente ou terapeuta
+   input texto - first name
+   input texto - last name
+   input texto - username
+   input password - password
+   botao - criar conta
+   
+ * vista do terapeuta
+   painel de gestao
+   lista de sessoes
+   lista de clientes
+   
+ * painel de gestao terapeuta
+   adicionar prescriçao a sessao
+   adicionar medicamento a prescriçao ---- nao é preciso pq as prescrições sao por sessao
+   
+   
+ * lista de sessoes - terapeuta
+   listagem das sessoes  - data, cliente + botoes
+   botao de apagar sessoes que ainda nao aconteceram
+   botao para adicionar nota descritiva à sessao ---- procurar inputboxes
+   
+ * lista de clientes - terapeuta
+   listagem dos clientes  - nome do cliente, ultima sessao + botoes
+   --> botao ver prescriçoes - numa nova janela lista todas as prescriçoes do cliente       
+   
+   
+ * vista do cliente  
+   painel de gestao
+   lista das suas prescriçoes
+   lista das suas sessoes
+   
+   
+ * painel de gestao - cliente 
+   criar sessao
+   
+   
+    
+ * lista das suas prescriçoes - cliente   
+   listagens das prescriçoes - mostra o tipo (medicaçao/tratamento/exercicio), o terapeuta, a que sessao pertence e botoes
+     --> Botao mais informaçao - quando se carrega para ver mais informaçao mostra nova janela com informação - tudo o que se consegue ver sobre a prescriçao --- Pode ser uma Message Box
+     --> Botao adicionar/remover terapeutas que podem ver a prescriçao ---- Novo forms
+   
+ * lista das suas sessoes - cliente   
+   listagens das sessoes - mostra a data e hora, nome do terapeuta + botoes
+     --> botao mais informaçao - quando se carrega para ver mais informaçao mostra nova janela com informação - mostra a informaçao da sessao incluindo prescriçoes ---- Message Box
+     --> botao desmarcar sessao - so visivel se a sessao ainda nao aconteceu -- Message Box a pedir confirmaçao e se disser sim apagar logo
+     --> botoa para editar - pode mudar a data da sessao 
+   
+   
+     
+   
+   
