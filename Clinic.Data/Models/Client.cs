@@ -6,10 +6,10 @@ namespace Clinic.Data.Models
     {
         public Client()
         {
-            ClientAppointments = new List<Sessions>();
-            ClientPrescriptions = new List<Prescription>();
+            ClientAppointments = new List<int>();
+            ClientPrescriptions = new List<int>();
         }
-        public List<Sessions> ClientAppointments { get; set; }
-        public List<Prescription> ClientPrescriptions { get; set; }
+        public List<int> ClientAppointments { get; set; }
+        public List<int> ClientPrescriptions { get; set; }
     }
 }

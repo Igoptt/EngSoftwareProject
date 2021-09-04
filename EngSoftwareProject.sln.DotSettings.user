@@ -1,4 +1,10 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=b6ab734f_002Dbe23_002D4c27_002D8bd0_002Dce09157d78f1/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="MapToClientDbSucess" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C125F348-63DB-4429-8A66-18B4ABDD0E88::net5.0::UnitTests.Tests.MapToClientDbSucess&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::C125F348-63DB-4429-8A66-18B4ABDD0E88::net5.0::UnitTests.Tests.MapToExerciseDbSucess&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Clinic_002EUI_002FAddPrescription/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Clinic_002EUI_002FLoginForm/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Clinic_002EUI_002FRegisterForm/@EntryIndexedValue">True</s:Boolean>

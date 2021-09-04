@@ -6,11 +6,11 @@ namespace Clinic.Data.Models
     {
         public Therapist()
         {
-            TherapistPrescriptions = new List<Prescription>();
-            TherapistSessions = new List<Sessions>();
+            TherapistPrescriptions = new List<int>();
+            TherapistSessions = new List<int>();
         }
         
-        public List<Prescription> TherapistPrescriptions { get; set; }
-        public List<Sessions> TherapistSessions { get; set; }
+        public List<int> TherapistPrescriptions { get; set; }
+        public List<int> TherapistSessions { get; set; }
     }
 }

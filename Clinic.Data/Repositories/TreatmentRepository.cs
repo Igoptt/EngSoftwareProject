@@ -20,12 +20,6 @@ namespace Clinic.Data.Repositories
             return Database.Treatments.First(m => m.Id == treatment.Id).Id;
         }
 
-        private int GetId()
-        {
-            var lastId = Database.LastInsertedTreatmentId++;
-            Database.LastInsertedTreatmentId = lastId;
-            return lastId;
-        }
 
         public Treatment GetTreatmentById(int treatmentId)
         {

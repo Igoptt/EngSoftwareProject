@@ -8,12 +8,12 @@ namespace Clinic.Data.Models
         public Prescription()
         {
             TherapistsWithAcess = new List<int>();
-            PrescribedServices = new List<Service>();
+            PrescribedServices = new List<int>();
         }
         
         public int Id { get; set; }
         public List<int> TherapistsWithAcess { get; set; }
-        public List<Service> PrescribedServices { get; set; }
+        public List<int> PrescribedServices { get; set; }
         
         //Foreign key for the Client this was prescribed to
         public int ClientId { get; set; }

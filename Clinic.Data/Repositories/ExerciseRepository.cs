@@ -20,12 +20,6 @@ namespace Clinic.Data.Repositories
             return Database.Exercises.First(e => e.Id == exercise.Id).Id;
         }
 
-        private int GetId()
-        {
-            var lastId = Database.LastInsertedExerciseId++;
-            Database.LastInsertedExerciseId = lastId;
-            return lastId;
-        }
 
         public Exercise GetExerciseById(int exerciseId)
         {

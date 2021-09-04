@@ -1,16 +1,26 @@
 ﻿using System;
 using System.Windows.Forms;
+using Clinic.Data.Models;
 using Clinic.Data.Repositories;
+using Clinic.UI.DTO;
 
 namespace Clinic.UI
 {
     public partial class ClientViewForm : Form
     {
-        public ClientViewForm(UnitOfWork unitOfWork)
+        private readonly UnitOfWork _unitOfWork;
+        private ClientDto _currentClient;
+        public ClientViewForm(UnitOfWork unitOfWork, int clientId)
         {
+            _unitOfWork = unitOfWork;
+            //_currentClient = _unitOfWork.ClientRepository.GetClientById().MapToClientDto();
+            //_currentClient.ClientAppointments = _unitOfWork.SessionsRepository.GetSessionsByClient(clientId).MapToSessionDtop();
+            //_currentClient.ClientPrescriptions =
+                
             InitializeComponent();
             grid_ClientSessions.Rows.Add("data K", "Hora x", "Terapeuta Y");
             grid_PrescriptionsClientView.Rows.Add("Medicamento", "Terapeuta Y", "Data K");
+            
         }
 
 

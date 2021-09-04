@@ -17,19 +17,12 @@ namespace Clinic.Data.Repositories
             service.Id = GetId(); 
             Database.Services.Add(service);
             Save();
-            return Database.Services.First(m => m.Id == service.Id).Id;
-        }
-
-        private int GetId()
-        {
-            var lastId = Database.LastInsertedServiceId++;
-            Database.LastInsertedServiceId = lastId;
-            return lastId;
+            return Database.Services.First(s => s.Id == service.Id).Id;
         }
 
         public Service GetServiceById(int serviceId)
         {
-            return Database.Services.FirstOrDefault(m => m.Id == serviceId);
+            return Database.Services.FirstOrDefault(s => s.Id == serviceId);
         }
         
         public List<Service> GetAll()

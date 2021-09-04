@@ -22,7 +22,7 @@ namespace Clinic.UI
         private void btn_CreateAccount_Click(object sender, EventArgs e)
         {
             
-                if (_registerFormHelper.VeryifyRegisterFields(textBox_Register_FirstName.Text,textBox_Register_LastName.Text,textBox_Register_Username.Text,textBox_Register_Password.Text))
+                if (_registerFormHelper.VerifyRegisterFields(textBox_Register_FirstName.Text,textBox_Register_LastName.Text,textBox_Register_Username.Text,textBox_Register_Password.Text))
                 {
                     if (cb_AccountTypeRegister.SelectedIndex == 0) //cliente
                     {
@@ -33,11 +33,10 @@ namespace Clinic.UI
                             Username = textBox_Register_Username.Text,
                             Password = textBox_Register_Password.Text
                         };
-                        
-                        _unitOfWork.ClientRepository.Insert(clientDto.MapToClientDb());
+                        var clientCreatedId = _unitOfWork.ClientRepository.Insert(clientDto.MapToClientDb());
                         MessageBox.Show($@"Conta criada! Bem vindo {clientDto.FirstName}");
                         this.Close();
-                        var form = new ClientViewForm(_unitOfWork);
+                        var form = new ClientViewForm(_unitOfWork, clientCreatedId);
                         form.Show();
 
                     }

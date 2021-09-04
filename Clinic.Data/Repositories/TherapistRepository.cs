@@ -19,12 +19,6 @@ namespace Clinic.Data.Repositories
             return Database.Therapists.First(t => t.Id == therapist.Id).Id;
         }
 
-        private int GetId()
-        {
-            var lastId = Database.LastInsertedTherapistId++;
-            Database.LastInsertedTherapistId = lastId;
-            return lastId;
-        }
 
         public Therapist GetTherapistById(int therapistId)
         {

@@ -77,11 +77,5 @@ namespace Clinic.Data.Repositories
         //metodo para is buscar todas as sessoes marcadas para o cliente com Id X
 
 
-        private int GetId()
-        {
-            var lastId = Database.LastInsertedClientId++;
-            Database.LastInsertedClientId = lastId;
-            return lastId;
-        }
     }
 }

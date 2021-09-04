@@ -2,10 +2,13 @@
 
 namespace Clinic.UI.DTO
 {
-    public static class DataMapper
+    public static class DataMapperDtoToDb
     {
-        
-        public static Client MapToClientDb(this ClientDto dto) //pq precisa do this nos argumentos? OHHHHHHHHHHHHHHH é para poder chamar sem ter de instanciar o dataMapper
+        //MapToClientDb(clientDto)
+        // public static Client MapToClientDb2(ClientDto dto)
+        //or
+        //clientDto.MapToClientDb()
+        public static Client MapToClientDb(this ClientDto dto) 
         {
             var clientDb = new Client();
             clientDb.Id = dto.Id;
@@ -17,19 +20,19 @@ namespace Clinic.UI.DTO
             for (int i = 0; i < dto.ClientAppointments.Count; i++)
             {
                 SessionsDto sessions = dto.ClientAppointments[i];
-                clientDb.ClientAppointments.Add(MapToSessionsDb(sessions));
+                //clientDb.ClientAppointments.Add(MapToSessionsDb(sessions));
             }
             
             for (int i = 0; i < dto.ClientPrescriptions.Count; i++)
             {
                 PrescriptionDto prescription = dto.ClientPrescriptions[i];
-                clientDb.ClientPrescriptions.Add(MapToPrescriptionDb(prescription));
+                //clientDb.ClientPrescriptions.Add(MapToPrescriptionDb(prescription));
             }
             
             return clientDb;
         }
 
-        public static Exercise MapToExerciseDb(ExerciseDto dto)
+        public static Exercise MapToExerciseDb(this ExerciseDto dto)
         {
             return new Exercise
             {
@@ -45,7 +48,7 @@ namespace Clinic.UI.DTO
             };
         }
 
-        public static Medicine MapToMedicineDb(MedicineDto dto)
+        public static Medicine MapToMedicineDb(this MedicineDto dto)
         {
             return new Medicine
             {
@@ -69,13 +72,13 @@ namespace Clinic.UI.DTO
             for (int i = 0; i < dto.PrescribedServices.Count; i++)
             {
                 ServiceDto service = dto.PrescribedServices[i];
-                prescriptionDb.PrescribedServices.Add(MapToServiceDb(service));
+                //prescriptionDb.PrescribedServices.Add(MapToServiceDb(service));
             }
             
             return prescriptionDb;
         }
 
-        public static Service MapToServiceDb(ServiceDto dto)
+        public static Service MapToServiceDb(this ServiceDto dto)
         {
             return new Service
             {
@@ -87,7 +90,7 @@ namespace Clinic.UI.DTO
             };
         }
 
-        public static Sessions MapToSessionsDb(SessionsDto dto)
+        public static Sessions MapToSessionsDb(this SessionsDto dto)
         {
             return new Sessions
             {
@@ -112,19 +115,19 @@ namespace Clinic.UI.DTO
             for (int i = 0; i < dto.TherapistPrescriptions.Count; i++)
             {
                 PrescriptionDto prescription = dto.TherapistPrescriptions[i];
-                therapistDb.TherapistPrescriptions.Add(MapToPrescriptionDb(prescription));
+                //therapistDb.TherapistPrescriptions.Add(MapToPrescriptionDb(prescription));
             }
             
             for (int i = 0; i < dto.TherapistSessions.Count; i++)
             {
                 SessionsDto session = dto.TherapistSessions[i];
-                therapistDb.TherapistSessions.Add(MapToSessionsDb(session));
+                //therapistDb.TherapistSessions.Add(MapToSessionsDb(session));
             }
             
             return therapistDb;
         }
 
-        public static Treatment MapToTreatmentDb(TreatmentDto dto)
+        public static Treatment MapToTreatmentDb(this TreatmentDto dto)
         {
             return new Treatment
             {
@@ -137,18 +140,8 @@ namespace Clinic.UI.DTO
                 Type = dto.Type,
             };
         }
-
-        public static User MapToUserDb(UserDto dto)
-        {
-            var userDb = new User();
-            userDb.Id = dto.Id;
-            userDb.Password = dto.Password;
-            userDb.Username = dto.Username;
-            userDb.FirstName = dto.FirstName;
-            userDb.LastName = dto.LastName;
-
-            return userDb;
-        }
+        
+        
         
     }
 }

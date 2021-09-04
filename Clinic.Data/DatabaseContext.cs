@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Clinic.Data.Models;
+using Clinic.Data.Repositories;
 using Newtonsoft.Json;
 
 namespace Clinic.Data
@@ -41,5 +42,6 @@ namespace Clinic.Data
         {
             return _database;
         }
+
     }
 }

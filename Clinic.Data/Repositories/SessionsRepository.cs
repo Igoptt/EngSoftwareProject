@@ -19,13 +19,6 @@ namespace Clinic.Data.Repositories
             return Database.Sessions.First(s => s.Id == session.Id).Id;
         }
 
-        private int GetId()
-        {
-            var lastId = Database.LastInsertedSessionId++;
-            Database.LastInsertedSessionId = lastId;
-            return lastId;
-        }
-
         public Sessions GetSessionById(int sessionId)
         {
             return Database.Sessions.FirstOrDefault(s => s.Id == sessionId);

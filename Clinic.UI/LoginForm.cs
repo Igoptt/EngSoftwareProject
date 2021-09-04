@@ -38,7 +38,7 @@ namespace Clinic.UI
                     var clientLoggingIn = _unitOfWork.ClientRepository.GetClientByUsername(textBox_Username_Login.Text);
                     if (clientLoggingIn != null && clientLoggingIn.Password == textBox_Password_Login.Text)
                     {
-                        var form = new ClientViewForm(_unitOfWork);
+                        var form = new ClientViewForm(_unitOfWork, clientLoggingIn.Id);
                         form.Show();
                         MessageBox.Show($"Bem vindo {clientLoggingIn.FirstName}!");
                     }

@@ -19,13 +19,6 @@ namespace Clinic.Data.Repositories
             return Database.Medicines.First(m => m.Id == medicine.Id).Id;
         }
 
-        private int GetId()
-        {
-            var lastId = Database.LastInsertedMedicineId++;
-            Database.LastInsertedMedicineId = lastId;
-            return lastId;
-        }
-
         public Medicine GetMedicineById(int medicineId)
         {
             return Database.Medicines.FirstOrDefault(m => m.Id == medicineId);

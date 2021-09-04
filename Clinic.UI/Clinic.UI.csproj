@@ -83,7 +83,8 @@
           <DependentUpon>CreateSessionForm.cs</DependentUpon>
         </Compile>
         <Compile Include="DTO\ClientDto.cs" />
-        <Compile Include="DTO\DataMapper.cs" />
+        <Compile Include="DTO\DataMapperDbToDto.cs" />
+        <Compile Include="DTO\DataMapperDtoToDb.cs" />
         <Compile Include="DTO\ExerciseDto.cs" />
         <Compile Include="DTO\MedicineDto.cs" />
         <Compile Include="DTO\PrescriptionDto.cs" />

@@ -34,8 +34,8 @@ namespace Clinic.UI
             this.cb_ChooseTherapist = new System.Windows.Forms.ComboBox();
             this.dtp_SessionDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtm_SessionHour = new System.Windows.Forms.DateTimePicker();
             this.btn_CreateSession = new System.Windows.Forms.Button();
+            this.cb_sessionHours = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // cb_ChooseTherapist
@@ -64,32 +64,31 @@ namespace Clinic.UI
             this.label1.TabIndex = 2;
             this.label1.Text = "Escolha a data e hora da consulta";
             // 
-            // dtm_SessionHour
-            // 
-            this.dtm_SessionHour.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtm_SessionHour.Location = new System.Drawing.Point(252, 233);
-            this.dtm_SessionHour.Name = "dtm_SessionHour";
-            this.dtm_SessionHour.ShowUpDown = true;
-            this.dtm_SessionHour.Size = new System.Drawing.Size(200, 20);
-            this.dtm_SessionHour.TabIndex = 3;
-            // 
             // btn_CreateSession
             // 
-            this.btn_CreateSession.Location = new System.Drawing.Point(294, 300);
+            this.btn_CreateSession.Location = new System.Drawing.Point(252, 300);
             this.btn_CreateSession.Name = "btn_CreateSession";
-            this.btn_CreateSession.Size = new System.Drawing.Size(129, 74);
+            this.btn_CreateSession.Size = new System.Drawing.Size(200, 74);
             this.btn_CreateSession.TabIndex = 4;
             this.btn_CreateSession.Text = "Guardar";
             this.btn_CreateSession.UseVisualStyleBackColor = true;
             this.btn_CreateSession.Click += new System.EventHandler(this.btn_CreateSession_Click);
+            // 
+            // cb_sessionHours
+            // 
+            this.cb_sessionHours.FormattingEnabled = true;
+            this.cb_sessionHours.Location = new System.Drawing.Point(252, 247);
+            this.cb_sessionHours.Name = "cb_sessionHours";
+            this.cb_sessionHours.Size = new System.Drawing.Size(200, 21);
+            this.cb_sessionHours.TabIndex = 5;
             // 
             // CreateSessionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cb_sessionHours);
             this.Controls.Add(this.btn_CreateSession);
-            this.Controls.Add(this.dtm_SessionHour);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dtp_SessionDate);
             this.Controls.Add(this.cb_ChooseTherapist);
@@ -98,9 +97,9 @@ namespace Clinic.UI
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.Button btn_CreateSession;
+        private System.Windows.Forms.ComboBox cb_sessionHours;
 
-        private System.Windows.Forms.DateTimePicker dtm_SessionHour;
+        private System.Windows.Forms.Button btn_CreateSession;
 
         private System.Windows.Forms.DateTimePicker dtp_SessionDate;
 
