@@ -11,5 +11,7 @@ namespace Clinic.Data.Repositories.Interfaces
         int Update(Prescription prescription);
         Therapist GetPrescriptonAuthor(Prescription prescription);
         Client GetPrescriptionClient(Prescription prescription);
+        List<Prescription> GetPrescriptionsCByTherapist(int therapistId);
+        List<Prescription> GetPrescriptionsByClient(int clientId);
     }
 }

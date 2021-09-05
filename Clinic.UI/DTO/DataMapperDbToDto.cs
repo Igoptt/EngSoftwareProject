@@ -73,14 +73,24 @@ namespace Clinic.UI.DTO
         
         public static List<PrescriptionDto> MapPrescriptionsToDto(this List<Prescription> prescriptionsDb)
         {
-            var prescriptions = new List<PrescriptionDto>();
+            var prescriptionsDto = new List<PrescriptionDto>();
             
             foreach (var prescription in prescriptionsDb)
             {
-                prescriptions.Add(prescription.MapToPrescriptionDto());
+                prescriptionsDto.Add(prescription.MapToPrescriptionDto());
+            }
+            return prescriptionsDto;
+        }
+
+        public static List<SessionsDto> MapSessionsToDto(this List<Sessions> sessionsDb)
+        {
+            var sessionsDto = new List<SessionsDto>();
+            foreach (var session in sessionsDb)
+            {
+                sessionsDto.Add(session.MapToSessionsDto());
             }
 
-            return prescriptions;
+            return sessionsDto;
         }
 
         public static SessionsDto MapToSessionsDto(this Sessions sessionsDb)

@@ -10,5 +10,6 @@ namespace Clinic.Data.Repositories.Interfaces
         List<Therapist> GetAll();
         int Update(Therapist therapist);
         Therapist GetTherapistByUsername(string therapistUsername);
+        Therapist GetTherapistByFullName(string firstName, string lastName);
     }
 }

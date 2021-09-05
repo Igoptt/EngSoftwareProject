@@ -4,6 +4,7 @@ namespace Clinic.UI.DTO
 {
     public static class DataMapperDtoToDb
     {
+        //TODO dar double check do MapperToDb se é preciso ter os Ids
         //MapToClientDb(clientDto)
         // public static Client MapToClientDb2(ClientDto dto)
         //or

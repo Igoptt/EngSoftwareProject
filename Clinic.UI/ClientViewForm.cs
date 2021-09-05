@@ -13,13 +13,24 @@ namespace Clinic.UI
         public ClientViewForm(UnitOfWork unitOfWork, int clientId)
         {
             _unitOfWork = unitOfWork;
-            //_currentClient = _unitOfWork.ClientRepository.GetClientById().MapToClientDto();
-            //_currentClient.ClientAppointments = _unitOfWork.SessionsRepository.GetSessionsByClient(clientId).MapToSessionDtop();
-            //_currentClient.ClientPrescriptions =
-                
+            //TODO colocar isto num helper
+            var clientDb = _unitOfWork.ClientRepository.GetClientById(clientId);
+            _currentClient = clientDb.MapToClientDto();
+            var currentClientSessions = _unitOfWork.SessionsRepository.GetClientSessions(clientId);
+            var currentClientPrescriptions = _unitOfWork.PrescriptionsRepository.GetPrescriptionsByClient(clientId);
+            _currentClient.ClientAppointments = currentClientSessions.MapSessionsToDto();
+            _currentClient.ClientPrescriptions = currentClientPrescriptions.MapPrescriptionsToDto();
+
+            var clientSessions_Source = new BindingSource();
+            clientSessions_Source.DataSource = _currentClient.ClientAppointments;
+            
+            
             InitializeComponent();
-            grid_ClientSessions.Rows.Add("data K", "Hora x", "Terapeuta Y");
-            grid_PrescriptionsClientView.Rows.Add("Medicamento", "Terapeuta Y", "Data K");
+            lb_ClientName.Text = $"{_currentClient.FirstName} {_currentClient.LastName}";
+            grid_ClientSessions.DataSource = clientSessions_Source;
+            
+            // grid_ClientSessions.Rows.Add("data K", "Hora x", "Terapeuta Y");
+            // grid_PrescriptionsClientView.Rows.Add("Medicamento", "Terapeuta Y", "Data K");
             
         }
 
@@ -39,8 +50,9 @@ namespace Clinic.UI
 
         private void btn_CreateSessionClientView_Click(object sender, EventArgs e)
         {
-            var form = new CreateSessionForm();
+            var form = new CreateSessionForm(_unitOfWork, _currentClient.Id);
             form.Show();
+            this.Close();
         }
 
 
@@ -53,7 +65,7 @@ namespace Clinic.UI
             else if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "EditarSessao")
             {
                 //apaga a que tinha e cria uma nova
-                var form = new CreateSessionForm();
+                var form = new CreateSessionForm(_unitOfWork, _currentClient.Id);
                 form.Show();
             }
             else if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "DesmarcarClientView")

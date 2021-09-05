@@ -20,6 +20,15 @@ namespace Clinic.Data.Repositories
             return Database.Prescriptions.First(p => p.Id == prescription.Id).Id;
         }
 
+        public List<Prescription> GetPrescriptionsCByTherapist(int therapistId)
+        {
+            return Database.Prescriptions.FindAll(p => p.PrescriptionAuthorId == therapistId);
+        }
+        
+        public List<Prescription> GetPrescriptionsByClient(int clientId)
+        {
+            return Database.Prescriptions.FindAll(p => p.ClientId == clientId);
+        }
 
         public Prescription GetPrescriptionById(int prescriptionId)
         {

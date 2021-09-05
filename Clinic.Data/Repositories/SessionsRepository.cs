@@ -19,6 +19,16 @@ namespace Clinic.Data.Repositories
             return Database.Sessions.First(s => s.Id == session.Id).Id;
         }
 
+        public List<Sessions> GetTherapistSessions(int therapistId)
+        {
+            return Database.Sessions.FindAll(s => s.AssignedTherapistId == therapistId);
+        }
+        
+        public List<Sessions> GetClientSessions(int clientId)
+        {
+            return Database.Sessions.FindAll(s => s.AssignedTherapistId == clientId);
+        }
+
         public Sessions GetSessionById(int sessionId)
         {
             return Database.Sessions.FirstOrDefault(s => s.Id == sessionId);

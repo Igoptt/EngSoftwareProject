@@ -41,7 +41,7 @@ namespace Clinic.UI
             // cb_ChooseTherapist
             // 
             this.cb_ChooseTherapist.FormattingEnabled = true;
-            this.cb_ChooseTherapist.Items.AddRange(new object[] { "Terapeuta X", "Terapeuta Z", "Terapeuta K" });
+            this.cb_ChooseTherapist.Items.AddRange(new object[] {});
             this.cb_ChooseTherapist.Location = new System.Drawing.Point(252, 146);
             this.cb_ChooseTherapist.Name = "cb_ChooseTherapist";
             this.cb_ChooseTherapist.Size = new System.Drawing.Size(200, 21);

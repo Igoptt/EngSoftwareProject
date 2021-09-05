@@ -19,7 +19,11 @@ namespace Clinic.Data.Repositories
             return Database.Therapists.First(t => t.Id == therapist.Id).Id;
         }
 
-
+        public Therapist GetTherapistByFullName(string firstName, string lastName)
+        {
+            return Database.Therapists.FirstOrDefault(t => t.FirstName == firstName && t.LastName == lastName);
+        }
+        
         public Therapist GetTherapistById(int therapistId)
         {
             return Database.Therapists.FirstOrDefault(t => t.Id == therapistId);

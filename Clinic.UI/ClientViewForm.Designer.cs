@@ -42,17 +42,16 @@ namespace Clinic.UI
             this.Visibilidade = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tab_Sessions = new System.Windows.Forms.TabPage();
             this.grid_ClientSessions = new System.Windows.Forms.DataGridView();
+            this.DetalhesClientView = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.DesmarcarClientView = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.EditarSessao = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TerapeutaSessao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Detalhes = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Desmarcar = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.DataSessao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HoraSessao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NomeTerapeuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DetalhesClientView = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.DesmarcarClientView = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.EditarSessao = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lb_ClientName = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tab_Prescriptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_PrescriptionsClientView)).BeginInit();
@@ -62,7 +61,7 @@ namespace Clinic.UI
             // 
             // btn_CreateSessionClientView
             // 
-            this.btn_CreateSessionClientView.Location = new System.Drawing.Point(12, 12);
+            this.btn_CreateSessionClientView.Location = new System.Drawing.Point(12, 34);
             this.btn_CreateSessionClientView.Name = "btn_CreateSessionClientView";
             this.btn_CreateSessionClientView.Size = new System.Drawing.Size(136, 60);
             this.btn_CreateSessionClientView.TabIndex = 0;
@@ -72,12 +71,13 @@ namespace Clinic.UI
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tab_Prescriptions);
             this.tabControl1.Controls.Add(this.tab_Sessions);
             this.tabControl1.Location = new System.Drawing.Point(12, 100);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(785, 346);
+            this.tabControl1.Size = new System.Drawing.Size(725, 346);
             this.tabControl1.TabIndex = 1;
             // 
             // tab_Prescriptions
@@ -86,7 +86,7 @@ namespace Clinic.UI
             this.tab_Prescriptions.Location = new System.Drawing.Point(4, 22);
             this.tab_Prescriptions.Name = "tab_Prescriptions";
             this.tab_Prescriptions.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Prescriptions.Size = new System.Drawing.Size(777, 320);
+            this.tab_Prescriptions.Size = new System.Drawing.Size(717, 320);
             this.tab_Prescriptions.TabIndex = 0;
             this.tab_Prescriptions.Text = "Prescrições";
             this.tab_Prescriptions.UseVisualStyleBackColor = true;
@@ -98,7 +98,7 @@ namespace Clinic.UI
             this.grid_PrescriptionsClientView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_PrescriptionsClientView.Location = new System.Drawing.Point(3, 3);
             this.grid_PrescriptionsClientView.Name = "grid_PrescriptionsClientView";
-            this.grid_PrescriptionsClientView.Size = new System.Drawing.Size(771, 314);
+            this.grid_PrescriptionsClientView.Size = new System.Drawing.Size(711, 314);
             this.grid_PrescriptionsClientView.TabIndex = 0;
             this.grid_PrescriptionsClientView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -139,7 +139,7 @@ namespace Clinic.UI
             this.tab_Sessions.Location = new System.Drawing.Point(4, 22);
             this.tab_Sessions.Name = "tab_Sessions";
             this.tab_Sessions.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Sessions.Size = new System.Drawing.Size(777, 320);
+            this.tab_Sessions.Size = new System.Drawing.Size(717, 320);
             this.tab_Sessions.TabIndex = 1;
             this.tab_Sessions.Text = "Sessões";
             this.tab_Sessions.UseVisualStyleBackColor = true;
@@ -147,13 +147,34 @@ namespace Clinic.UI
             // grid_ClientSessions
             // 
             this.grid_ClientSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_ClientSessions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.DataSessao, this.HoraSessao, this.NomeTerapeuta, this.DetalhesClientView, this.DesmarcarClientView, this.EditarSessao });
+            this.grid_ClientSessions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.DetalhesClientView, this.DesmarcarClientView, this.EditarSessao });
             this.grid_ClientSessions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_ClientSessions.Location = new System.Drawing.Point(3, 3);
             this.grid_ClientSessions.Name = "grid_ClientSessions";
-            this.grid_ClientSessions.Size = new System.Drawing.Size(771, 314);
+            this.grid_ClientSessions.Size = new System.Drawing.Size(711, 314);
             this.grid_ClientSessions.TabIndex = 0;
             this.grid_ClientSessions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_ClientSessions_CellContentClick);
+            // 
+            // DetalhesClientView
+            // 
+            this.DetalhesClientView.HeaderText = "Detalhes";
+            this.DetalhesClientView.Name = "DetalhesClientView";
+            this.DetalhesClientView.Text = "Detalhes";
+            this.DetalhesClientView.UseColumnTextForButtonValue = true;
+            // 
+            // DesmarcarClientView
+            // 
+            this.DesmarcarClientView.HeaderText = "Desmarcar";
+            this.DesmarcarClientView.Name = "DesmarcarClientView";
+            this.DesmarcarClientView.Text = "Desmarcar";
+            this.DesmarcarClientView.UseColumnTextForButtonValue = true;
+            // 
+            // EditarSessao
+            // 
+            this.EditarSessao.HeaderText = "Editar Sessao";
+            this.EditarSessao.Name = "EditarSessao";
+            this.EditarSessao.Text = "Editar Sessao";
+            this.EditarSessao.UseColumnTextForButtonValue = true;
             // 
             // Data
             // 
@@ -186,47 +207,28 @@ namespace Clinic.UI
             this.Desmarcar.Text = "Desmarcar";
             this.Desmarcar.UseColumnTextForButtonValue = true;
             // 
-            // DataSessao
+            // label1
             // 
-            this.DataSessao.HeaderText = "Data Sessao";
-            this.DataSessao.Name = "DataSessao";
+            this.label1.Location = new System.Drawing.Point(12, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Bem vindo Cliente";
             // 
-            // HoraSessao
+            // lb_ClientName
             // 
-            this.HoraSessao.HeaderText = "Hora Sessao";
-            this.HoraSessao.Name = "HoraSessao";
-            // 
-            // NomeTerapeuta
-            // 
-            this.NomeTerapeuta.HeaderText = "Terapeuta";
-            this.NomeTerapeuta.Name = "NomeTerapeuta";
-            // 
-            // DetalhesClientView
-            // 
-            this.DetalhesClientView.HeaderText = "Detalhes";
-            this.DetalhesClientView.Name = "DetalhesClientView";
-            this.DetalhesClientView.Text = "Detalhes";
-            this.DetalhesClientView.UseColumnTextForButtonValue = true;
-            // 
-            // DesmarcarClientView
-            // 
-            this.DesmarcarClientView.HeaderText = "Desmarcar";
-            this.DesmarcarClientView.Name = "DesmarcarClientView";
-            this.DesmarcarClientView.Text = "Desmarcar";
-            this.DesmarcarClientView.UseColumnTextForButtonValue = true;
-            // 
-            // EditarSessao
-            // 
-            this.EditarSessao.HeaderText = "Editar Sessao";
-            this.EditarSessao.Name = "EditarSessao";
-            this.EditarSessao.Text = "Editar Sessao";
-            this.EditarSessao.UseColumnTextForButtonValue = true;
+            this.lb_ClientName.Location = new System.Drawing.Point(102, 8);
+            this.lb_ClientName.Name = "lb_ClientName";
+            this.lb_ClientName.Size = new System.Drawing.Size(253, 23);
+            this.lb_ClientName.TabIndex = 3;
             // 
             // ClientViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(740, 450);
+            this.Controls.Add(this.lb_ClientName);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btn_CreateSessionClientView);
             this.Name = "ClientViewForm";
@@ -239,9 +241,9 @@ namespace Clinic.UI
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataSessao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HoraSessao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeTerapeuta;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_ClientName;
+
         private System.Windows.Forms.DataGridViewButtonColumn DetalhesClientView;
         private System.Windows.Forms.DataGridViewButtonColumn DesmarcarClientView;
 
