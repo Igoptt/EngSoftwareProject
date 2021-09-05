@@ -39,6 +39,11 @@ namespace Clinic.Data.Repositories
             return 0;
         }
 
+        public Client GetClientById(int clientId)
+        {
+            return Database.Clients.FirstOrDefault(c => c.Id == clientId);
+        }
+        
         public List<Prescription> GetClientPrescriptions(int clientId)
         {
             return Database.Prescriptions.Where(p => p.ClientId == clientId).ToList();

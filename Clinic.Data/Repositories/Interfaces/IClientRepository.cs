@@ -21,5 +21,6 @@ namespace Clinic.Data.Repositories.Interfaces
         List<Exercise> GetPrescribedExercises(int clientId);
         List<Treatment> GetPrescribedTreatments(int clientId);
         Client GetClientByUsername(string clientUsername);
+        Client GetClientById(int clientId);
     }
 }

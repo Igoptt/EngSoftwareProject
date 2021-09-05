@@ -8,12 +8,12 @@ namespace Clinic.UI.DTO
         
         public PrescriptionDto()
         {
-            TherapistsWithAcess = new List<int>();
+            TherapistsWithAcess = new List<TherapistDto>();
             PrescribedServices = new List<ServiceDto>();
         }
         
         public int Id { get; set; }
-        public List<int> TherapistsWithAcess { get; set; }
+        public List<TherapistDto> TherapistsWithAcess { get; set; }
         public List<ServiceDto> PrescribedServices { get; set; }
         
         //Foreign key for the Client this was prescribed to

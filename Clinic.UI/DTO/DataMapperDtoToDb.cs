@@ -19,13 +19,17 @@ namespace Clinic.UI.DTO
             
             for (int i = 0; i < dto.ClientAppointments.Count; i++)
             {
-                SessionsDto sessions = dto.ClientAppointments[i];
+                int clientSessionId = dto.ClientAppointments[i].Id;
+                clientDb.ClientAppointments.Add(clientSessionId);
+                // SessionsDto sessions = dto.ClientAppointments[i];
                 //clientDb.ClientAppointments.Add(MapToSessionsDb(sessions));
             }
             
             for (int i = 0; i < dto.ClientPrescriptions.Count; i++)
             {
-                PrescriptionDto prescription = dto.ClientPrescriptions[i];
+                int clientPrescriptionId = dto.ClientPrescriptions[i].Id;
+                clientDb.ClientPrescriptions.Add(clientPrescriptionId);
+                // PrescriptionDto prescription = dto.ClientPrescriptions[i];
                 //clientDb.ClientPrescriptions.Add(MapToPrescriptionDb(prescription));
             }
             
@@ -62,33 +66,41 @@ namespace Clinic.UI.DTO
             };
         }
 
-        public static Prescription MapToPrescriptionDb(PrescriptionDto dto)
+        public static Prescription MapToPrescriptionDb(this PrescriptionDto dto)
         {
             var prescriptionDb = new Prescription();
             prescriptionDb.Id = dto.Id;
             prescriptionDb.ClientId = dto.ClientId;
             prescriptionDb.PrescriptionAuthorId = dto.PrescriptionAuthorId;
-            prescriptionDb.TherapistsWithAcess = dto.TherapistsWithAcess;
+            // prescriptionDb.TherapistsWithAcess = dto.TherapistsWithAcess;
             for (int i = 0; i < dto.PrescribedServices.Count; i++)
             {
-                ServiceDto service = dto.PrescribedServices[i];
+                int prescribedServiceId = dto.PrescribedServices[i].Id;
+                prescriptionDb.PrescribedServices.Add(prescribedServiceId);
+                // ServiceDto service = dto.PrescribedServices[i];
                 //prescriptionDb.PrescribedServices.Add(MapToServiceDb(service));
+            }
+
+            for (int i = 0; i < dto.TherapistsWithAcess.Count; i++)
+            {
+                int therapistWithAcessId = dto.TherapistsWithAcess[i].Id;
+                prescriptionDb.TherapistsWithAcess.Add(therapistWithAcessId);
             }
             
             return prescriptionDb;
         }
 
-        public static Service MapToServiceDb(this ServiceDto dto)
-        {
-            return new Service
-            {
-                Id = dto.Id,
-                Name = dto.Name,
-                Price = dto.Price,
-                PrescriptionId = dto.PrescriptionId,
-                
-            };
-        }
+        // public static Service MapToServiceDb(this ServiceDto dto)
+        // {
+        //     return new Service
+        //     {
+        //         Id = dto.Id,
+        //         Name = dto.Name,
+        //         Price = dto.Price,
+        //         PrescriptionId = dto.PrescriptionId,
+        //         
+        //     };
+        // }
 
         public static Sessions MapToSessionsDb(this SessionsDto dto)
         {
@@ -114,13 +126,17 @@ namespace Clinic.UI.DTO
             
             for (int i = 0; i < dto.TherapistPrescriptions.Count; i++)
             {
-                PrescriptionDto prescription = dto.TherapistPrescriptions[i];
+                int therapistPrescriptionId = dto.TherapistPrescriptions[i].Id;
+                therapistDb.TherapistPrescriptions.Add(therapistPrescriptionId);
+                // PrescriptionDto prescription = dto.TherapistPrescriptions[i];
                 //therapistDb.TherapistPrescriptions.Add(MapToPrescriptionDb(prescription));
             }
             
             for (int i = 0; i < dto.TherapistSessions.Count; i++)
             {
-                SessionsDto session = dto.TherapistSessions[i];
+                int therapistSessionId = dto.TherapistSessions[i].Id;
+                therapistDb.TherapistSessions.Add(therapistSessionId);
+                // SessionsDto session = dto.TherapistSessions[i];
                 //therapistDb.TherapistSessions.Add(MapToSessionsDb(session));
             }
             
@@ -140,8 +156,5 @@ namespace Clinic.UI.DTO
                 Type = dto.Type,
             };
         }
-        
-        
-        
     }
 }

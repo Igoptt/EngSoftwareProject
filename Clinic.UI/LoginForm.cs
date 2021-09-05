@@ -40,7 +40,7 @@ namespace Clinic.UI
                     {
                         var form = new ClientViewForm(_unitOfWork, clientLoggingIn.Id);
                         form.Show();
-                        MessageBox.Show($"Bem vindo {clientLoggingIn.FirstName}!");
+                        // MessageBox.Show($"Bem vindo {clientLoggingIn.FirstName}!");
                     }
                     else
                     {
@@ -52,8 +52,16 @@ namespace Clinic.UI
                 }
                 else if (cb_AccountTypeLogin.SelectedIndex == 1) //terapeuta
                 {
-                    var form = new TherapistViewForm(_unitOfWork);
-                    form.Show();
+                    var therapistLoggingIn = _unitOfWork.TherapistRepository.GetTherapistByUsername(textBox_Username_Login.Text);
+                    if (therapistLoggingIn != null && therapistLoggingIn.Password == textBox_Password_Login.Text)
+                    {
+                        var form = new TherapistViewForm(_unitOfWork, therapistLoggingIn.Id);
+                        form.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Introduza um Username e Password validos");
+                    }
                 }  
             }
             else

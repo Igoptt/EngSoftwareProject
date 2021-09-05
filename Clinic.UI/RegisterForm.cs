@@ -34,7 +34,7 @@ namespace Clinic.UI
                             Password = textBox_Register_Password.Text
                         };
                         var clientCreatedId = _unitOfWork.ClientRepository.Insert(clientDto.MapToClientDb());
-                        MessageBox.Show($@"Conta criada! Bem vindo {clientDto.FirstName}");
+                        // MessageBox.Show($@"Conta criada! Bem vindo {clientDto.FirstName}");
                         this.Close();
                         var form = new ClientViewForm(_unitOfWork, clientCreatedId);
                         form.Show();
@@ -50,10 +50,10 @@ namespace Clinic.UI
                             Password = textBox_Register_Password.Text
                         };
                         
-                        _unitOfWork.TherapistRepository.Insert(therapistDto.MapToTherapistDb());
-                        MessageBox.Show($@"Conta criada! Bem vindo {therapistDto.FirstName}");
+                        var therapistCreatedId = _unitOfWork.TherapistRepository.Insert(therapistDto.MapToTherapistDb());
+                        // MessageBox.Show($@"Conta criada! Bem vindo {therapistDto.FirstName}");
                         this.Close();
-                        var form = new TherapistViewForm(_unitOfWork);
+                        var form = new TherapistViewForm(_unitOfWork, therapistCreatedId);
                         form.Show();
                         
                     } 

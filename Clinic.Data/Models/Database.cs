@@ -10,11 +10,9 @@ namespace Clinic.Data.Models
         public Database()
         {
             Clients = new List<Client>();
-            //a lista é criada mas depois de ele ler o ficheiro mete estes 3 a null
             Therapists = new List<Therapist>();
             Prescriptions = new List<Prescription>();
             Sessions = new List<Sessions>();
-            
             Treatments = new List<Treatment>();
             Exercises = new List<Exercise>();
             Medicines = new List<Medicine>();
@@ -28,17 +26,10 @@ namespace Clinic.Data.Models
         public List<Medicine> Medicines { get; set; }
         public List<Service> Services { get; set; }
         public List<Treatment> Treatments { get; set; }
-        
-        //TODO descobrir o pq destes 3 começarem com a lista em NULL enquanto que os outros criam as listas
         public List<Therapist> Therapists { get; set; }
         public List<Sessions> Sessions { get; set; }
         public List<Prescription> Prescriptions { get; set; }
 
-
-        // public List<Therapist> Therapists { get; set; }
-        // public List<Treatment> Treatments { get; set; }
-        // public List<Prescription> Prescriptions { get; set; }
-        
         // public List<User> Users { get; set; }
         
         
