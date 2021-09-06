@@ -29,9 +29,7 @@ namespace Clinic.UI
             InitializeComponent();
             grid_SessionsTherapistView.DataSource = therapistSessions_source;
             label_TherapistName.Text = $"{_currentTherapist.FirstName} {_currentTherapist.LastName}";
-            //
-            // grid_SessionsTherapistView.Rows.Add("Dia X", "Client Y");
-            // grid_ClientsTherapistView.Rows.Add("Nome Y", "Sobrenome Z","Dia X");
+            
 
         }
 
@@ -57,11 +55,40 @@ namespace Clinic.UI
         {
             if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "RemoveAppointmentTherapistView")
             {
-                MessageBox.Show(@"Sessao Desmarcada");
+                //TODO este codigo esta repetido do clientViewForm, colocar num helper e chamar os metodos em ambos os forms para nao copiar e colar codigo
+                var confirmation= MessageBox.Show("Confirmção", "Tem a certeza que deseja desmarcar esta consulta?", MessageBoxButtons.YesNo);
+                if (confirmation == DialogResult.Yes)
+                {
+                    var selectedRowId = Convert.ToInt32(grid_SessionsTherapistView.CurrentRow.Cells["Id"].Value);
+                    var sessionToDelete = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
+                    if (sessionToDelete.SessionDate <= DateTime.Now)
+                    {
+                        MessageBox.Show("Esta consulta ja aconteceu");
+                    }
+                    else
+                    {
+                        var sessionDeleted = _unitOfWork.SessionsRepository.Delete(sessionToDelete);
+                        if (sessionDeleted == 1)
+                        {
+                            MessageBox.Show(@"Sessao Desmarcada!");
+                            var selectedRow = grid_SessionsTherapistView.CurrentRow.Index;
+                            grid_SessionsTherapistView.Rows.RemoveAt(selectedRow);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro ao desmarcar esta sessão. Tente novamente");
+                        }
+                    }
+                }
             }
             if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "AddSessionNoteTherapistView")
             {
                 MessageBox.Show(@"Nota Adicionada");
+            }
+            if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "Prescription")
+            {
+                var form = new ClientPrescriptionsForm();
+                form.Show();
             }
         }
     }

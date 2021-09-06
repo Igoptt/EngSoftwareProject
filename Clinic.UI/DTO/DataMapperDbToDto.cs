@@ -102,7 +102,7 @@ namespace Clinic.UI.DTO
                 AssignedClientId = sessionsDb.AssignedClientId,
                 SessionDate = sessionsDb.SessionDate,
                 TheraphistSessionNote = sessionsDb.TheraphistSessionNote,
-                SessionActivities = sessionsDb.SessionActivities,
+                SessionPrescriptionId = sessionsDb.SessionPrescriptionId,
             };
         }
         

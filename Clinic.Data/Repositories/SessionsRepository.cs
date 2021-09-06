@@ -26,7 +26,7 @@ namespace Clinic.Data.Repositories
         
         public List<Sessions> GetClientSessions(int clientId)
         {
-            return Database.Sessions.FindAll(s => s.AssignedTherapistId == clientId);
+            return Database.Sessions.FindAll(s => s.AssignedClientId == clientId);
         }
 
         public Sessions GetSessionById(int sessionId)
@@ -51,12 +51,13 @@ namespace Clinic.Data.Repositories
             return 0;
         }
 
-        public int DeleteSession(Sessions session)
+        public int Delete(Sessions session)
         {
             var sessionDb = Database.Sessions.FirstOrDefault(s => s.Id == session.Id);
             if (sessionDb != null)
             {
                 Database.Sessions.Remove(session);
+                Save();
                 return 1;
             }
 

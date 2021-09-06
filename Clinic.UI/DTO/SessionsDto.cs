@@ -16,6 +16,6 @@ namespace Clinic.UI.DTO
         
         public string TheraphistSessionNote { get; set; }
         
-        public string SessionActivities { get; set; }
+        public int SessionPrescriptionId { get; set; }
     }
 }

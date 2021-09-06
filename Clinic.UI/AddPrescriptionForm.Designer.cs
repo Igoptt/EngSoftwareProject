@@ -35,9 +35,9 @@ namespace Clinic.UI
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_ExerciseName = new System.Windows.Forms.TextBox();
+            this.textBox_TreatmentName = new System.Windows.Forms.TextBox();
+            this.textBox_MedicineName = new System.Windows.Forms.TextBox();
             this.btn_SavePrescription = new System.Windows.Forms.Button();
             this.cb_ChooseSession = new System.Windows.Forms.ComboBox();
             this.grpBox_PrescriptionOptions.SuspendLayout();
@@ -48,9 +48,9 @@ namespace Clinic.UI
             this.grpBox_PrescriptionOptions.Controls.Add(this.label3);
             this.grpBox_PrescriptionOptions.Controls.Add(this.label2);
             this.grpBox_PrescriptionOptions.Controls.Add(this.label1);
-            this.grpBox_PrescriptionOptions.Controls.Add(this.textBox3);
-            this.grpBox_PrescriptionOptions.Controls.Add(this.textBox2);
-            this.grpBox_PrescriptionOptions.Controls.Add(this.textBox1);
+            this.grpBox_PrescriptionOptions.Controls.Add(this.textBox_ExerciseName);
+            this.grpBox_PrescriptionOptions.Controls.Add(this.textBox_TreatmentName);
+            this.grpBox_PrescriptionOptions.Controls.Add(this.textBox_MedicineName);
             this.grpBox_PrescriptionOptions.Controls.Add(this.btn_SavePrescription);
             this.grpBox_PrescriptionOptions.Location = new System.Drawing.Point(12, 83);
             this.grpBox_PrescriptionOptions.Name = "grpBox_PrescriptionOptions";
@@ -83,32 +83,32 @@ namespace Clinic.UI
             this.label1.TabIndex = 4;
             this.label1.Text = "Nome do Medicamento";
             // 
-            // textBox3
+            // textBox_ExerciseName
             // 
-            this.textBox3.Location = new System.Drawing.Point(268, 140);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(251, 20);
-            this.textBox3.TabIndex = 3;
+            this.textBox_ExerciseName.Location = new System.Drawing.Point(268, 140);
+            this.textBox_ExerciseName.Name = "textBox_ExerciseName";
+            this.textBox_ExerciseName.Size = new System.Drawing.Size(251, 20);
+            this.textBox_ExerciseName.TabIndex = 3;
             // 
-            // textBox2
+            // textBox_TreatmentName
             // 
-            this.textBox2.Location = new System.Drawing.Point(268, 90);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(251, 20);
-            this.textBox2.TabIndex = 2;
+            this.textBox_TreatmentName.Location = new System.Drawing.Point(268, 90);
+            this.textBox_TreatmentName.Name = "textBox_TreatmentName";
+            this.textBox_TreatmentName.Size = new System.Drawing.Size(251, 20);
+            this.textBox_TreatmentName.TabIndex = 2;
             // 
-            // textBox1
+            // textBox_MedicineName
             // 
-            this.textBox1.Location = new System.Drawing.Point(268, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(251, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox_MedicineName.Location = new System.Drawing.Point(268, 38);
+            this.textBox_MedicineName.Name = "textBox_MedicineName";
+            this.textBox_MedicineName.Size = new System.Drawing.Size(251, 20);
+            this.textBox_MedicineName.TabIndex = 1;
             // 
             // btn_SavePrescription
             // 
-            this.btn_SavePrescription.Location = new System.Drawing.Point(305, 264);
+            this.btn_SavePrescription.Location = new System.Drawing.Point(268, 189);
             this.btn_SavePrescription.Name = "btn_SavePrescription";
-            this.btn_SavePrescription.Size = new System.Drawing.Size(157, 85);
+            this.btn_SavePrescription.Size = new System.Drawing.Size(251, 99);
             this.btn_SavePrescription.TabIndex = 0;
             this.btn_SavePrescription.Text = "Guardar";
             this.btn_SavePrescription.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@ namespace Clinic.UI
             this.cb_ChooseSession.Text = "Escolha a sessão para adicionar uma prescrição";
             this.cb_ChooseSession.SelectedIndexChanged += new System.EventHandler(this.cb_ChooseSession_SelectedIndexChanged);
             // 
-            // AddPrescription
+            // AddPrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,9 +139,9 @@ namespace Clinic.UI
         }
 
         private System.Windows.Forms.Button btn_SavePrescription;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox_MedicineName;
+        private System.Windows.Forms.TextBox textBox_TreatmentName;
+        private System.Windows.Forms.TextBox textBox_ExerciseName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

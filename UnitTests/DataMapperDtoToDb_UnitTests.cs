@@ -105,11 +105,11 @@ namespace UnitTests
                 AssignedClientId = 2,
                 AssignedTherapistId = 3,
                 TheraphistSessionNote = "teste",
-                SessionActivities = "actividades",
+                SessionPrescriptionId = 5,
             };
             var result = sessionsDto.MapToSessionsDb();
             result.Id.Should().Be(sessionsDto.Id);
-            result.SessionActivities.Should().Be(sessionsDto.SessionActivities);
+            result.SessionPrescriptionId.Should().Be(sessionsDto.SessionPrescriptionId);
         }
         
         [Test]

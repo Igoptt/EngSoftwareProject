@@ -16,6 +16,7 @@ namespace Clinic.Data.Models
         
         public string TheraphistSessionNote { get; set; }
         
-        public string SessionActivities { get; set; }
+        //foreign key for the prescribed prescription of this session
+        public int SessionPrescriptionId { get; set; }
     }
 }

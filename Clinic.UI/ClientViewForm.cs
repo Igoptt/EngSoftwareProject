@@ -10,6 +10,7 @@ namespace Clinic.UI
     {
         private readonly UnitOfWork _unitOfWork;
         private ClientDto _currentClient;
+        private BindingSource clientSessions_Source;
         public ClientViewForm(UnitOfWork unitOfWork, int clientId)
         {
             _unitOfWork = unitOfWork;
@@ -21,7 +22,7 @@ namespace Clinic.UI
             _currentClient.ClientAppointments = currentClientSessions.MapSessionsToDto();
             _currentClient.ClientPrescriptions = currentClientPrescriptions.MapPrescriptionsToDto();
 
-            var clientSessions_Source = new BindingSource();
+            clientSessions_Source = new BindingSource();
             clientSessions_Source.DataSource = _currentClient.ClientAppointments;
             
             
@@ -60,17 +61,43 @@ namespace Clinic.UI
         {
             if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "DetalhesClientView")
             {
+                //TODO o que colocar aqui?
                 MessageBox.Show(@"A sessão teve uma duração de X minutos e foram realizadas as prescrições Y e Z");
             }
             else if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "EditarSessao")
             {
-                //apaga a que tinha e cria uma nova
-                var form = new CreateSessionForm(_unitOfWork, _currentClient.Id);
+                //atualiza a sessao com este Id
+                var selectedSessionId = Convert.ToInt32(grid_ClientSessions.CurrentRow.Cells["Id"].Value);
+                var form = new EditSessionForm(_unitOfWork, _currentClient.Id, selectedSessionId);
                 form.Show();
+                this.Close();
             }
             else if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "DesmarcarClientView")
             {
-                MessageBox.Show(@"Sessao Desmarcada!");
+                var confirmation= MessageBox.Show("Confirmção", "Tem a certeza que deseja desmarcar esta consulta?", MessageBoxButtons.YesNo);
+                if (confirmation == DialogResult.Yes)
+                {
+                    var selectedRowId = Convert.ToInt32(grid_ClientSessions.CurrentRow.Cells["Id"].Value);
+                    var sessionToDelete = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
+                    if (sessionToDelete.SessionDate <= DateTime.Now)
+                    {
+                        MessageBox.Show("Esta consulta ja aconteceu");
+                    }
+                    else
+                    {
+                        var sessionDeleted = _unitOfWork.SessionsRepository.Delete(sessionToDelete);
+                        if (sessionDeleted == 1)
+                        {
+                            MessageBox.Show(@"Sessao Desmarcada!");
+                            var selectedRow = grid_ClientSessions.CurrentRow.Index;
+                            grid_ClientSessions.Rows.RemoveAt(selectedRow);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ocorreu um erro ao desmarcar esta sessão. Tente novamente");
+                        }
+                    }
+                }
             }
         }
     }

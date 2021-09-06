@@ -60,11 +60,7 @@ namespace Clinic.Data.Repositories
             return Database.Clients.FirstOrDefault(c => c.Username == clientUsername);
         }
         
-        public List<Sessions> GetClientSessions(int clientId)
-        {
-            throw new NotImplementedException();
-            
-        }
+       
         public List<Medicine> GetPrescribedMedicines(int clientId)
         {
             throw new NotImplementedException();

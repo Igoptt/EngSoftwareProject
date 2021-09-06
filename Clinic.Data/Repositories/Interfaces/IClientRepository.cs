@@ -16,7 +16,6 @@ namespace Clinic.Data.Repositories.Interfaces
         int Update(Client client);
         List<Prescription> GetClientPrescriptions(int clientId);
         Client GetClientByName(string clientName);
-        List<Sessions> GetClientSessions(int clientId);
         List<Medicine> GetPrescribedMedicines(int clientId);
         List<Exercise> GetPrescribedExercises(int clientId);
         List<Treatment> GetPrescribedTreatments(int clientId);

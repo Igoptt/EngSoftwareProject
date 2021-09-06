@@ -8,7 +8,7 @@ namespace Clinic.UI
         public AddPrescriptionForm()
         {
             InitializeComponent();
-            // grpBox_PrescriptionOptions.Visible = false;
+            
             
         }
 

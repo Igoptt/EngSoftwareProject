@@ -3,6 +3,8 @@
   &lt;ProjectFile&gt;C125F348-63DB-4429-8A66-18B4ABDD0E88/f:DataMapperDtoToDb_UnitTests.cs&lt;/ProjectFile&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Clinic_002EUI_002FAddPrescription/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Clinic_002EUI_002FCreateSessionForm/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Clinic_002EUI_002FEditSessionForm/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Clinic_002EUI_002FLoginForm/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Clinic_002EUI_002FRegisterForm/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/ResxEditorPersonal/CheckedGroups/=Clinic_002EUI_002FTherapistViewForm/@EntryIndexedValue">True</s:Boolean>

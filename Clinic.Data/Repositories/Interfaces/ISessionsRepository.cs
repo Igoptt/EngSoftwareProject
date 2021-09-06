@@ -9,7 +9,7 @@ namespace Clinic.Data.Repositories.Interfaces
         Sessions GetSessionById(int sessionId);
         List<Sessions> GetAll();
         int Update(Sessions session);
-        int DeleteSession(Sessions session);
+        int Delete(Sessions session);
         List<Sessions> GetTherapistSessions(int therapistId);
         List<Sessions> GetClientSessions(int clientId);
     }

@@ -22,3 +22,4 @@ C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.csproj.CopyComplete
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\bin\Debug\clinic.json
+C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.EditSessionForm.resources

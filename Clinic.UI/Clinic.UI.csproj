@@ -93,6 +93,14 @@
         <Compile Include="DTO\TherapistDto.cs" />
         <Compile Include="DTO\TreatmentDto.cs" />
         <Compile Include="DTO\UserDto.cs" />
+        <Compile Include="EditSessionForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="EditSessionForm.Designer.cs">
+          <DependentUpon>EditSessionForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="FormHelpers\CreateSessionFormHelper.cs" />
+        <Compile Include="FormHelpers\EditSessionFormHelper.cs" />
         <Compile Include="FormHelpers\LoginFormHelper.cs" />
         <Compile Include="LoginForm.cs">
             <SubType>Form</SubType>
@@ -132,6 +140,9 @@
         </EmbeddedResource>
         <EmbeddedResource Include="CreateSessionForm.resx">
           <DependentUpon>CreateSessionForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="EditSessionForm.resx">
+          <DependentUpon>EditSessionForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="LoginForm.resx">
           <DependentUpon>LoginForm.cs</DependentUpon>
