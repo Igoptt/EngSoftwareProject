@@ -13,7 +13,7 @@ namespace Clinic.Data.Repositories
         public int Insert(Medicine medicine)
         {
             
-            medicine.Id = GetId(); //todo need to increment
+            medicine.Id = GetId(); 
             Database.Medicines.Add(medicine);
             Save();
             return Database.Medicines.First(m => m.Id == medicine.Id).Id;
@@ -35,6 +35,9 @@ namespace Clinic.Data.Repositories
             {
                 var dbIndex = Database.Medicines.IndexOf(medicineDb);
                 Database.Medicines[dbIndex] = medicine;
+                
+                
+                
                 return medicineDb.Id;
             }
 

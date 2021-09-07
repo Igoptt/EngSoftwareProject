@@ -34,6 +34,7 @@ namespace Clinic.UI
             var selectedTime = Convert.ToDateTime(dtp_SessionDate.Text);
             if (cb_ChooseTherapist.SelectedIndex > -1 && cb_sessionHours.SelectedIndex > -1 && (selectedTime >= DateTime.Now))
             {
+                //TODO ver se da para por estas 3 linhas no helper
                 var chosenTherapist = cb_ChooseTherapist.Text.Split(' ');
                 var therapistFirstName = chosenTherapist[0];
                 var therapistLastName = chosenTherapist[1];
@@ -68,7 +69,6 @@ namespace Clinic.UI
                     {
                         MessageBox.Show("Ocorreu um erro ao criar esta sessao! Por favor tente novamente");
                     }
-                    
                 }
             }
             else

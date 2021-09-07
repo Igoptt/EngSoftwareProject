@@ -33,14 +33,14 @@ namespace UnitTests
             var exercisedto = new ExerciseDto()
             {
                 Id = 1,
-                Price = 2.2,
+                // Price = 2.2,
                 Name = "user",
-                PrescriptionId = 2,
+                // PrescriptionId = 2,
                 Intensity = 10,
             };
             var result = exercisedto.MapToExerciseDb();
             result.Id.Should().Be(exercisedto.Id);
-            result.PrescriptionId.Should().Be(exercisedto.PrescriptionId);
+            // result.PrescriptionId.Should().Be(exercisedto.PrescriptionId);
             result.Name.Should().Be(exercisedto.Name);
         }
         
@@ -50,17 +50,17 @@ namespace UnitTests
             var medicineDto = new MedicineDto()
             {
                 Id = 1,
-                Price = 2.2,
+                // Price = 2.2,
                 Name = "user",
-                PrescriptionId = 2,
+                // PrescriptionId = 2,
                 
                 Dosage = "500g",
                 TimeOfDayToTakeMedicine = "noite",
             };
             var result = medicineDto.MapToMedicineDb();
             result.Id.Should().Be(medicineDto.Id);
-            result.PrescriptionId.Should().Be(medicineDto.PrescriptionId);
-            result.Price.Should().Be(medicineDto.Price);
+            // result.PrescriptionId.Should().Be(medicineDto.PrescriptionId);
+            // result.Price.Should().Be(medicineDto.Price);
             result.Dosage.Should().Be(medicineDto.Dosage);
         }
         
@@ -70,17 +70,17 @@ namespace UnitTests
             var treatmentDto = new TreatmentDto()
             {
                 Id = 1,
-                Price = 2.2,
+                // Price = 2.2,
                 Name = "user",
-                PrescriptionId = 2,
+                // PrescriptionId = 2,
                 
                 Duration = 15,
                 Type = "terapeutico",
             };
             var result = treatmentDto.MapToTreatmentDb();
             result.Id.Should().Be(treatmentDto.Id);
-            result.PrescriptionId.Should().Be(treatmentDto.PrescriptionId);
-            result.Price.Should().Be(treatmentDto.Price);
+            // result.PrescriptionId.Should().Be(treatmentDto.PrescriptionId);
+            // result.Price.Should().Be(treatmentDto.Price);
             result.Duration.Should().Be(treatmentDto.Duration);
         }
 

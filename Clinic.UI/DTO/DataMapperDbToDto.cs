@@ -24,8 +24,8 @@ namespace Clinic.UI.DTO
                 
                 Id = exerciseDb.Id,
                 Name = exerciseDb.Name,
-                Price = exerciseDb.Price,
-                PrescriptionId = exerciseDb.PrescriptionId,
+                // Price = exerciseDb.Price,
+                // PrescriptionId = exerciseDb.PrescriptionId,
                 
                 Intensity = exerciseDb.Intensity,
                 SuggestedSchedule = exerciseDb.SuggestedSchedule,
@@ -39,8 +39,8 @@ namespace Clinic.UI.DTO
             {
                 Id = medicineDb.Id,
                 Name = medicineDb.Name,
-                Price = medicineDb.Price,
-                PrescriptionId = medicineDb.PrescriptionId,
+                // Price = medicineDb.Price,
+                // PrescriptionId = medicineDb.PrescriptionId,
                 
                 Dosage = medicineDb.Dosage,
                 TimeOfDayToTakeMedicine = medicineDb.TimeOfDayToTakeMedicine,
@@ -140,8 +140,8 @@ namespace Clinic.UI.DTO
             {
                 Id = treatmentDb.Id,
                 Name = treatmentDb.Name,
-                Price = treatmentDb.Price,
-                PrescriptionId = treatmentDb.PrescriptionId,
+                // Price = treatmentDb.Price,
+                // PrescriptionId = treatmentDb.PrescriptionId,
                 
                 Duration = treatmentDb.Duration,
                 Type = treatmentDb.Type,

@@ -99,6 +99,7 @@
         <Compile Include="EditSessionForm.Designer.cs">
           <DependentUpon>EditSessionForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="FormHelpers\AddPrescriptionFormHelper.cs" />
         <Compile Include="FormHelpers\CreateSessionFormHelper.cs" />
         <Compile Include="FormHelpers\EditSessionFormHelper.cs" />
         <Compile Include="FormHelpers\LoginFormHelper.cs" />

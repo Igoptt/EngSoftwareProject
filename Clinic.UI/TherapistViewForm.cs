@@ -35,7 +35,7 @@ namespace Clinic.UI
 
         private void btn_AddPrescriptionToSession_Click(object sender, EventArgs e)
         {
-            var form = new AddPrescriptionForm();
+            var form = new AddPrescriptionForm(_unitOfWork, _currentTherapist.Id);
             form.Show();
         }
 
