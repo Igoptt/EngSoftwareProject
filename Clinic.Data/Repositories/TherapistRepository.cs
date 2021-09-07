@@ -45,6 +45,7 @@ namespace Clinic.Data.Repositories
             {
                 var dbIndex = Database.Therapists.IndexOf(therapistDb);
                 Database.Therapists[dbIndex] = therapist;
+                Save();
                 return therapistDb.Id;
             }
 

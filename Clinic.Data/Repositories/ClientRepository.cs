@@ -33,6 +33,7 @@ namespace Clinic.Data.Repositories
             {
                 var dbIndex = Database.Clients.IndexOf(dbClient);
                 Database.Clients[dbIndex] = client;
+                Save();
                 return dbClient.Id;
             }
 

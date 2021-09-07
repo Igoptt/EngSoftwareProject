@@ -36,6 +36,7 @@ namespace Clinic.Data.Repositories
             {
                 var dbIndex = Database.Services.IndexOf(serviceDb);
                 Database.Services[dbIndex] = service;
+                Save();
                 return serviceDb.Id;
             }
 

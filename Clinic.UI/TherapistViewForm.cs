@@ -17,7 +17,7 @@ namespace Clinic.UI
             //TODO meter isto num helper
             var therapistBd = _unitOfWork.TherapistRepository.GetTherapistById(therapistId);
             var therapistSessions = _unitOfWork.SessionsRepository.GetTherapistSessions(therapistId);
-            var therapistPrescriptions = _unitOfWork.PrescriptionsRepository.GetPrescriptionsCByTherapist(therapistId);
+            var therapistPrescriptions = _unitOfWork.PrescriptionsRepository.GetPrescriptionsEmmitedCByTherapist(therapistId);
             _currentTherapist = therapistBd.MapToTherapistDto();
             _currentTherapist.TherapistPrescriptions = therapistPrescriptions.MapPrescriptionsToDto();
             _currentTherapist.TherapistSessions = therapistSessions.MapSessionsToDto();
@@ -46,7 +46,7 @@ namespace Clinic.UI
             if (grid_ClientsTherapistView.Columns[e.ColumnIndex].Name == "Prescrições")
             {
                 //ir buscar as precrições daqele cliente para mostrar
-                var form = new ClientPrescriptionsForm();
+                var form = new ClientPrescriptionsForm(_unitOfWork,_currentTherapist.Id);
                 form.Show();
             }
         }
@@ -87,7 +87,7 @@ namespace Clinic.UI
             }
             if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "Prescription")
             {
-                var form = new ClientPrescriptionsForm();
+                var form = new ClientPrescriptionsForm(_unitOfWork,_currentTherapist.Id);
                 form.Show();
             }
         }

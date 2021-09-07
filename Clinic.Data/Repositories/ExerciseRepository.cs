@@ -38,6 +38,7 @@ namespace Clinic.Data.Repositories
             {
                 var dbIndex = Database.Exercises.IndexOf(dbExercise);
                 Database.Exercises[dbIndex] = exercise;
+                Save();
                 return dbExercise.Id;
             }
 

@@ -45,6 +45,7 @@ namespace Clinic.Data.Repositories
             {
                 var dbIndex = Database.Sessions.IndexOf(sessionDb);
                 Database.Sessions[dbIndex] = session;
+                Save();
                 return sessionDb.Id;
             }
 

@@ -20,7 +20,7 @@ namespace Clinic.Data.Repositories
             return Database.Prescriptions.First(p => p.Id == prescription.Id).Id;
         }
 
-        public List<Prescription> GetPrescriptionsCByTherapist(int therapistId)
+        public List<Prescription> GetPrescriptionsEmmitedCByTherapist(int therapistId)
         {
             return Database.Prescriptions.FindAll(p => p.PrescriptionAuthorId == therapistId);
         }
@@ -46,6 +46,7 @@ namespace Clinic.Data.Repositories
             {
                 var dbIndex = Database.Prescriptions.IndexOf(prescriptionDb);
                 Database.Prescriptions[dbIndex] = prescription;
+                Save();
                 return prescriptionDb.Id;
             }
 
