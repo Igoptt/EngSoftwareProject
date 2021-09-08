@@ -33,6 +33,7 @@ namespace Clinic.UI
         {
             this.grid_EmitedPrescriptions = new System.Windows.Forms.DataGridView();
             this.ChangePrescription = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Mais = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -49,13 +50,13 @@ namespace Clinic.UI
             // grid_EmitedPrescriptions
             // 
             this.grid_EmitedPrescriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_EmitedPrescriptions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.ChangePrescription });
+            this.grid_EmitedPrescriptions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.ChangePrescription, this.Mais });
             this.grid_EmitedPrescriptions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_EmitedPrescriptions.Location = new System.Drawing.Point(3, 3);
             this.grid_EmitedPrescriptions.Name = "grid_EmitedPrescriptions";
             this.grid_EmitedPrescriptions.Size = new System.Drawing.Size(784, 319);
             this.grid_EmitedPrescriptions.TabIndex = 0;
-            this.grid_EmitedPrescriptions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_ClientPrescriptions_CellContentClick);
+            this.grid_EmitedPrescriptions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_EmitedPrescriptions_CellContentClick);
             // 
             // ChangePrescription
             // 
@@ -63,6 +64,13 @@ namespace Clinic.UI
             this.ChangePrescription.Name = "ChangePrescription";
             this.ChangePrescription.Text = "Alterar Prescrição";
             this.ChangePrescription.UseColumnTextForButtonValue = true;
+            // 
+            // Mais
+            // 
+            this.Mais.HeaderText = "Mais Informação";
+            this.Mais.Name = "Mais";
+            this.Mais.Text = "Mais Informação";
+            this.Mais.UseColumnTextForButtonValue = true;
             // 
             // tabPage2
             // 
@@ -144,9 +152,11 @@ namespace Clinic.UI
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.DataGridViewButtonColumn Mais;
+
         private System.Windows.Forms.DataGridView grid_PrescriptionsWithClientGrantedAcess;
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        // private System.Windows.Forms.DataGridView dataGridView1;
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage3;
@@ -158,7 +168,7 @@ namespace Clinic.UI
 
         private System.Windows.Forms.DataGridViewButtonColumn ChangePrescription;
 
-        private System.Windows.Forms.DataGridView grid_ClientPrescriptions;
+        // private System.Windows.Forms.DataGridView grid_ClientPrescriptions;
 
         #endregion
     }

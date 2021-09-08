@@ -15,7 +15,7 @@ namespace Clinic.Data.Repositories
         public int Insert(Client client)
         {
             
-            client.Id = GetId(); //todo need to increment
+            client.Id = GetId(); 
             Database.Clients.Add(client);
             Save();
             return Database.Clients.First(c => c.Id == client.Id).Id;
@@ -62,21 +62,9 @@ namespace Clinic.Data.Repositories
         }
         
        
-        public List<Medicine> GetPrescribedMedicines(int clientId)
-        {
-            throw new NotImplementedException();
-        }
-        public List<Exercise> GetPrescribedExercises(int clientId)
-        {
-            throw new NotImplementedException();
-        }
         
-        public List<Treatment> GetPrescribedTreatments(int clientId)
-        {
-            throw new NotImplementedException();
-        }
         
-        //metodo para is buscar todas as sessoes marcadas para o cliente com Id X
+        
 
 
     }

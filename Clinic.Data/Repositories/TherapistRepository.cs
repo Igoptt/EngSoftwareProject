@@ -13,7 +13,7 @@ namespace Clinic.Data.Repositories
         public int Insert(Therapist therapist)
         {
             
-            therapist.Id = GetId(); //todo need to increment
+            therapist.Id = GetId(); 
             Database.Therapists.Add(therapist);
             Save();
             return Database.Therapists.First(t => t.Id == therapist.Id).Id;

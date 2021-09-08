@@ -14,7 +14,7 @@ namespace Clinic.Data.Repositories
         public int Insert(Exercise exercise)
         {
             
-            exercise.Id = GetId(); //todo need to increment
+            exercise.Id = GetId(); 
             Database.Exercises.Add(exercise);
             Save();
             return Database.Exercises.First(e => e.Id == exercise.Id).Id;

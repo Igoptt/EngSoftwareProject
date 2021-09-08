@@ -38,7 +38,7 @@ namespace Clinic.UI.FormHelpers
         }
         
         
-        //TODO criar 3 metodos um para criar cada tipo de serviço
+        
         public MedicineDto CreateMedicine(string medicineName, string dosage, string time)
         {
             var medicine = new MedicineDto()
@@ -89,7 +89,7 @@ namespace Clinic.UI.FormHelpers
             return null;
         }
 
-        //TODO criar 1 metodo para criar a prescrição tendo em conta que é preciso adicionar os ids dos serviços, terapeuta e cliente
+        
         public PrescriptionDto CreatePrescription(int clientId, int theraphistAuthor, List<ServiceDto> prescriptionServices)
         {
             var prescription = new PrescriptionDto()

@@ -8,5 +8,6 @@ namespace Clinic.Data.Repositories.Interfaces
         int Insert(Exercise exercise);
         List<Exercise> GetAll();
         int Update(Exercise exercise);
+        Exercise GetExerciseById(int exerciseId);
     }
 }

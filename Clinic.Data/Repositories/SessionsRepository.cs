@@ -13,7 +13,7 @@ namespace Clinic.Data.Repositories
         public int Insert(Sessions session)
         {
             
-            session.Id = GetId(); //todo need to increment
+            session.Id = GetId(); 
             Database.Sessions.Add(session);
             Save();
             return Database.Sessions.First(s => s.Id == session.Id).Id;

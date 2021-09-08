@@ -14,7 +14,7 @@ namespace Clinic.Data.Repositories
         public int Insert(Prescription prescription)
         {
             
-            prescription.Id = GetId(); //todo need to increment
+            prescription.Id = GetId(); 
             Database.Prescriptions.Add(prescription);
             Save();
             return Database.Prescriptions.First(p => p.Id == prescription.Id).Id;
