@@ -29,7 +29,6 @@ namespace Clinic.UI
                 foreach (var service in prescription.PrescribedServices)
                 {
                     
-                    
                 }
 
                 i++;
