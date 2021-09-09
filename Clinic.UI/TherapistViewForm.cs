@@ -106,11 +106,16 @@ namespace Clinic.UI
                 {
                     var selectedRowId = Convert.ToInt32(grid_SessionsTherapistView.CurrentRow.Cells["Id"].Value);
                     var sessionToAddedNote = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
-                    sessionToAddedNote.TheraphistSessionNote = myValue.ToString();
-                    Interaction.MsgBox("Nota Adicionada.",
+                    var sessionDto = sessionToAddedNote.MapToSessionsDto();
+                    sessionDto.TheraphistSessionNote = myValue.ToString();
+                    
+                    Interaction.MsgBox(" ' " + myValue.ToString() + " ' "+ Environment.NewLine + "Nota Adicionada.",
                         MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Nota");
+                    
+                    var sessionDb = sessionDto.MapToSessionsDb();
+                    _unitOfWork.SessionsRepository.Update(sessionDb);
+
                 }
-                
             }
             if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "Prescription")
             {
