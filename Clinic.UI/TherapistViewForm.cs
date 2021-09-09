@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using Clinic.Data.Repositories;
 using Clinic.UI.DTO;
+using Microsoft.VisualBasic;
 
 namespace Clinic.UI
 {
@@ -63,14 +64,14 @@ namespace Clinic.UI
                     var sessionToDelete = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
                     if (sessionToDelete.SessionDate <= DateTime.Now)
                     {
-                        MessageBox.Show("Esta consulta ja aconteceu");
+                        MessageBox.Show("Esta consulta já aconteceu");
                     }
                     else
                     {
                         var sessionDeleted = _unitOfWork.SessionsRepository.Delete(sessionToDelete);
                         if (sessionDeleted == 1)
                         {
-                            MessageBox.Show(@"Sessao Desmarcada!");
+                            MessageBox.Show(@"Sessão Desmarcada!");
                             var selectedRow = grid_SessionsTherapistView.CurrentRow.Index;
                             grid_SessionsTherapistView.Rows.RemoveAt(selectedRow);
                         }
@@ -83,7 +84,33 @@ namespace Clinic.UI
             }
             if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "AddSessionNoteTherapistView")
             {
-                MessageBox.Show(@"Nota Adicionada");
+                string message, title, defaultValue;
+                object myValue;
+
+                message = "Escreva a sua nota.";
+                title = "Nota";
+                
+                defaultValue = "";
+
+                myValue = Interaction.InputBox(message, title);
+
+                //cancel
+                if ((string)myValue == "")
+                {
+                    myValue = defaultValue;
+                    Microsoft.VisualBasic.Interaction.MsgBox("Nota não adicionada.",
+                        MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Nota");
+                }
+                //ok Add a note to session
+                else
+                {
+                    var selectedRowId = Convert.ToInt32(grid_SessionsTherapistView.CurrentRow.Cells["Id"].Value);
+                    var sessionToAddedNote = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
+                    sessionToAddedNote.TheraphistSessionNote = myValue.ToString();
+                    Interaction.MsgBox("Nota Adicionada.",
+                        MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Nota");
+                }
+                
             }
             if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "Prescription")
             {
