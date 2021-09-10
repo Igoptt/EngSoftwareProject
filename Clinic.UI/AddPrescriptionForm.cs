@@ -27,7 +27,6 @@ namespace Clinic.UI
             currentTherapist.TherapistSessions = therapistDbSessions.MapSessionsToDto();
             
             
-
             InitializeComponent();
 
             foreach (var session in currentTherapist.TherapistSessions)

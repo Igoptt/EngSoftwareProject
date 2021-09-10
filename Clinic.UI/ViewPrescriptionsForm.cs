@@ -69,7 +69,7 @@ namespace Clinic.UI
                             {
                                 var exerciseDto = exerciseBd.MapToExerciseDto();
                                 MessageBox.Show(
-                                    $"Este serviço era um exercicio, chamdado de: {exerciseDto.Name}" +
+                                    $"Este serviço era um exercicio, chamadado de: {exerciseDto.Name}" +
                                     $" \n Tem uma intensidade de:{exerciseDto.Intensity}" +
                                     $" \n O horario sugerido para fazer este exercicio é: {exerciseDto.SuggestedSchedule}");
                                 // return;
