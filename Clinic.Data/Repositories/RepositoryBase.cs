@@ -38,13 +38,13 @@ namespace Clinic.Data.Repositories
             }
             else if (typeof(TEntity) == typeof(Exercise))
             {
-                lastId = Database.LastInsertedExerciseId + 1;
-                Database.LastInsertedExerciseId = lastId;
+                lastId = Database.LastInsertedServiceId + 1;
+                Database.LastInsertedServiceId = lastId;
             }
             else if (typeof(TEntity) == typeof(Medicine))
             {
-                lastId = Database.LastInsertedMedicineId + 1;
-                Database.LastInsertedMedicineId = lastId;
+                lastId = Database.LastInsertedServiceId + 1;
+                Database.LastInsertedServiceId = lastId;
             }
             else if (typeof(TEntity) == typeof(Prescription))
             {
@@ -53,8 +53,8 @@ namespace Clinic.Data.Repositories
             }
             else if (typeof(TEntity) == typeof(Treatment))
             {
-                lastId = Database.LastInsertedTreatmentId + 1;
-                Database.LastInsertedTreatmentId = lastId;
+                lastId = Database.LastInsertedServiceId + 1;
+                Database.LastInsertedServiceId = lastId;
             }
             else if (typeof(TEntity) == typeof(Sessions))
             {

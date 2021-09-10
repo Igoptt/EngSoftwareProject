@@ -74,13 +74,12 @@ namespace Clinic.UI
                 //TODO mostrar a informação da sessao numa message box (quais os serviços dados) e os detalhes destes
                 foreach (var prescription in _currentTherapist.TherapistPrescriptions)
                 {
-                    foreach (var service in prescription.PrescribedServices)
+                    var selectedRowPrescriptionId = Convert.ToInt32(grid_EmitedPrescriptions.CurrentRow.Cells["Id"].Value);
+                    
+                    if (prescription.Id == selectedRowPrescriptionId)
                     {
-                        var selectedRowPrescriptionId = Convert.ToInt32(grid_EmitedPrescriptions.CurrentRow.Cells["Id"].Value);
-                        //TODO FIX THIS
-                        if (service.Id == selectedRowPrescriptionId)
+                        foreach (var service in prescription.PrescribedServices)
                         {
-                            //TODO para preencher o array dos prescription services tenho q ir buscar a cada serviço o Id para conseguir ir buscar a Bd
                             var exerciseBd = _unitOfWork.ExercisesRepository.GetExerciseById(service.Id);
                             if (exerciseBd != null) // quer dizer que o tipo de serviço era um exercise
                             {
@@ -102,6 +101,7 @@ namespace Clinic.UI
                                     $" \n O horario sugerido para tomar este medicamento é: {medicineDto.TimeOfDayToTakeMedicine}");
                                 // return;
                             }
+
                             var treatmentBd = _unitOfWork.TreatmentsRepository.GetTreatmentById(service.Id);
                             if (treatmentBd != null)
                             {

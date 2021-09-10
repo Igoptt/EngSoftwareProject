@@ -43,6 +43,7 @@ namespace Clinic.Data.Models
         public int LastInsertedTreatmentId = 0;
         public int LastInsertedPrescriptionId = 0;
         public int LastInsertedSessionId = 0;
+        public int LastInsertedServiceId = 0;
         
         public int SessionDuration = 1;//1h de duraçao das sessoes
     }

@@ -25,96 +25,126 @@ namespace Clinic.UI
             var currentTherapist = therapistDb.MapToTherapistDto();
             currentTherapist.TherapistPrescriptions = therapistDbPrescriptions.MapPrescriptionsToDto();
             currentTherapist.TherapistSessions = therapistDbSessions.MapSessionsToDto();
+
+            var medicines = _unitOfWork.MedicinesRepository.GetAll();
+            var exercises = _unitOfWork.ExercisesRepository.GetAll();
+            var treatments = _unitOfWork.TreatmentsRepository.GetAll();
             
             
             InitializeComponent();
 
             foreach (var session in currentTherapist.TherapistSessions)
             {
-                if (session.SessionPrescriptionId != -1)
+                if (session.SessionPrescriptionId == -1)
                 {
                     cb_ChooseSession.Items.Add($"Id da Sessão:{session.Id}: horario da sessão: {session.SessionDate}");
                 }
                 
             }
 
-            grpBox_PrescriptionOptions.Visible = false;
+            foreach (var medicine in medicines)
+            {
+                cb_Medicines.Items.Add($"Id:{medicine.Id}: Medicamento: {medicine.Name}, Dose: {medicine.Dosage}, Quando tomar: {medicine.TimeOfDayToTakeMedicine}");
+            }
+            
+            foreach (var exercise in exercises)
+            {
+                cb_Exercises.Items.Add($"Id:{exercise.Id}: Exercicio: {exercise.Name}, Intensidade: {exercise.Intensity}, Horario sugerido: {exercise.SuggestedSchedule}");
+            }
+            
+            foreach (var treatment in treatments)
+            {
+                cb_Treatments.Items.Add($"Id:{treatment.Id}: Tratamento: {treatment.Name}, Tipo: {treatment.Type}, Duração: {treatment.Duration}");
+            }
+            
+            // grpBox_PrescriptionOptions.Visible = false;
         }
 
         private void cb_ChooseSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cb_ChooseSession.SelectedIndex > -1)
-            {
-                grpBox_PrescriptionOptions.Visible = true;
-            }
+            // if (cb_ChooseSession.SelectedIndex > -1)
+            // {
+            //     // grpBox_PrescriptionOptions.Visible = true;
+            // }
+        }
+        private void cb_Services_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void btn_SavePrescription_Click(object sender, EventArgs e)
         {
-            var medicineDto = new MedicineDto();
-            var treatmentDto = new TreatmentDto();
-            var exerciseDto = new ExerciseDto();
-            var prescriptionServices = new List<ServiceDto>();
-            
-            var createMedicine = _prescriptionFormHelper.MedicineFieldsFilled(textBox_MedicineName.Text, textBox_MedicineDosage.Text,textBox_MedicineSchedule.Text);
-            var createExercise = _prescriptionFormHelper.ExerciseFieldsFilled(textBox_ExerciseName.Text,textBox_ExerciseIntensity.Text,textBox_SuggestedSchedule.Text);
-            var createTreatment = _prescriptionFormHelper.TreatmentFieldsFilled(textBox_TreatmentName.Text, textBox_TreatmentType.Text, textBox_TreatmentDuration.Text);
-            
-            
-            if (createMedicine || createExercise || createTreatment)
+            if (cb_ChooseSession.SelectedIndex > -1)
             {
-                //TODO ver se posso por isto tudo em else ifs
-                if (createMedicine)
-                {
-                    medicineDto = _prescriptionFormHelper.CreateMedicine(textBox_MedicineName.Text,textBox_MedicineDosage.Text,textBox_MedicineSchedule.Text);
-                    var medicineDb = medicineDto.MapToMedicineDb();
-                    var createdMedicineId = _unitOfWork.MedicinesRepository.Insert(medicineDb);
-                    medicineDto.Id = createdMedicineId;
-                    prescriptionServices.Add(medicineDto);
-                }
-
-                if (createExercise)
-                {
-                    exerciseDto = _prescriptionFormHelper.CreateExercise(textBox_ExerciseName.Text,textBox_ExerciseIntensity.Text,textBox_SuggestedSchedule.Text);
-                    var exerciseDb = exerciseDto.MapToExerciseDb();
-                    var createdExerciseId = _unitOfWork.ExercisesRepository.Insert(exerciseDb);
-                    exerciseDto.Id = createdExerciseId;
-                    prescriptionServices.Add(exerciseDto);
-                }
-
-                if (createTreatment)
-                {
-                    treatmentDto = _prescriptionFormHelper.CreateTreatment(textBox_TreatmentName.Text,textBox_TreatmentDuration.Text,textBox_TreatmentType.Text);
-                    var treatmentDb = treatmentDto.MapToTreatmentDb();
-                    var createdTreatmentId = _unitOfWork.TreatmentsRepository.Insert(treatmentDb);
-                    treatmentDto.Id = createdTreatmentId;
-                    prescriptionServices.Add(treatmentDto);
-                }
+                var medicineChosen = _prescriptionFormHelper.ServiceChosen(cb_Medicines);
+                var exerciseChosen = _prescriptionFormHelper.ServiceChosen(cb_Exercises);
+                var treatmentChosen = _prescriptionFormHelper.ServiceChosen(cb_Treatments);
                 
-                var chosenSessionId = cb_ChooseSession.Text.Split(':')[1];
-                var chosenSession = _unitOfWork.SessionsRepository.GetSessionById(Convert.ToInt32(chosenSessionId)).MapToSessionsDto();
-                var chosenSessionClientId = _unitOfWork.ClientRepository.GetClientById(chosenSession.AssignedClientId).MapToClientDto().Id;
-                var newPrescription = _prescriptionFormHelper.CreatePrescription(chosenSessionClientId,_currentTherapistId,prescriptionServices);
-                var newPrescriptionDb = newPrescription.MapToPrescriptionDb();
-                var newPrescriptionDbId = _unitOfWork.PrescriptionsRepository.Insert(newPrescriptionDb);
-                chosenSession.SessionPrescriptionId = newPrescriptionDbId;
-                var chosenSessionDb = chosenSession.MapToSessionsDb();
-                _unitOfWork.SessionsRepository.Update(chosenSessionDb);
-                MessageBox.Show(@"Prescrição adicionada");
-                this.Close();
+                if (medicineChosen || exerciseChosen || treatmentChosen)
+                {
+                    var prescriptionServices = new List<ServiceDto>();
+                    if (medicineChosen)
+                    {
+                        var chosenMedicineId = cb_Medicines.Text.Split(':')[1];
+                        var medicineDto = _unitOfWork.MedicinesRepository.GetMedicineById(Convert.ToInt32(chosenMedicineId)).MapToMedicineDto();
+                        prescriptionServices.Add(medicineDto);
+                    }
+
+                    if (exerciseChosen)
+                    {
+                        var chosenExerciseId = cb_Exercises.Text.Split(':')[1];
+                        var exerciseDto = _unitOfWork.ExercisesRepository.GetExerciseById(Convert.ToInt32(chosenExerciseId)).MapToExerciseDto();
+                        prescriptionServices.Add(exerciseDto);
+                    }
+
+                    if (treatmentChosen)
+                    {
+                        var chosenTreatmentId = cb_Treatments.Text.Split(':')[1];
+                        var treatmentDto = _unitOfWork.TreatmentsRepository.GetTreatmentById(Convert.ToInt32(chosenTreatmentId)).MapToTreatmentDto();
+                        prescriptionServices.Add(treatmentDto);
+                    }
+                    
+                    var chosenSessionId = cb_ChooseSession.Text.Split(':')[1];
+                    var chosenSession = _unitOfWork.SessionsRepository.GetSessionById(Convert.ToInt32(chosenSessionId)).MapToSessionsDto();
+                    var chosenSessionClientId = _unitOfWork.ClientRepository.GetClientById(chosenSession.AssignedClientId).MapToClientDto().Id;
+                    
+                    var newPrescription = _prescriptionFormHelper.CreatePrescription(chosenSessionClientId,_currentTherapistId,prescriptionServices);
+                    var newPrescriptionDb = newPrescription.MapToPrescriptionDb();
+                    var newPrescriptionDbId = _unitOfWork.PrescriptionsRepository.Insert(newPrescriptionDb);
+                    
+                    chosenSession.SessionPrescriptionId = newPrescriptionDbId;
+                    var chosenSessionDb = chosenSession.MapToSessionsDb();
+                    var updatedSession = _unitOfWork.SessionsRepository.Update(chosenSessionDb);
+                    
+                    if (updatedSession == 0) //falhou o update
+                    {
+                        MessageBox.Show("Ocorreu um erro ao adicionar esta prescrição á sessao. Por favor tente novamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show(@"Prescrição adicionada");
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Escolha um dos serviços para adicionar! \n Caso nao tenha nenhum serviço por favor crie um.");
+                }
             }
-            else 
+            else
             {
-                MessageBox.Show("Por favor preencha os campos para criar pelo menos um tipo de Serviço");
+                MessageBox.Show("Por favor escolha uma sesão para adicionar a prescrição");
             }
-            
         }
 
         private void btn_CreateService_Click(object sender, EventArgs e)
         {
-            var form = new CreateServiceForm();
+            var form = new CreateServiceForm(_unitOfWork,_currentTherapistId);
             form.Show();
             this.Close();
         }
+
+
+        
     }
 }

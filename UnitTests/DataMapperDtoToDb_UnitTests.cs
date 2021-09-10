@@ -74,7 +74,7 @@ namespace UnitTests
                 Name = "user",
                 // PrescriptionId = 2,
                 
-                Duration = 15,
+                Duration = "15",
                 Type = "terapeutico",
             };
             var result = treatmentDto.MapToTreatmentDb();

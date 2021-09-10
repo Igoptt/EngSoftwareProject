@@ -26,6 +26,7 @@ namespace Clinic.UI
             clientSessions_Source.DataSource = _currentClient.ClientAppointments;
             
             
+            
             InitializeComponent();
             lb_ClientName.Text = $"{_currentClient.FirstName} {_currentClient.LastName}";
             grid_ClientSessions.DataSource = clientSessions_Source;
@@ -79,6 +80,7 @@ namespace Clinic.UI
                 {
                     var selectedRowId = Convert.ToInt32(grid_ClientSessions.CurrentRow.Cells["Id"].Value);
                     var sessionToDelete = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
+                    var sessionToDeleteDto = sessionToDelete.MapToSessionsDto();
                     if (sessionToDelete.SessionDate <= DateTime.Now)
                     {
                         MessageBox.Show("Esta consulta ja aconteceu");
@@ -88,8 +90,12 @@ namespace Clinic.UI
                         var sessionDeleted = _unitOfWork.SessionsRepository.Delete(sessionToDelete);
                         if (sessionDeleted == 1)
                         {
-                            MessageBox.Show(@"Sessao Desmarcada!");
+                            //TODO encontrar uma maneira de dar refresh (refresh datasource nao funciona; apagar da lista do datasource tambem nao)
                             var selectedRow = grid_ClientSessions.CurrentRow.Index;
+                            // _currentClient.ClientAppointments.Remove(sessionToDeleteDto);
+                            // Refresh();
+                            // Update();
+                            MessageBox.Show(@"Sessao Desmarcada!");
                             grid_ClientSessions.Rows.RemoveAt(selectedRow);
                         }
                         else

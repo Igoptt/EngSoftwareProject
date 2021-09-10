@@ -40,6 +40,7 @@ namespace Clinic.UI.DTO
                 
                 Id = dto.Id,
                 Name = dto.Name,
+                // PrescriptionId = dto.PrescriptionId,
                 Intensity = dto.Intensity,
                 SuggestedSchedule = dto.SuggestedSchedule,
                 
@@ -52,6 +53,7 @@ namespace Clinic.UI.DTO
             {
                 Id = dto.Id,
                 Name = dto.Name,
+                // PrescriptionId = dto.PrescriptionId,
                 Dosage = dto.Dosage,
                 TimeOfDayToTakeMedicine = dto.TimeOfDayToTakeMedicine,
             };
@@ -122,6 +124,7 @@ namespace Clinic.UI.DTO
             {
                 Id = dto.Id,
                 Name = dto.Name,
+                // PrescriptionId = dto.PrescriptionId,
                 Duration = dto.Duration,
                 Type = dto.Type,
             };

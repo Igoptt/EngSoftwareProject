@@ -1,94 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using Clinic.UI.DTO;
 
 namespace Clinic.UI.FormHelpers
 {
     public class AddPrescriptionFormHelper
     {
-        //TODO verificar se bastava colocar isto tudo na mesma função que simplesmente verifica se 3 caixas de texto estao preenchidas
-        public bool MedicineFieldsFilled(string name, string dosage, string schedule)
+
+        public bool ServiceChosen(ComboBox cb_service)
         {
-            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(dosage) && string.IsNullOrEmpty(schedule))
+            if (cb_service.SelectedIndex > -1)
             {
-                return false;
+                return true;
             }
 
-            return true;
+            return false;
         }
-
-        public bool ExerciseFieldsFilled(string name, string intensity, string schedule)
-        {
-            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(schedule) && string.IsNullOrEmpty(intensity))
-            {
-                return false;
-            }
-            
-            return true;
-        }
-
-        public bool TreatmentFieldsFilled(string name, string type, string duration)
-        {
-            if (string.IsNullOrEmpty(name) && string.IsNullOrEmpty(type) && string.IsNullOrEmpty(duration))
-            {
-                return false;
-            }
-            
-            return true;
-        }
-        
-        
-        
-        public MedicineDto CreateMedicine(string medicineName, string dosage, string time)
-        {
-            var medicine = new MedicineDto()
-            {
-                Name = medicineName,
-                Dosage = dosage,
-                Id = 0,
-                TimeOfDayToTakeMedicine = time
-            };
-            return medicine;
-        }
-    
-        public ExerciseDto CreateExercise(string exerciseName, string intensity,string schedule)
-        {
-            var intensityNumber = Convert.ToInt32(intensity);
-            if (intensityNumber != 0)
-            {
-                var exercise = new ExerciseDto()
-                {
-                    Name = exerciseName,
-                    Id = 0,
-                    Intensity = intensityNumber,
-                    SuggestedSchedule = schedule
-
-                };
-                return exercise;
-            }
-
-            return null;
-        }
-        
-        public TreatmentDto CreateTreatment(string treatmentName, string duration, string type)
-        {
-            var durationNumber = Convert.ToInt32(duration);
-            if (durationNumber != 0)
-            {
-                var treatment = new TreatmentDto()
-                {
-                    Name = treatmentName,
-                    Id = 0,
-                    Duration = durationNumber,
-                    Type = type
-                
-                };
-                return treatment;
-            }
-
-            return null;
-        }
-
         
         public PrescriptionDto CreatePrescription(int clientId, int theraphistAuthor, List<ServiceDto> prescriptionServices)
         {
