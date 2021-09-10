@@ -32,7 +32,11 @@ namespace Clinic.UI
 
             foreach (var session in currentTherapist.TherapistSessions)
             {
-                cb_ChooseSession.Items.Add($"Id da Sessão:{session.Id}: horario da sessão: {session.SessionDate}");
+                if (session.SessionPrescriptionId != -1)
+                {
+                    cb_ChooseSession.Items.Add($"Id da Sessão:{session.Id}: horario da sessão: {session.SessionDate}");
+                }
+                
             }
 
             grpBox_PrescriptionOptions.Visible = false;
@@ -94,6 +98,9 @@ namespace Clinic.UI
                 var newPrescription = _prescriptionFormHelper.CreatePrescription(chosenSessionClientId,_currentTherapistId,prescriptionServices);
                 var newPrescriptionDb = newPrescription.MapToPrescriptionDb();
                 var newPrescriptionDbId = _unitOfWork.PrescriptionsRepository.Insert(newPrescriptionDb);
+                chosenSession.SessionPrescriptionId = newPrescriptionDbId;
+                var chosenSessionDb = chosenSession.MapToSessionsDb();
+                _unitOfWork.SessionsRepository.Update(chosenSessionDb);
                 MessageBox.Show(@"Prescrição adicionada");
                 this.Close();
             }
