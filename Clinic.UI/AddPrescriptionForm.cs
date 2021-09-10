@@ -109,6 +109,12 @@ namespace Clinic.UI
             }
             
         }
-        
+
+        private void btn_CreateService_Click(object sender, EventArgs e)
+        {
+            var form = new CreateServiceForm();
+            form.Show();
+            this.Close();
+        }
     }
 }

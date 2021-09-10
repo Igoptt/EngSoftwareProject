@@ -48,3 +48,4 @@ C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.cs
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.csproj.CopyComplete
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.exe
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.pdb
+C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.CreateServiceForm.resources

@@ -28,7 +28,23 @@ namespace Clinic.UI
                 
                 foreach (var service in prescription.PrescribedServices)
                 {
-                    
+                    var medicineDb = _unitOfWork.MedicinesRepository.GetMedicineById(service);
+                    if (medicineDb != null)
+                    {
+                        _currentTherapist.TherapistPrescriptions[i].PrescribedServices.Add(medicineDb.MapToMedicineDto());
+                    }
+
+                    var exerciseDb = _unitOfWork.ExercisesRepository.GetExerciseById(service);
+                    if (exerciseDb != null)
+                    {
+                        _currentTherapist.TherapistPrescriptions[i].PrescribedServices.Add(exerciseDb.MapToExerciseDto());
+                    }
+
+                    var treatmentDb = _unitOfWork.TreatmentsRepository.GetTreatmentById(service);
+                    if (treatmentDb != null)
+                    {
+                        _currentTherapist.TherapistPrescriptions[i].PrescribedServices.Add(treatmentDb.MapToTreatmentDto());
+                    }
                 }
 
                 i++;
@@ -61,6 +77,7 @@ namespace Clinic.UI
                     foreach (var service in prescription.PrescribedServices)
                     {
                         var selectedRowPrescriptionId = Convert.ToInt32(grid_EmitedPrescriptions.CurrentRow.Cells["Id"].Value);
+                        //TODO FIX THIS
                         if (service.Id == selectedRowPrescriptionId)
                         {
                             //TODO para preencher o array dos prescription services tenho q ir buscar a cada serviço o Id para conseguir ir buscar a Bd

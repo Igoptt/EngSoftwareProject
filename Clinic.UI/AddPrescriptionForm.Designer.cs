@@ -52,6 +52,7 @@ namespace Clinic.UI
             this.textBox_MedicineName = new System.Windows.Forms.TextBox();
             this.btn_SavePrescription = new System.Windows.Forms.Button();
             this.cb_ChooseSession = new System.Windows.Forms.ComboBox();
+            this.btn_CreateService = new System.Windows.Forms.Button();
             this.grpBox_PrescriptionOptions.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,9 +77,9 @@ namespace Clinic.UI
             this.grpBox_PrescriptionOptions.Controls.Add(this.textBox_TreatmentName);
             this.grpBox_PrescriptionOptions.Controls.Add(this.textBox_MedicineName);
             this.grpBox_PrescriptionOptions.Controls.Add(this.btn_SavePrescription);
-            this.grpBox_PrescriptionOptions.Location = new System.Drawing.Point(12, 83);
+            this.grpBox_PrescriptionOptions.Location = new System.Drawing.Point(12, 160);
             this.grpBox_PrescriptionOptions.Name = "grpBox_PrescriptionOptions";
-            this.grpBox_PrescriptionOptions.Size = new System.Drawing.Size(776, 355);
+            this.grpBox_PrescriptionOptions.Size = new System.Drawing.Size(776, 278);
             this.grpBox_PrescriptionOptions.TabIndex = 3;
             this.grpBox_PrescriptionOptions.TabStop = false;
             this.grpBox_PrescriptionOptions.Text = "Opções";
@@ -238,11 +239,22 @@ namespace Clinic.UI
             this.cb_ChooseSession.Text = "Escolha a sessão para adicionar uma prescrição";
             this.cb_ChooseSession.SelectedIndexChanged += new System.EventHandler(this.cb_ChooseSession_SelectedIndexChanged);
             // 
+            // btn_CreateService
+            // 
+            this.btn_CreateService.Location = new System.Drawing.Point(12, 90);
+            this.btn_CreateService.Name = "btn_CreateService";
+            this.btn_CreateService.Size = new System.Drawing.Size(207, 55);
+            this.btn_CreateService.TabIndex = 5;
+            this.btn_CreateService.Text = "Criar Serviço";
+            this.btn_CreateService.UseVisualStyleBackColor = true;
+            this.btn_CreateService.Click += new System.EventHandler(this.btn_CreateService_Click);
+            // 
             // AddPrescriptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_CreateService);
             this.Controls.Add(this.cb_ChooseSession);
             this.Controls.Add(this.grpBox_PrescriptionOptions);
             this.Name = "AddPrescriptionForm";
@@ -251,6 +263,8 @@ namespace Clinic.UI
             this.grpBox_PrescriptionOptions.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button btn_CreateService;
 
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;

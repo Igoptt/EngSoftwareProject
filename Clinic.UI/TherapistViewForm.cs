@@ -10,6 +10,7 @@ namespace Clinic.UI
     {
         private readonly UnitOfWork _unitOfWork;
         private  TherapistDto _currentTherapist;
+        private BindingSource therapistSessionsSource;
         public TherapistViewForm(UnitOfWork unitOfWork, int therapistId)
         {
             
@@ -23,12 +24,12 @@ namespace Clinic.UI
             _currentTherapist.TherapistPrescriptions = therapistPrescriptions.MapPrescriptionsToDto();
             _currentTherapist.TherapistSessions = therapistSessions.MapSessionsToDto();
             
-            var therapistSessions_source = new BindingSource();
-            therapistSessions_source.DataSource = _currentTherapist.TherapistSessions;
+            therapistSessionsSource = new BindingSource();
+            therapistSessionsSource.DataSource = _currentTherapist.TherapistSessions;
             
             
             InitializeComponent();
-            grid_SessionsTherapistView.DataSource = therapistSessions_source;
+            grid_SessionsTherapistView.DataSource = therapistSessionsSource;
             label_TherapistName.Text = $"{_currentTherapist.FirstName} {_currentTherapist.LastName}";
             
 
