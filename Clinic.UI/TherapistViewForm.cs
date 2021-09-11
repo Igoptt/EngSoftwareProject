@@ -39,6 +39,7 @@ namespace Clinic.UI
         {
             var form = new AddPrescriptionForm(_unitOfWork, _currentTherapist.Id);
             form.Show();
+            this.Close();
         }
 
         

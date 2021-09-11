@@ -22,7 +22,36 @@ namespace Clinic.UI
             var currentClientPrescriptions = _unitOfWork.PrescriptionsRepository.GetPrescriptionsByClient(clientId);
             _currentClient.ClientAppointments = currentClientSessions.MapSessionsToDto();
             _currentClient.ClientPrescriptions = currentClientPrescriptions.MapPrescriptionsToDto();
+            
+            //TODO por num helper
+            int i = 0;
+            foreach (var prescription in currentClientPrescriptions)
+            {
+                
+                foreach (var service in prescription.PrescribedServices)
+                {
+                    var medicineDb = _unitOfWork.MedicinesRepository.GetMedicineById(service);
+                    if (medicineDb != null)
+                    {
+                        _currentClient.ClientPrescriptions[i].PrescribedServices.Add(medicineDb.MapToMedicineDto());
+                    }
 
+                    var exerciseDb = _unitOfWork.ExercisesRepository.GetExerciseById(service);
+                    if (exerciseDb != null)
+                    {
+                        _currentClient.ClientPrescriptions[i].PrescribedServices.Add(exerciseDb.MapToExerciseDto());
+                    }
+
+                    var treatmentDb = _unitOfWork.TreatmentsRepository.GetTreatmentById(service);
+                    if (treatmentDb != null)
+                    {
+                        _currentClient.ClientPrescriptions[i].PrescribedServices.Add(treatmentDb.MapToTreatmentDto());
+                    }
+                }
+
+                i++;
+            }
+            
             clientSessions_Source = new BindingSource();
             clientSessions_Source.DataSource = _currentClient.ClientAppointments;
 
@@ -42,11 +71,57 @@ namespace Clinic.UI
         {
             if (grid_PrescriptionsClientView.Columns[e.ColumnIndex].Name == "Mais")
             {
-                MessageBox.Show(@"A prescrição tem uma intensidade de X ao longo de Y dias");
+                //TODO por num helper
+                foreach (var prescription in _currentClient.ClientPrescriptions)
+                {
+                    var selectedRowPrescriptionId = Convert.ToInt32(grid_PrescriptionsClientView.CurrentRow.Cells["Id"].Value);
+                    
+                    if (prescription.Id == selectedRowPrescriptionId)
+                    {
+                        var prescriptionDetails = "";
+                        foreach (var service in prescription.PrescribedServices)
+                        {
+                            var exerciseBd = _unitOfWork.ExercisesRepository.GetExerciseById(service.Id);
+                            if (exerciseBd != null) // quer dizer que o tipo de serviço era um exercise
+                            {
+                                var exerciseDto = exerciseBd.MapToExerciseDto();
+                                prescriptionDetails +=
+                                    $"Este serviço era um exercicio, chamadado de: {exerciseDto.Name}" +
+                                    $" \n Tem uma intensidade de:{exerciseDto.Intensity}" +
+                                    $" \n O horario sugerido para fazer este exercicio é: {exerciseDto.SuggestedSchedule} \n";
+                            }
+
+                            var medicineBd = _unitOfWork.MedicinesRepository.GetMedicineById(service.Id);
+                            if (medicineBd != null)
+                            {
+                                var medicineDto = medicineBd.MapToMedicineDto();
+                                prescriptionDetails +=$"Este serviço era um medicamento, chamdado de: {medicineDto.Name}" +
+                                                      $" \n Tem uma dosagem de:{medicineDto.Dosage}" +
+                                                      $" \n O horario sugerido para tomar este medicamento é: {medicineDto.TimeOfDayToTakeMedicine} \n";
+                            }
+
+                            var treatmentBd = _unitOfWork.TreatmentsRepository.GetTreatmentById(service.Id);
+                            if (treatmentBd != null)
+                            {
+                                var treatmentDto = treatmentBd.MapToTreatmentDto();
+                                prescriptionDetails +=
+                                    $"Este serviço era um tratamento, chamdado de: {treatmentDto.Name}" +
+                                    $" \n Era do tipo:{treatmentDto.Type}" +
+                                    $" \n Este tratamento tem uma duração de: {treatmentDto.Duration} \n";
+                            }
+                        }
+                        if (!string.IsNullOrEmpty(prescriptionDetails))
+                        {
+                            MessageBox.Show(prescriptionDetails);
+                        }
+                    }
+                }
+                // MessageBox.Show(@"A prescrição tem uma intensidade de X ao longo de Y dias");
             }
             else if (grid_PrescriptionsClientView.Columns[e.ColumnIndex].Name == "Visibilidade")
             {
-                var form = new ChangePrescriptionVisibilityForm();
+                var selectedPrescriptionId = Convert.ToInt32(grid_PrescriptionsClientView.CurrentRow.Cells["Id"].Value);
+                var form = new ChangePrescriptionVisibilityForm(_unitOfWork,_currentClient.Id,selectedPrescriptionId);
                 form.Show();
             }
         }

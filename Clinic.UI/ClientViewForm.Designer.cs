@@ -35,6 +35,8 @@ namespace Clinic.UI
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_Prescriptions = new System.Windows.Forms.TabPage();
             this.grid_PrescriptionsClientView = new System.Windows.Forms.DataGridView();
+            this.Mais = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Visibilidade = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tab_Sessions = new System.Windows.Forms.TabPage();
             this.grid_ClientSessions = new System.Windows.Forms.DataGridView();
             this.DetalhesClientView = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -47,8 +49,6 @@ namespace Clinic.UI
             this.Desmarcar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_ClientName = new System.Windows.Forms.Label();
-            this.Mais = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Visibilidade = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1.SuspendLayout();
             this.tab_Prescriptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_PrescriptionsClientView)).BeginInit();
@@ -74,7 +74,7 @@ namespace Clinic.UI
             this.tabControl1.Location = new System.Drawing.Point(12, 100);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(725, 346);
+            this.tabControl1.Size = new System.Drawing.Size(672, 303);
             this.tabControl1.TabIndex = 1;
             // 
             // tab_Prescriptions
@@ -83,21 +83,37 @@ namespace Clinic.UI
             this.tab_Prescriptions.Location = new System.Drawing.Point(4, 22);
             this.tab_Prescriptions.Name = "tab_Prescriptions";
             this.tab_Prescriptions.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Prescriptions.Size = new System.Drawing.Size(717, 320);
+            this.tab_Prescriptions.Size = new System.Drawing.Size(664, 277);
             this.tab_Prescriptions.TabIndex = 0;
             this.tab_Prescriptions.Text = "Prescrições";
             this.tab_Prescriptions.UseVisualStyleBackColor = true;
             // 
             // grid_PrescriptionsClientView
             // 
+            this.grid_PrescriptionsClientView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.grid_PrescriptionsClientView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_PrescriptionsClientView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Mais, this.Visibilidade });
-            this.grid_PrescriptionsClientView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_PrescriptionsClientView.Location = new System.Drawing.Point(3, 3);
             this.grid_PrescriptionsClientView.Name = "grid_PrescriptionsClientView";
-            this.grid_PrescriptionsClientView.Size = new System.Drawing.Size(711, 314);
+            this.grid_PrescriptionsClientView.Size = new System.Drawing.Size(658, 271);
             this.grid_PrescriptionsClientView.TabIndex = 0;
             this.grid_PrescriptionsClientView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Mais
+            // 
+            this.Mais.HeaderText = "Mais";
+            this.Mais.Name = "Mais";
+            this.Mais.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Mais.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Mais.Text = "Mais";
+            this.Mais.UseColumnTextForButtonValue = true;
+            // 
+            // Visibilidade
+            // 
+            this.Visibilidade.HeaderText = "Visibilidade";
+            this.Visibilidade.Name = "Visibilidade";
+            this.Visibilidade.Text = "Visibilidade";
+            this.Visibilidade.UseColumnTextForButtonValue = true;
             // 
             // tab_Sessions
             // 
@@ -105,19 +121,19 @@ namespace Clinic.UI
             this.tab_Sessions.Location = new System.Drawing.Point(4, 22);
             this.tab_Sessions.Name = "tab_Sessions";
             this.tab_Sessions.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Sessions.Size = new System.Drawing.Size(717, 320);
+            this.tab_Sessions.Size = new System.Drawing.Size(664, 277);
             this.tab_Sessions.TabIndex = 1;
             this.tab_Sessions.Text = "Sessões";
             this.tab_Sessions.UseVisualStyleBackColor = true;
             // 
             // grid_ClientSessions
             // 
+            this.grid_ClientSessions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.grid_ClientSessions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_ClientSessions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.DetalhesClientView, this.DesmarcarClientView, this.EditarSessao });
-            this.grid_ClientSessions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_ClientSessions.Location = new System.Drawing.Point(3, 3);
             this.grid_ClientSessions.Name = "grid_ClientSessions";
-            this.grid_ClientSessions.Size = new System.Drawing.Size(711, 314);
+            this.grid_ClientSessions.Size = new System.Drawing.Size(658, 271);
             this.grid_ClientSessions.TabIndex = 0;
             this.grid_ClientSessions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_ClientSessions_CellContentClick);
             // 
@@ -188,27 +204,11 @@ namespace Clinic.UI
             this.lb_ClientName.Size = new System.Drawing.Size(253, 23);
             this.lb_ClientName.TabIndex = 3;
             // 
-            // Mais
-            // 
-            this.Mais.HeaderText = "Mais";
-            this.Mais.Name = "Mais";
-            this.Mais.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Mais.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Mais.Text = "Mais";
-            this.Mais.UseColumnTextForButtonValue = true;
-            // 
-            // Visibilidade
-            // 
-            this.Visibilidade.HeaderText = "Visibilidade";
-            this.Visibilidade.Name = "Visibilidade";
-            this.Visibilidade.Text = "Visibilidade";
-            this.Visibilidade.UseColumnTextForButtonValue = true;
-            // 
             // ClientViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 450);
+            this.ClientSize = new System.Drawing.Size(687, 407);
             this.Controls.Add(this.lb_ClientName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);

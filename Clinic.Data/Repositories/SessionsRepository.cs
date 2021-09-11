@@ -23,7 +23,7 @@ namespace Clinic.Data.Repositories
         {
             return Database.Sessions.FindAll(s => s.AssignedTherapistId == therapistId);
         }
-        
+
         public List<Sessions> GetClientSessions(int clientId)
         {
             return Database.Sessions.FindAll(s => s.AssignedClientId == clientId);
