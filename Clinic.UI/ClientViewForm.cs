@@ -11,6 +11,7 @@ namespace Clinic.UI
         private readonly UnitOfWork _unitOfWork;
         private ClientDto _currentClient;
         private BindingSource clientSessions_Source;
+        private BindingSource clientPrescriptions_Source;
         public ClientViewForm(UnitOfWork unitOfWork, int clientId)
         {
             _unitOfWork = unitOfWork;
@@ -24,15 +25,15 @@ namespace Clinic.UI
 
             clientSessions_Source = new BindingSource();
             clientSessions_Source.DataSource = _currentClient.ClientAppointments;
-            
+
+            clientPrescriptions_Source = new BindingSource();
+            clientPrescriptions_Source.DataSource = _currentClient.ClientPrescriptions;
             
             
             InitializeComponent();
             lb_ClientName.Text = $"{_currentClient.FirstName} {_currentClient.LastName}";
             grid_ClientSessions.DataSource = clientSessions_Source;
-            
-            // grid_ClientSessions.Rows.Add("data K", "Hora x", "Terapeuta Y");
-            // grid_PrescriptionsClientView.Rows.Add("Medicamento", "Terapeuta Y", "Data K");
+            grid_PrescriptionsClientView.DataSource = clientPrescriptions_Source;
             
         }
 
@@ -87,6 +88,13 @@ namespace Clinic.UI
                     }
                     else
                     {
+                        var sessionClient = _unitOfWork.ClientRepository.GetClientById(_currentClient.Id);
+                        var sessionTherapist = _unitOfWork.TherapistRepository.GetTherapistById(sessionToDelete.AssignedTherapistId);
+                        sessionClient.ClientAppointments.Remove(sessionToDelete.Id);
+                        _unitOfWork.ClientRepository.Update(sessionClient);
+                        sessionTherapist.TherapistSessions.Remove(sessionToDelete.Id);
+                        _unitOfWork.TherapistRepository.Update(sessionTherapist);
+                        
                         var sessionDeleted = _unitOfWork.SessionsRepository.Delete(sessionToDelete);
                         if (sessionDeleted == 1)
                         {
@@ -96,6 +104,7 @@ namespace Clinic.UI
                             // Refresh();
                             // Update();
                             MessageBox.Show(@"Sessao Desmarcada!");
+                            // clientSessions_Source.ResetBindings(false);
                             grid_ClientSessions.Rows.RemoveAt(selectedRow);
                         }
                         else

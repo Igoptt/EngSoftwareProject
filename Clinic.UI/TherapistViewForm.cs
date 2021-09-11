@@ -69,9 +69,16 @@ namespace Clinic.UI
                     }
                     else
                     {
+                        var sessionClient = _unitOfWork.ClientRepository.GetClientById(sessionToDelete.AssignedClientId);
+                        var sessionTherapist = _currentTherapist.MapToTherapistDb();
+                        sessionClient.ClientAppointments.Remove(sessionToDelete.Id);
+                        _unitOfWork.ClientRepository.Update(sessionClient);
+                        sessionTherapist.TherapistSessions.Remove(sessionToDelete.Id);
+                        _unitOfWork.TherapistRepository.Update(sessionTherapist);
                         var sessionDeleted = _unitOfWork.SessionsRepository.Delete(sessionToDelete);
                         if (sessionDeleted == 1)
                         {
+                            
                             MessageBox.Show(@"Sessão Desmarcada!");
                             var selectedRow = grid_SessionsTherapistView.CurrentRow.Index;
                             grid_SessionsTherapistView.Rows.RemoveAt(selectedRow);

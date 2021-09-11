@@ -35,11 +35,6 @@ namespace Clinic.UI
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_Prescriptions = new System.Windows.Forms.TabPage();
             this.grid_PrescriptionsClientView = new System.Windows.Forms.DataGridView();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Terapeuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataReceita = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mais = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Visibilidade = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tab_Sessions = new System.Windows.Forms.TabPage();
             this.grid_ClientSessions = new System.Windows.Forms.DataGridView();
             this.DetalhesClientView = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -52,6 +47,8 @@ namespace Clinic.UI
             this.Desmarcar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_ClientName = new System.Windows.Forms.Label();
+            this.Mais = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Visibilidade = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabControl1.SuspendLayout();
             this.tab_Prescriptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_PrescriptionsClientView)).BeginInit();
@@ -94,44 +91,13 @@ namespace Clinic.UI
             // grid_PrescriptionsClientView
             // 
             this.grid_PrescriptionsClientView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_PrescriptionsClientView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Tipo, this.Terapeuta, this.DataReceita, this.Mais, this.Visibilidade });
+            this.grid_PrescriptionsClientView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Mais, this.Visibilidade });
             this.grid_PrescriptionsClientView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_PrescriptionsClientView.Location = new System.Drawing.Point(3, 3);
             this.grid_PrescriptionsClientView.Name = "grid_PrescriptionsClientView";
             this.grid_PrescriptionsClientView.Size = new System.Drawing.Size(711, 314);
             this.grid_PrescriptionsClientView.TabIndex = 0;
             this.grid_PrescriptionsClientView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            // 
-            // Terapeuta
-            // 
-            this.Terapeuta.HeaderText = "Terapeuta";
-            this.Terapeuta.Name = "Terapeuta";
-            // 
-            // DataReceita
-            // 
-            this.DataReceita.HeaderText = "Data da receita";
-            this.DataReceita.Name = "DataReceita";
-            // 
-            // Mais
-            // 
-            this.Mais.HeaderText = "Mais";
-            this.Mais.Name = "Mais";
-            this.Mais.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Mais.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Mais.Text = "Mais";
-            this.Mais.UseColumnTextForButtonValue = true;
-            // 
-            // Visibilidade
-            // 
-            this.Visibilidade.HeaderText = "Visibilidade";
-            this.Visibilidade.Name = "Visibilidade";
-            this.Visibilidade.Text = "Visibilidade";
-            this.Visibilidade.UseColumnTextForButtonValue = true;
             // 
             // tab_Sessions
             // 
@@ -222,6 +188,22 @@ namespace Clinic.UI
             this.lb_ClientName.Size = new System.Drawing.Size(253, 23);
             this.lb_ClientName.TabIndex = 3;
             // 
+            // Mais
+            // 
+            this.Mais.HeaderText = "Mais";
+            this.Mais.Name = "Mais";
+            this.Mais.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Mais.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Mais.Text = "Mais";
+            this.Mais.UseColumnTextForButtonValue = true;
+            // 
+            // Visibilidade
+            // 
+            this.Visibilidade.HeaderText = "Visibilidade";
+            this.Visibilidade.Name = "Visibilidade";
+            this.Visibilidade.Text = "Visibilidade";
+            this.Visibilidade.UseColumnTextForButtonValue = true;
+            // 
             // ClientViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -260,9 +242,6 @@ namespace Clinic.UI
 
         private System.Windows.Forms.DataGridView grid_PrescriptionsClientView;
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Terapeuta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DataReceita;
         private System.Windows.Forms.DataGridViewButtonColumn Mais;
         private System.Windows.Forms.DataGridViewButtonColumn Visibilidade;
 
