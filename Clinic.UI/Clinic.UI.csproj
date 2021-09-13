@@ -65,6 +65,7 @@
         <Compile Include="CreateServiceForm.Designer.cs">
           <DependentUpon>CreateServiceForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="DatabaseManager.cs" />
         <Compile Include="FormHelpers\CreateServiceFormHelper.cs" />
         <Compile Include="ViewPrescriptionsForm.cs">
           <SubType>Form</SubType>

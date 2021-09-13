@@ -47,8 +47,6 @@ namespace Clinic.UI
             }
         }
         
-        //TODO verificações em cada botão (utilizar combo boxes talvez?)
-
         private void btn_SaveExercise_Click(object sender, EventArgs e)
         {
             var fieldsFilled = _createServiceFormHelper.ServiceFieldsFilled(textBox_ExerciseName.Text,
@@ -66,6 +64,8 @@ namespace Clinic.UI
                     var createdExerciseId = _unitOfWork.ExercisesRepository.Insert(exerciseDb);
                     exerciseDto.Id = createdExerciseId;
                     MessageBox.Show("Exercicio criado!");
+                    var form = new AddPrescriptionForm(_unitOfWork,_currentTherapistId);
+                    form.Show();
                     Close(); 
                 }
                 
@@ -87,6 +87,8 @@ namespace Clinic.UI
                 var createdMedicineId = _unitOfWork.MedicinesRepository.Insert(medicineDb);
                 medicineDto.Id = createdMedicineId;
                 MessageBox.Show("Medicamento criado!");
+                var form = new AddPrescriptionForm(_unitOfWork,_currentTherapistId);
+                form.Show();
                 Close();
             }
             else 
@@ -106,6 +108,8 @@ namespace Clinic.UI
                 var createdTreatmentId = _unitOfWork.TreatmentsRepository.Insert(treatmentDb);
                 treatmentDto.Id = createdTreatmentId;
                 MessageBox.Show("Tratamento criado!");
+                var form = new AddPrescriptionForm(_unitOfWork,_currentTherapistId);
+                form.Show();
                 Close();
             }
             else 

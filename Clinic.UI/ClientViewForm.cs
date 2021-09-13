@@ -138,8 +138,9 @@ namespace Clinic.UI
         {
             if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "DetalhesClientView")
             {
-                //TODO o que colocar aqui?
-                MessageBox.Show(@"A sessão teve uma duração de X minutos e foram realizadas as prescrições Y e Z");
+                var sessionTherapist = Convert.ToInt32(grid_ClientSessions.CurrentRow.Cells["AssignedTherapistId"].Value);
+                var therapistDto = _unitOfWork.TherapistRepository.GetTherapistById(sessionTherapist).MapToTherapistDto();
+                MessageBox.Show($"A sessão tem uma duração de 1 hora com o terapeuta {therapistDto.FirstName} {therapistDto.LastName} ");
             }
             else if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "EditarSessao")
             {
@@ -173,13 +174,8 @@ namespace Clinic.UI
                         var sessionDeleted = _unitOfWork.SessionsRepository.Delete(sessionToDelete);
                         if (sessionDeleted == 1)
                         {
-                            //TODO encontrar uma maneira de dar refresh (refresh datasource nao funciona; apagar da lista do datasource tambem nao)
                             var selectedRow = grid_ClientSessions.CurrentRow.Index;
-                            // _currentClient.ClientAppointments.Remove(sessionToDeleteDto);
-                            // Refresh();
-                            // Update();
                             MessageBox.Show(@"Sessao Desmarcada!");
-                            // clientSessions_Source.ResetBindings(false);
                             grid_ClientSessions.Rows.RemoveAt(selectedRow);
                         }
                         else

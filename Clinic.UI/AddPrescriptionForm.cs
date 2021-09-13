@@ -25,7 +25,8 @@ namespace Clinic.UI
             currentTherapist = therapistDb.MapToTherapistDto();
             currentTherapist.TherapistPrescriptions = therapistDbPrescriptions.MapPrescriptionsToDto();
             currentTherapist.TherapistSessions = therapistDbSessions.MapSessionsToDto();
-
+            
+            
             var medicines = _unitOfWork.MedicinesRepository.GetAll();
             var exercises = _unitOfWork.ExercisesRepository.GetAll();
             var treatments = _unitOfWork.TreatmentsRepository.GetAll();
@@ -56,19 +57,8 @@ namespace Clinic.UI
             {
                 cb_Treatments.Items.Add($"Id:{treatment.Id}: Tratamento: {treatment.Name}, Tipo: {treatment.Type}, Duração: {treatment.Duration}");
             }
-            
-            // grpBox_PrescriptionOptions.Visible = false;
         }
-
-        private void cb_ChooseSession_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-        }
-        private void cb_Services_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+        
         private void btn_SavePrescription_Click(object sender, EventArgs e)
         {
             if (cb_ChooseSession.SelectedIndex > -1)
@@ -80,6 +70,7 @@ namespace Clinic.UI
                 if (medicineChosen || exerciseChosen || treatmentChosen)
                 {
                     var prescriptionServices = new List<ServiceDto>();
+                    
                     if (medicineChosen)
                     {
                         var chosenMedicineId = cb_Medicines.Text.Split(':')[1];
@@ -101,15 +92,18 @@ namespace Clinic.UI
                         prescriptionServices.Add(treatmentDto);
                     }
                     
+                    //vai buscar a sessão á Bd atraves do seu Id
                     var chosenSessionId = cb_ChooseSession.Text.Split(':')[1];
                     var chosenSession = _unitOfWork.SessionsRepository.GetSessionById(Convert.ToInt32(chosenSessionId)).MapToSessionsDto();
                     var chosenSessionClientId = _unitOfWork.ClientRepository.GetClientById(chosenSession.AssignedClientId).MapToClientDto().Id;
                     
+                    //cria a nova prescrição e adiciona á Bd
                     var newPrescription = _prescriptionFormHelper.CreatePrescription(chosenSessionClientId,currentTherapist.Id,prescriptionServices);
                     var newPrescriptionDb = newPrescription.MapToPrescriptionDb();
                     var newPrescriptionDbId = _unitOfWork.PrescriptionsRepository.Insert(newPrescriptionDb);
                     newPrescription.Id = newPrescriptionDbId;
                     
+                    //Atualiza a sessão para ter o Id da prescrição criada
                     chosenSession.SessionPrescriptionId = newPrescriptionDbId;
                     var chosenSessionDb = chosenSession.MapToSessionsDb();
                     var updatedSession = _unitOfWork.SessionsRepository.Update(chosenSessionDb);
@@ -124,15 +118,17 @@ namespace Clinic.UI
                     else
                     {
                         MessageBox.Show(@"Prescrição adicionada");
+                        var form = new TherapistViewForm(_unitOfWork, currentTherapist.Id);
+                        form.Show();
                         this.Close();
                     }
                 }
-                else
+                else //quando escolhe a sessão mas nao escolhe nenhum serviço
                 {
                     MessageBox.Show("Escolha um dos serviços para adicionar! \n Caso nao tenha nenhum serviço por favor crie um.");
                 }
             }
-            else
+            else //quando tenta criar prescrição sem escolher a sessão
             {
                 MessageBox.Show("Por favor escolha uma sesão para adicionar a prescrição");
             }
@@ -144,8 +140,5 @@ namespace Clinic.UI
             form.Show();
             this.Close();
         }
-
-
-        
     }
 }

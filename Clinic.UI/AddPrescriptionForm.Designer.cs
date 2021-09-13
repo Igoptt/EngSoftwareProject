@@ -47,7 +47,7 @@ namespace Clinic.UI
             this.cb_ChooseSession.Size = new System.Drawing.Size(776, 21);
             this.cb_ChooseSession.TabIndex = 4;
             this.cb_ChooseSession.Text = "Escolha a sessão para adicionar uma prescrição";
-            this.cb_ChooseSession.SelectedIndexChanged += new System.EventHandler(this.cb_ChooseSession_SelectedIndexChanged);
+            // this.cb_ChooseSession.SelectedIndexChanged += new System.EventHandler(this.cb_ChooseSession_SelectedIndexChanged);
             // 
             // btn_CreateService
             // 
@@ -67,7 +67,7 @@ namespace Clinic.UI
             this.cb_Medicines.Size = new System.Drawing.Size(776, 21);
             this.cb_Medicines.TabIndex = 6;
             this.cb_Medicines.Text = "Escolha o medicamento para adicionar";
-            this.cb_Medicines.SelectedIndexChanged += new System.EventHandler(this.cb_Services_SelectedIndexChanged);
+            // this.cb_Medicines.SelectedIndexChanged += new System.EventHandler(this.cb_Services_SelectedIndexChanged);
             // 
             // btn_SavePrescription
             // 

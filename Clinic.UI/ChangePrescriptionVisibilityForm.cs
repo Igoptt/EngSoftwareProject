@@ -25,7 +25,7 @@ namespace Clinic.UI
             var prescriptionInformation = $"Escolehu a prescrição com o Id:{_prescriptionId} emitida por: ";
             foreach (var therapist in therapists)
             {
-                if (therapist.Id != chosenPrescription.PrescriptionAuthorId && chosenPrescription.ClientId == _currentClientId)
+                if (therapist.Id != chosenPrescription.PrescriptionAuthorId)
                 {
                     cb_ChooseTherapist.Items.Add($"Id do terapeuta:{therapist.Id}: Nome: {therapist.FirstName} {therapist.LastName}");
                 }

@@ -32,8 +32,6 @@ namespace Clinic.UI
         private void InitializeComponent()
         {
             this.grid_EmitedPrescriptions = new System.Windows.Forms.DataGridView();
-            this.ChangePrescription = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Mais = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -41,6 +39,7 @@ namespace Clinic.UI
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.grid_PrescriptionsWithClientGrantedAcess = new System.Windows.Forms.DataGridView();
             this.More = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Mais = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grid_EmitedPrescriptions)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -52,26 +51,12 @@ namespace Clinic.UI
             // 
             this.grid_EmitedPrescriptions.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.grid_EmitedPrescriptions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_EmitedPrescriptions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.ChangePrescription, this.Mais });
+            this.grid_EmitedPrescriptions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Mais });
             this.grid_EmitedPrescriptions.Location = new System.Drawing.Point(3, 3);
             this.grid_EmitedPrescriptions.Name = "grid_EmitedPrescriptions";
             this.grid_EmitedPrescriptions.Size = new System.Drawing.Size(746, 298);
             this.grid_EmitedPrescriptions.TabIndex = 0;
             this.grid_EmitedPrescriptions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_EmitedPrescriptions_CellContentClick);
-            // 
-            // ChangePrescription
-            // 
-            this.ChangePrescription.HeaderText = "Alterar Prescrição";
-            this.ChangePrescription.Name = "ChangePrescription";
-            this.ChangePrescription.Text = "Alterar Prescrição";
-            this.ChangePrescription.UseColumnTextForButtonValue = true;
-            // 
-            // Mais
-            // 
-            this.Mais.HeaderText = "Mais Informação";
-            this.Mais.Name = "Mais";
-            this.Mais.Text = "Mais Informação";
-            this.Mais.UseColumnTextForButtonValue = true;
             // 
             // tabPage2
             // 
@@ -142,6 +127,13 @@ namespace Clinic.UI
             this.More.HeaderText = "Mais";
             this.More.Name = "More";
             // 
+            // Mais
+            // 
+            this.Mais.HeaderText = "Mais Informação";
+            this.Mais.Name = "Mais";
+            this.Mais.Text = "Mais Informação";
+            this.Mais.UseColumnTextForButtonValue = true;
+            // 
             // ClientPrescriptionsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,8 +167,6 @@ namespace Clinic.UI
         private System.Windows.Forms.DataGridView grid_EmitedPrescriptions;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-
-        private System.Windows.Forms.DataGridViewButtonColumn ChangePrescription;
 
         // private System.Windows.Forms.DataGridView grid_ClientPrescriptions;
 

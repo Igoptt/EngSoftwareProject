@@ -8,7 +8,6 @@ namespace Clinic.UI.FormHelpers
 {
     public class CreateSessionFormHelper
     {
-        //TODO da para em vez do edit sesion suar este helper fazer doutra forma? com interfaces tlvz
         public bool TherapistAvailable(DateTime chosenDateHour, List<SessionsDto> therapistSessions)
         {
             var therapistAvailable = true;

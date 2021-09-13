@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Clinic.Data.Repositories;
 using Clinic.UI.DTO;
 
 namespace Clinic.UI.FormHelpers
@@ -28,7 +29,8 @@ namespace Clinic.UI.FormHelpers
                 PrescriptionAuthorId = theraphistAuthor,
             };
             return prescription;
-            
         }
+
+        
     }
 }

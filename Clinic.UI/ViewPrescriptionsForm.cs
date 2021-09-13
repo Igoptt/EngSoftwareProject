@@ -84,12 +84,6 @@ namespace Clinic.UI
 
         private void grid_EmitedPrescriptions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // if (grid_EmitedPrescriptions.Columns[e.ColumnIndex].Name == "ChangePrescription")
-            // {
-            //     var form = new ChangePrescriptionContentsForm();
-            //     form.Show();
-            // }
-
             if (grid_EmitedPrescriptions.Columns[e.ColumnIndex].Name == "Mais")
             {
                 //TODO mostrar a informação da sessao numa message box (quais os serviços dados) e os detalhes destes
