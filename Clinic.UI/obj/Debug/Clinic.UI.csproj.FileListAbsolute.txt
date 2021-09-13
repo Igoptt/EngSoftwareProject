@@ -15,7 +15,6 @@ C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.CreateSessionForm.resources
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.ChangePrescriptionVisibilityForm.resources
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.ClientPrescriptionsForm.resources
-C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.ChangePrescriptionContentsForm.resources
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\bin\Debug\Clinic.Data.dll
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\bin\Debug\Clinic.Data.pdb

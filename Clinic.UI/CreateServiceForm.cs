@@ -52,10 +52,10 @@ namespace Clinic.UI
         private void btn_SaveExercise_Click(object sender, EventArgs e)
         {
             var fieldsFilled = _createServiceFormHelper.ServiceFieldsFilled(textBox_ExerciseName.Text,
-                textBox_ExerciseIntensity.Text, textBox_ExerciseSchedule.Text);
+                cb_ExerciseIntensity.Text, textBox_ExerciseSchedule.Text);
             if (fieldsFilled)
             {
-                var exerciseDto = _createServiceFormHelper.CreateExercise(textBox_ExerciseName.Text,textBox_ExerciseIntensity.Text,textBox_ExerciseSchedule.Text);
+                var exerciseDto = _createServiceFormHelper.CreateExercise(textBox_ExerciseName.Text,cb_ExerciseIntensity.Text,textBox_ExerciseSchedule.Text);
                 if (exerciseDto == null)
                 {
                     MessageBox.Show("Ocorreu um erro ao criar este serviço. Verifique que a intensidade é apenas um numero inteiro");
@@ -98,10 +98,10 @@ namespace Clinic.UI
         private void btn_SaveTreatment_Click(object sender, EventArgs e)
         {
             var fieldsFilled = _createServiceFormHelper.ServiceFieldsFilled(textBox_TreatmentName.Text,
-                textBox_TreatmentType.Text, textBox_TreatmentDuration.Text);
+                textBox_TreatmentType.Text, cb_TreatmentDuration.Text);
             if (fieldsFilled)
             {
-                var treatmentDto = _createServiceFormHelper.CreateTreatment(textBox_TreatmentName.Text,textBox_TreatmentDuration.Text,textBox_TreatmentType.Text);
+                var treatmentDto = _createServiceFormHelper.CreateTreatment(textBox_TreatmentName.Text,cb_TreatmentDuration.Text,textBox_TreatmentType.Text);
                 var treatmentDb = treatmentDto.MapToTreatmentDb();
                 var createdTreatmentId = _unitOfWork.TreatmentsRepository.Insert(treatmentDb);
                 treatmentDto.Id = createdTreatmentId;

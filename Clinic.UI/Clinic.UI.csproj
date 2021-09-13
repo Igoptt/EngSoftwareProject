@@ -53,12 +53,6 @@
         <Compile Include="AddPrescriptionForm.Designer.cs">
           <DependentUpon>AddPrescriptionForm.cs</DependentUpon>
         </Compile>
-        <Compile Include="ChangePrescriptionContentsForm.cs">
-          <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="ChangePrescriptionContentsForm.Designer.cs">
-          <DependentUpon>ChangePrescriptionContentsForm.cs</DependentUpon>
-        </Compile>
         <Compile Include="ChangePrescriptionVisibilityForm.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -134,9 +128,6 @@
         </Compile>
         <EmbeddedResource Include="AddPrescriptionForm.resx">
           <DependentUpon>AddPrescriptionForm.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="ChangePrescriptionContentsForm.resx">
-          <DependentUpon>ChangePrescriptionContentsForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="ChangePrescriptionVisibilityForm.resx">
           <DependentUpon>ChangePrescriptionVisibilityForm.cs</DependentUpon>

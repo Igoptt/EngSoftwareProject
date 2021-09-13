@@ -23,14 +23,6 @@ namespace Clinic.Data
         public void LoadDatabase()
         {
             _database = JsonConvert.DeserializeObject<Database>(File.ReadAllText(_jsonDbPath));
-            // _database = new Database();
-            // _database.Clients = new List<Client>()
-            // {
-            //     new Client { Id = 1, FirstName = "Rodrigo", LastName = "", Username = "igo", Password = "1234", UserType = UserType.Client},
-            //     new Client { Id = 1, FirstName = "Joao", LastName = "", Username = "jo", Password = "1234", UserType = UserType.Therapist },
-            // };
-            
-            
         }
 
         public void SaveDatabase()

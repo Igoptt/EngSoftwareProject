@@ -84,11 +84,11 @@ namespace Clinic.UI
 
         private void grid_EmitedPrescriptions_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (grid_EmitedPrescriptions.Columns[e.ColumnIndex].Name == "ChangePrescription")
-            {
-                var form = new ChangePrescriptionContentsForm();
-                form.Show();
-            }
+            // if (grid_EmitedPrescriptions.Columns[e.ColumnIndex].Name == "ChangePrescription")
+            // {
+            //     var form = new ChangePrescriptionContentsForm();
+            //     form.Show();
+            // }
 
             if (grid_EmitedPrescriptions.Columns[e.ColumnIndex].Name == "Mais")
             {
@@ -137,6 +137,14 @@ namespace Clinic.UI
                         }
                     }
                 }
+            }
+        }
+
+        private void grid_PrescriptionsWithClientGrantedAcess_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grid_PrescriptionsWithClientGrantedAcess.Columns[e.ColumnIndex].Name == "More")
+            {
+                //TODO botao mais
             }
         }
     }

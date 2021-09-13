@@ -41,21 +41,21 @@ namespace Clinic.UI
             this.label1 = new System.Windows.Forms.Label();
             this.textBox_MedicineName = new System.Windows.Forms.TextBox();
             this.grpBox_Exercise = new System.Windows.Forms.GroupBox();
-            this.btn_SaveExercise = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox_ExerciseSchedule = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox_ExerciseIntensity = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox_ExerciseName = new System.Windows.Forms.TextBox();
+            this.cb_ExerciseIntensity = new System.Windows.Forms.ComboBox();
             this.grpBox_Treatment = new System.Windows.Forms.GroupBox();
+            this.cb_TreatmentDuration = new System.Windows.Forms.ComboBox();
             this.btn_SaveTreatment = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox_TreatmentType = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox_TreatmentDuration = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox_TreatmentName = new System.Windows.Forms.TextBox();
+            this.btn_SaveExercise = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox_ExerciseSchedule = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox_ExerciseName = new System.Windows.Forms.TextBox();
             this.grpBox_Medicine.SuspendLayout();
             this.grpBox_Exercise.SuspendLayout();
             this.grpBox_Treatment.SuspendLayout();
@@ -147,11 +147,11 @@ namespace Clinic.UI
             // grpBox_Exercise
             // 
             this.grpBox_Exercise.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpBox_Exercise.Controls.Add(this.cb_ExerciseIntensity);
             this.grpBox_Exercise.Controls.Add(this.btn_SaveExercise);
             this.grpBox_Exercise.Controls.Add(this.label7);
             this.grpBox_Exercise.Controls.Add(this.textBox_ExerciseSchedule);
             this.grpBox_Exercise.Controls.Add(this.label8);
-            this.grpBox_Exercise.Controls.Add(this.textBox_ExerciseIntensity);
             this.grpBox_Exercise.Controls.Add(this.label9);
             this.grpBox_Exercise.Controls.Add(this.textBox_ExerciseName);
             this.grpBox_Exercise.Location = new System.Drawing.Point(12, 137);
@@ -161,69 +161,23 @@ namespace Clinic.UI
             this.grpBox_Exercise.TabStop = false;
             this.grpBox_Exercise.Text = "Exercicio";
             // 
-            // btn_SaveExercise
+            // cb_ExerciseIntensity
             // 
-            this.btn_SaveExercise.Location = new System.Drawing.Point(206, 226);
-            this.btn_SaveExercise.Name = "btn_SaveExercise";
-            this.btn_SaveExercise.Size = new System.Drawing.Size(235, 67);
-            this.btn_SaveExercise.TabIndex = 6;
-            this.btn_SaveExercise.Text = "Guardar";
-            this.btn_SaveExercise.UseVisualStyleBackColor = true;
-            this.btn_SaveExercise.Click += new System.EventHandler(this.btn_SaveExercise_Click);
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(206, 156);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(235, 20);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Horario sugerido\r\n";
-            // 
-            // textBox_ExerciseSchedule
-            // 
-            this.textBox_ExerciseSchedule.Location = new System.Drawing.Point(206, 182);
-            this.textBox_ExerciseSchedule.Name = "textBox_ExerciseSchedule";
-            this.textBox_ExerciseSchedule.Size = new System.Drawing.Size(235, 20);
-            this.textBox_ExerciseSchedule.TabIndex = 4;
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(206, 97);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(235, 20);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Intensidade do Exercicio\r\n";
-            // 
-            // textBox_ExerciseIntensity
-            // 
-            this.textBox_ExerciseIntensity.Location = new System.Drawing.Point(206, 123);
-            this.textBox_ExerciseIntensity.Name = "textBox_ExerciseIntensity";
-            this.textBox_ExerciseIntensity.Size = new System.Drawing.Size(235, 20);
-            this.textBox_ExerciseIntensity.TabIndex = 2;
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(206, 39);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(235, 20);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Nome do Exercicio\r\n";
-            // 
-            // textBox_ExerciseName
-            // 
-            this.textBox_ExerciseName.Location = new System.Drawing.Point(206, 65);
-            this.textBox_ExerciseName.Name = "textBox_ExerciseName";
-            this.textBox_ExerciseName.Size = new System.Drawing.Size(235, 20);
-            this.textBox_ExerciseName.TabIndex = 0;
+            this.cb_ExerciseIntensity.FormattingEnabled = true;
+            this.cb_ExerciseIntensity.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" });
+            this.cb_ExerciseIntensity.Location = new System.Drawing.Point(242, 117);
+            this.cb_ExerciseIntensity.Name = "cb_ExerciseIntensity";
+            this.cb_ExerciseIntensity.Size = new System.Drawing.Size(235, 21);
+            this.cb_ExerciseIntensity.TabIndex = 7;
             // 
             // grpBox_Treatment
             // 
             this.grpBox_Treatment.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpBox_Treatment.Controls.Add(this.cb_TreatmentDuration);
             this.grpBox_Treatment.Controls.Add(this.btn_SaveTreatment);
             this.grpBox_Treatment.Controls.Add(this.label6);
             this.grpBox_Treatment.Controls.Add(this.textBox_TreatmentType);
             this.grpBox_Treatment.Controls.Add(this.label5);
-            this.grpBox_Treatment.Controls.Add(this.textBox_TreatmentDuration);
             this.grpBox_Treatment.Controls.Add(this.label4);
             this.grpBox_Treatment.Controls.Add(this.textBox_TreatmentName);
             this.grpBox_Treatment.Location = new System.Drawing.Point(12, 137);
@@ -232,6 +186,15 @@ namespace Clinic.UI
             this.grpBox_Treatment.TabIndex = 2;
             this.grpBox_Treatment.TabStop = false;
             this.grpBox_Treatment.Text = "Tratamento";
+            // 
+            // cb_TreatmentDuration
+            // 
+            this.cb_TreatmentDuration.FormattingEnabled = true;
+            this.cb_TreatmentDuration.Items.AddRange(new object[] {"1 mes", "2 meses", "3 meses", "4 meses", "5 meses", "6 meses", "7 meses", "8 meses", "9 meses", "10 meses", "11 meses", "12 meses"});
+            this.cb_TreatmentDuration.Location = new System.Drawing.Point(242, 117);
+            this.cb_TreatmentDuration.Name = "cb_TreatmentDuration";
+            this.cb_TreatmentDuration.Size = new System.Drawing.Size(235, 21);
+            this.cb_TreatmentDuration.TabIndex = 7;
             // 
             // btn_SaveTreatment
             // 
@@ -266,13 +229,6 @@ namespace Clinic.UI
             this.label5.TabIndex = 3;
             this.label5.Text = "Duração do tratamento";
             // 
-            // textBox_TreatmentDuration
-            // 
-            this.textBox_TreatmentDuration.Location = new System.Drawing.Point(242, 120);
-            this.textBox_TreatmentDuration.Name = "textBox_TreatmentDuration";
-            this.textBox_TreatmentDuration.Size = new System.Drawing.Size(235, 20);
-            this.textBox_TreatmentDuration.TabIndex = 2;
-            // 
             // label4
             // 
             this.label4.Location = new System.Drawing.Point(242, 34);
@@ -288,13 +244,61 @@ namespace Clinic.UI
             this.textBox_TreatmentName.Size = new System.Drawing.Size(235, 20);
             this.textBox_TreatmentName.TabIndex = 0;
             // 
+            // btn_SaveExercise
+            // 
+            this.btn_SaveExercise.Location = new System.Drawing.Point(242, 221);
+            this.btn_SaveExercise.Name = "btn_SaveExercise";
+            this.btn_SaveExercise.Size = new System.Drawing.Size(235, 67);
+            this.btn_SaveExercise.TabIndex = 6;
+            this.btn_SaveExercise.Text = "Guardar";
+            this.btn_SaveExercise.UseVisualStyleBackColor = true;
+            this.btn_SaveExercise.Click += new System.EventHandler(this.btn_SaveExercise_Click);
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(242, 151);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(235, 20);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Horario sugerido\r\n";
+            // 
+            // textBox_ExerciseSchedule
+            // 
+            this.textBox_ExerciseSchedule.Location = new System.Drawing.Point(242, 177);
+            this.textBox_ExerciseSchedule.Name = "textBox_ExerciseSchedule";
+            this.textBox_ExerciseSchedule.Size = new System.Drawing.Size(235, 20);
+            this.textBox_ExerciseSchedule.TabIndex = 4;
+            // 
+            // label8
+            // 
+            this.label8.Location = new System.Drawing.Point(242, 92);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(235, 20);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Intensidade do Exercicio\r\n";
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(242, 34);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(235, 20);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Nome do Exercicio\r\n";
+            // 
+            // textBox_ExerciseName
+            // 
+            this.textBox_ExerciseName.Location = new System.Drawing.Point(242, 60);
+            this.textBox_ExerciseName.Name = "textBox_ExerciseName";
+            this.textBox_ExerciseName.Size = new System.Drawing.Size(235, 20);
+            this.textBox_ExerciseName.TabIndex = 0;
+            // 
             // CreateServiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(908, 561);
-            this.Controls.Add(this.grpBox_Treatment);
             this.Controls.Add(this.grpBox_Exercise);
+            this.Controls.Add(this.grpBox_Treatment);
             this.Controls.Add(this.grpBox_Medicine);
             this.Controls.Add(this.cb_ServiceType);
             this.Name = "CreateServiceForm";
@@ -308,6 +312,10 @@ namespace Clinic.UI
             this.ResumeLayout(false);
         }
 
+        private System.Windows.Forms.ComboBox cb_ExerciseIntensity;
+
+        private System.Windows.Forms.ComboBox cb_TreatmentDuration;
+
         private System.Windows.Forms.Button btn_SaveExercise;
 
         private System.Windows.Forms.Button btn_SaveMedicine;
@@ -320,7 +328,6 @@ namespace Clinic.UI
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox_ExerciseName;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox_ExerciseIntensity;
         private System.Windows.Forms.Label label9;
 
         private System.Windows.Forms.TextBox textBox_TreatmentType;
@@ -336,7 +343,6 @@ namespace Clinic.UI
         private System.Windows.Forms.GroupBox grpBox_Treatment;
         private System.Windows.Forms.TextBox textBox_TreatmentName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox_TreatmentDuration;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
 

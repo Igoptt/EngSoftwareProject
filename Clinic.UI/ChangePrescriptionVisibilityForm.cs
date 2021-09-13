@@ -19,28 +19,13 @@ namespace Clinic.UI
             _prescriptionId = prescriptionId;
 
             var chosenPrescription = _unitOfWork.PrescriptionsRepository.GetPrescriptionById(_prescriptionId);
-            
-            // selectedSession = _unitOfWork.SessionsRepository.GetSessionById(sessionId).MapToSessionsDto();
             InitializeComponent();
 
-            // var clientSessions = _unitOfWork.SessionsRepository.GetClientSessions(_currentClientId).MapSessionsToDto();
-
-            // foreach (var session in clientSessions)
-            // {
-            //     if (session.SessionPrescriptionId != -1)
-            //     {
-            //         cb_Sessions.Items.Add($"Id da sessão:{session.Id}: Com a prescrição:{session.SessionPrescriptionId}: Prescrita pelo terapeuta com o Id:{session.AssignedTherapistId}");
-            //     }
-            // }
-            // textBox_PrescriptionInformation.Text = $"Escolheu a prescrição da sessão do dia: {selectedSession.SessionDate}";
-            
-            
-            
             var therapists = _unitOfWork.TherapistRepository.GetAll();
             var prescriptionInformation = $"Escolehu a prescrição com o Id:{_prescriptionId} emitida por: ";
             foreach (var therapist in therapists)
             {
-                if (therapist.Id != chosenPrescription.PrescriptionAuthorId)
+                if (therapist.Id != chosenPrescription.PrescriptionAuthorId && chosenPrescription.ClientId == _currentClientId)
                 {
                     cb_ChooseTherapist.Items.Add($"Id do terapeuta:{therapist.Id}: Nome: {therapist.FirstName} {therapist.LastName}");
                 }

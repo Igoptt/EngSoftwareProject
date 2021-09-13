@@ -62,10 +62,7 @@ namespace Clinic.UI
 
         private void cb_ChooseSession_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // if (cb_ChooseSession.SelectedIndex > -1)
-            // {
-            //     // grpBox_PrescriptionOptions.Visible = true;
-            // }
+           
         }
         private void cb_Services_SelectedIndexChanged(object sender, EventArgs e)
         {

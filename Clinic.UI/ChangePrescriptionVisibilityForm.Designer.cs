@@ -34,6 +34,7 @@ namespace Clinic.UI
             this.btn_SavePrescriptionVisibilityChanges = new System.Windows.Forms.Button();
             this.cb_ChooseTherapist = new System.Windows.Forms.ComboBox();
             this.textBox_PrescriptionInformation = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_SavePrescriptionVisibilityChanges
@@ -61,21 +62,32 @@ namespace Clinic.UI
             this.textBox_PrescriptionInformation.Name = "textBox_PrescriptionInformation";
             this.textBox_PrescriptionInformation.Size = new System.Drawing.Size(312, 20);
             this.textBox_PrescriptionInformation.TabIndex = 4;
-            this.textBox_PrescriptionInformation.Text = "te";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(239, 117);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(312, 23);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Informação sobre a prescrição";
             // 
             // ChangePrescriptionVisibilityForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_PrescriptionInformation);
             this.Controls.Add(this.cb_ChooseTherapist);
             this.Controls.Add(this.btn_SavePrescriptionVisibilityChanges);
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "ChangePrescriptionVisibilityForm";
-            this.Text = "ChangePrescriptionVisibilityForm";
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Label label1;
 
         private System.Windows.Forms.TextBox textBox_PrescriptionInformation;
 

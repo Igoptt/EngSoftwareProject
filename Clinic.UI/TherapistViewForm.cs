@@ -41,19 +41,7 @@ namespace Clinic.UI
             form.Show();
             this.Close();
         }
-
         
-
-        private void grid_ClientsTherapistView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (grid_ClientsTherapistView.Columns[e.ColumnIndex].Name == "Prescrições")
-            {
-                //ir buscar as precrições daqele cliente para mostrar
-                var form = new ClientPrescriptionsForm(_unitOfWork,_currentTherapist.Id);
-                form.Show();
-            }
-        }
-
         private void grid_SessionsTherapistView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "RemoveAppointmentTherapistView")

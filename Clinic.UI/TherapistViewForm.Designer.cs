@@ -37,8 +37,6 @@ namespace Clinic.UI
             this.AddSessionNoteTherapistView = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Prescription = new System.Windows.Forms.DataGridViewButtonColumn();
             this.RemoveAppointmentTherapistView = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.tab_ClientsTherapistView = new System.Windows.Forms.TabPage();
-            this.grid_ClientsTherapistView = new System.Windows.Forms.DataGridView();
             this.grid_therapistSessionList = new System.Windows.Forms.DataGridView();
             this.SessionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,15 +48,13 @@ namespace Clinic.UI
             this.table_TherapistView.SuspendLayout();
             this.tab_SessionsTherapistView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_SessionsTherapistView)).BeginInit();
-            this.tab_ClientsTherapistView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_ClientsTherapistView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_therapistSessionList)).BeginInit();
             this.SuspendLayout();
             // 
             // table_TherapistView
             // 
+            this.table_TherapistView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.table_TherapistView.Controls.Add(this.tab_SessionsTherapistView);
-            this.table_TherapistView.Controls.Add(this.tab_ClientsTherapistView);
             this.table_TherapistView.Location = new System.Drawing.Point(31, 110);
             this.table_TherapistView.Name = "table_TherapistView";
             this.table_TherapistView.SelectedIndex = 0;
@@ -78,9 +74,9 @@ namespace Clinic.UI
             // 
             // grid_SessionsTherapistView
             // 
+            this.grid_SessionsTherapistView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.grid_SessionsTherapistView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_SessionsTherapistView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.AddSessionNoteTherapistView, this.Prescription, this.RemoveAppointmentTherapistView });
-            this.grid_SessionsTherapistView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_SessionsTherapistView.Location = new System.Drawing.Point(3, 3);
             this.grid_SessionsTherapistView.Name = "grid_SessionsTherapistView";
             this.grid_SessionsTherapistView.Size = new System.Drawing.Size(731, 296);
@@ -107,27 +103,6 @@ namespace Clinic.UI
             this.RemoveAppointmentTherapistView.Name = "RemoveAppointmentTherapistView";
             this.RemoveAppointmentTherapistView.Text = "Desmarcar Sessao";
             this.RemoveAppointmentTherapistView.UseColumnTextForButtonValue = true;
-            // 
-            // tab_ClientsTherapistView
-            // 
-            this.tab_ClientsTherapistView.Controls.Add(this.grid_ClientsTherapistView);
-            this.tab_ClientsTherapistView.Location = new System.Drawing.Point(4, 22);
-            this.tab_ClientsTherapistView.Name = "tab_ClientsTherapistView";
-            this.tab_ClientsTherapistView.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_ClientsTherapistView.Size = new System.Drawing.Size(737, 302);
-            this.tab_ClientsTherapistView.TabIndex = 1;
-            this.tab_ClientsTherapistView.Text = "Clientes";
-            this.tab_ClientsTherapistView.UseVisualStyleBackColor = true;
-            // 
-            // grid_ClientsTherapistView
-            // 
-            this.grid_ClientsTherapistView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_ClientsTherapistView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid_ClientsTherapistView.Location = new System.Drawing.Point(3, 3);
-            this.grid_ClientsTherapistView.Name = "grid_ClientsTherapistView";
-            this.grid_ClientsTherapistView.Size = new System.Drawing.Size(731, 296);
-            this.grid_ClientsTherapistView.TabIndex = 0;
-            this.grid_ClientsTherapistView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_ClientsTherapistView_CellContentClick);
             // 
             // grid_therapistSessionList
             // 
@@ -203,8 +178,6 @@ namespace Clinic.UI
             this.table_TherapistView.ResumeLayout(false);
             this.tab_SessionsTherapistView.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_SessionsTherapistView)).EndInit();
-            this.tab_ClientsTherapistView.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grid_ClientsTherapistView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid_therapistSessionList)).EndInit();
             this.ResumeLayout(false);
         }
@@ -214,16 +187,12 @@ namespace Clinic.UI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label_TherapistName;
 
-        private System.Windows.Forms.DataGridView grid_ClientsTherapistView;
-
         private System.Windows.Forms.Button btn_AddPrescriptionToSession;
 
         private System.Windows.Forms.DataGridView grid_SessionsTherapistView;
 
         private System.Windows.Forms.TabControl table_TherapistView;
         private System.Windows.Forms.DataGridView dataGridView2;
-
-        private System.Windows.Forms.TabPage tab_ClientsTherapistView;
 
         private System.Windows.Forms.DataGridViewButtonColumn AddSessionNoteTherapistView;
         private System.Windows.Forms.DataGridViewButtonColumn RemoveAppointmentTherapistView;
