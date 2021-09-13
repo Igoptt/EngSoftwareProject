@@ -67,6 +67,7 @@ namespace Clinic.UI
             //Converte o terapeuta para Dto com as sessóes
             var currentTherapist = therapistDb.MapToTherapistDto();
             currentTherapist.TherapistSessions = currentTherapistSessions.MapSessionsToDto();
+            currentTherapist.TherapistPrescriptions = currentTherapistPrescriptions.MapPrescriptionsToDto();
             
             //Converte a prescrição do terapeuta com os serviços para Dto
             currentTherapist.TherapistPrescriptions = TherapistPrescriptionsWithServicesDto(currentTherapistPrescriptions, currentTherapist);
@@ -118,6 +119,7 @@ namespace Clinic.UI
             //Converte o cliente para Dto com as sessóes
             var currentClient = clientDb.MapToClientDto();
             currentClient.ClientAppointments = currentClientSessions.MapSessionsToDto();
+            currentClient.ClientPrescriptions = currentClientPrescriptions.MapPrescriptionsToDto();
             
             //Converte a prescrição do cliente com os serviços para Dto
             currentClient.ClientPrescriptions = ClientPrescriptionsWithServicesDto(currentClientPrescriptions,currentClient);
