@@ -17,7 +17,8 @@ namespace Clinic.UI
         {
             // _unitOfWork = unitOfWork;
             _databaseManager = databaseManager;
-            var _currentTherapistId = currentTherapist;
+            // var _currentTherapistId = currentTherapist;
+            _currentTherapist = currentTherapist;
             _prescriptionFormHelper = new AddPrescriptionFormHelper();
             
             //isto ja nao é preciso pq da o terapeuta logo

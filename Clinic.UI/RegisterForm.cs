@@ -8,7 +8,7 @@ namespace Clinic.UI
 {
     public partial class RegisterForm : Form
     {
-        private readonly UnitOfWork _unitOfWork;
+        // private readonly UnitOfWork _unitOfWork;
         private readonly RegisterFormHelper _registerFormHelper;
         private readonly DatabaseManager _databaseManager;
 

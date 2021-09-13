@@ -10,7 +10,7 @@ namespace Clinic.UI
     {
         // private readonly UnitOfWork _unitOfWork;
         private readonly DatabaseManager _databaseManager;
-        private readonly int _currentTherapistId;
+        // private readonly int _currentTherapistId;
         private readonly CreateServiceFormHelper _createServiceFormHelper;
         private TherapistDto _currentTherapist;
         public CreateServiceForm(DatabaseManager databaseManager, TherapistDto currentTherapist)

@@ -11,7 +11,7 @@ namespace Clinic.UI
     {
         // private readonly UnitOfWork _unitOfWork;
         private readonly DatabaseManager _databaseManager;
-        private readonly int _currentTherapistId;
+        // private readonly int _currentTherapistId;
         private TherapistDto _currentTherapist;
         private List<Prescription> acessiblePrescriptions;
         private TherapistDto dummyTherapist;
