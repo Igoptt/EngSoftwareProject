@@ -8,25 +8,27 @@ namespace Clinic.UI
 {
     public partial class TherapistViewForm : Form
     {
-        private readonly UnitOfWork _unitOfWork;
+        private readonly DatabaseManager _databaseManager;
+        // private readonly UnitOfWork _unitOfWork;
         private  TherapistDto _currentTherapist;
         private BindingSource therapistSessionsSource;
-        public TherapistViewForm(UnitOfWork unitOfWork, int therapistId)
+        public TherapistViewForm(DatabaseManager databaseManager, int therapistId)
         {
             
-            _unitOfWork = unitOfWork;
-            
-            //TODO meter isto num helper
-            var therapistBd = _unitOfWork.TherapistRepository.GetTherapistById(therapistId);
-            var therapistSessions = _unitOfWork.SessionsRepository.GetTherapistSessions(therapistId);
-            var therapistPrescriptions = _unitOfWork.PrescriptionsRepository.GetPrescriptionsEmmitedCByTherapist(therapistId);
-            _currentTherapist = therapistBd.MapToTherapistDto();
-            _currentTherapist.TherapistPrescriptions = therapistPrescriptions.MapPrescriptionsToDto();
-            _currentTherapist.TherapistSessions = therapistSessions.MapSessionsToDto();
+            // _unitOfWork = unitOfWork;
+            _databaseManager = databaseManager;
+
+            // var therapistBd = _unitOfWork.TherapistRepository.GetTherapistById(therapistId);
+            // var therapistSessions = _unitOfWork.SessionsRepository.GetTherapistSessions(therapistId);
+            // var therapistPrescriptions = _unitOfWork.PrescriptionsRepository.GetPrescriptionsEmmitedCByTherapist(therapistId);
+            // _currentTherapist = therapistBd.MapToTherapistDto();
+            // _currentTherapist.TherapistPrescriptions = therapistPrescriptions.MapPrescriptionsToDto();
+            // _currentTherapist.TherapistSessions = therapistSessions.MapSessionsToDto();
+
+            _currentTherapist = _databaseManager.TherapistViewingForm(therapistId);
             
             therapistSessionsSource = new BindingSource();
             therapistSessionsSource.DataSource = _currentTherapist.TherapistSessions;
-            
             
             InitializeComponent();
             grid_SessionsTherapistView.DataSource = therapistSessionsSource;
@@ -37,7 +39,7 @@ namespace Clinic.UI
 
         private void btn_AddPrescriptionToSession_Click(object sender, EventArgs e)
         {
-            var form = new AddPrescriptionForm(_unitOfWork, _currentTherapist.Id);
+            var form = new AddPrescriptionForm(_databaseManager, _currentTherapist);
             form.Show();
             this.Close();
         }
@@ -51,20 +53,22 @@ namespace Clinic.UI
                 if (confirmation == DialogResult.Yes)
                 {
                     var selectedRowId = Convert.ToInt32(grid_SessionsTherapistView.CurrentRow.Cells["Id"].Value);
-                    var sessionToDelete = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
+                    // var sessionToDelete = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
+                    var sessionToDelete = _databaseManager.GetSpecificSession(selectedRowId);
                     if (sessionToDelete.SessionDate <= DateTime.Now)
                     {
                         MessageBox.Show("Esta consulta já aconteceu");
                     }
                     else
                     {
-                        var sessionClient = _unitOfWork.ClientRepository.GetClientById(sessionToDelete.AssignedClientId);
+                        var sessionClient = _databaseManager.GetSpecificClient(sessionToDelete.AssignedClientId);
                         var sessionTherapist = _currentTherapist.MapToTherapistDb();
                         sessionClient.ClientAppointments.Remove(sessionToDelete.Id);
-                        _unitOfWork.ClientRepository.Update(sessionClient);
+                        _databaseManager.UpdateClient(sessionClient);
                         sessionTherapist.TherapistSessions.Remove(sessionToDelete.Id);
-                        _unitOfWork.TherapistRepository.Update(sessionTherapist);
-                        var sessionDeleted = _unitOfWork.SessionsRepository.Delete(sessionToDelete);
+                        _databaseManager.UpdateTherapist(sessionTherapist);
+                        // var sessionDeleted = _unitOfWork.SessionsRepository.Delete(sessionToDelete);
+                        var sessionDeleted = _databaseManager.DeleteSession(sessionToDelete);
                         if (sessionDeleted == 1)
                         {
                             
@@ -102,21 +106,23 @@ namespace Clinic.UI
                 else
                 {
                     var selectedRowId = Convert.ToInt32(grid_SessionsTherapistView.CurrentRow.Cells["Id"].Value);
-                    var sessionToAddedNote = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
-                    var sessionDto = sessionToAddedNote.MapToSessionsDto();
+                    // var sessionToAddedNote = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
+                    var sessionToAddedNote = _databaseManager.GetSpecificSession(selectedRowId);
+                    var sessionDto = sessionToAddedNote.MapToSessionToDto();
                     sessionDto.TheraphistSessionNote = myValue.ToString();
                     
                     Interaction.MsgBox(" ' " + myValue.ToString() + " ' "+ Environment.NewLine + "Nota Adicionada.",
                         MsgBoxStyle.OkOnly | MsgBoxStyle.Information, "Nota");
                     
                     var sessionDb = sessionDto.MapToSessionsDb();
-                    _unitOfWork.SessionsRepository.Update(sessionDb);
+                    // _unitOfWork.SessionsRepository.Update(sessionDb);
+                    var updatedSession = _databaseManager.UpdateSession(sessionDb);
 
                 }
             }
             if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "Prescription")
             {
-                var form = new ClientPrescriptionsForm(_unitOfWork,_currentTherapist.Id);
+                var form = new ClientPrescriptionsForm(_databaseManager,_currentTherapist);
                 form.Show();
             }
         }

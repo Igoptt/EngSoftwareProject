@@ -10,10 +10,12 @@ namespace Clinic.UI
     {
         private readonly UnitOfWork _unitOfWork;
         private readonly RegisterFormHelper _registerFormHelper;
+        private readonly DatabaseManager _databaseManager;
 
-        public RegisterForm(UnitOfWork unitOfWork)
+        public RegisterForm(DatabaseManager databaseManager)
         {
-            _unitOfWork = unitOfWork;
+            // _unitOfWork = unitOfWork;
+            _databaseManager = databaseManager;
             _registerFormHelper = new RegisterFormHelper();
             InitializeComponent();
         }
@@ -26,34 +28,26 @@ namespace Clinic.UI
                 {
                     if (cb_AccountTypeRegister.SelectedIndex == 0) //cliente
                     {
-                        var clientDto = new ClientDto
-                        {
-                            FirstName = textBox_Register_FirstName.Text,
-                            LastName = textBox_Register_LastName.Text,
-                            Username = textBox_Register_Username.Text,
-                            Password = textBox_Register_Password.Text
-                        };
-                        var clientCreatedId = _unitOfWork.ClientRepository.Insert(clientDto.MapToClientDb());
-                        // MessageBox.Show($@"Conta criada! Bem vindo {clientDto.FirstName}");
+                        var clientDto = _registerFormHelper.CreateNewClient(textBox_Register_FirstName.Text,
+                            textBox_Register_LastName.Text, textBox_Register_Username.Text,
+                            textBox_Register_Password.Text);
+                        
+                        // var clientCreatedId = _unitOfWork.ClientRepository.Insert(clientDto.MapToClientDb());
+                        var clientCreatedId = _databaseManager.InsertNewClient(clientDto);
                         this.Close();
-                        var form = new ClientViewForm(_unitOfWork, clientCreatedId);
+                        var form = new ClientViewForm(_databaseManager, clientCreatedId);
                         form.Show();
 
                     }
                     else if (cb_AccountTypeRegister.SelectedIndex == 1)//terapeuta
                     {
-                        var therapistDto = new TherapistDto
-                        {
-                            FirstName = textBox_Register_FirstName.Text,
-                            LastName = textBox_Register_LastName.Text,
-                            Username = textBox_Register_Username.Text,
-                            Password = textBox_Register_Password.Text
-                        };
-                        
-                        var therapistCreatedId = _unitOfWork.TherapistRepository.Insert(therapistDto.MapToTherapistDb());
-                        // MessageBox.Show($@"Conta criada! Bem vindo {therapistDto.FirstName}");
+                        var therapistDto = _registerFormHelper.CreateNewTherapist(textBox_Register_FirstName.Text,
+                            textBox_Register_LastName.Text, textBox_Register_Username.Text,
+                            textBox_Register_Password.Text);
+                        // var therapistCreatedId = _unitOfWork.TherapistRepository.Insert(therapistDto.MapToTherapistDb());
+                        var therapistCreatedId = _databaseManager.InsertNewTherapist(therapistDto);
                         this.Close();
-                        var form = new TherapistViewForm(_unitOfWork, therapistCreatedId);
+                        var form = new TherapistViewForm(_databaseManager, therapistCreatedId);
                         form.Show();
                         
                     } 

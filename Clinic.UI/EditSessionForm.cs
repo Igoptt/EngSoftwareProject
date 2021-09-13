@@ -8,15 +8,19 @@ namespace Clinic.UI
 {
     public partial class EditSessionForm : Form
     {
-        private readonly UnitOfWork _unitOfWork;
-        private readonly int _clientId;
+        private readonly DatabaseManager _databaseManager;
+        // private readonly UnitOfWork _unitOfWork;
+        // private readonly int _clientId;
+        private ClientDto _clientDto;
         private readonly int _sessionId;
         private readonly EditSessionFormHelper _editSessionFormHelper;
         private readonly CreateSessionFormHelper _createSessionFormHelper;
-        public EditSessionForm(UnitOfWork unitOfWork, int clientId, int sessionId)
+        public EditSessionForm(DatabaseManager databaseManager, ClientDto clientDto, int sessionId)
         {
-            _unitOfWork = unitOfWork;
-            _clientId = clientId;
+            // _unitOfWork = unitOfWork;
+            _databaseManager = databaseManager;
+            // _clientId = clientId;
+            _clientDto = clientDto;
             _sessionId = sessionId;
             _editSessionFormHelper = new EditSessionFormHelper();
             _createSessionFormHelper = new CreateSessionFormHelper();
@@ -28,11 +32,14 @@ namespace Clinic.UI
         {
             
             var selectedTime = Convert.ToDateTime(dtp_SessionDate.Text);
-            if (cb_SessionHours.SelectedIndex > -1 && (selectedTime >= DateTime.Now))
+            if (cb_SessionHours.SelectedIndex > -1 && (selectedTime > DateTime.Now))
             {
-                var selectedSession = _unitOfWork.SessionsRepository.GetSessionById(_sessionId).MapToSessionsDto();
-                var selectedTherapist = _unitOfWork.TherapistRepository.GetTherapistById(selectedSession.AssignedTherapistId).Id;
-                var selectedTherapistSessions = _unitOfWork.SessionsRepository.GetTherapistSessions(selectedTherapist).MapSessionsToDto();
+                // var selectedSession = _unitOfWork.SessionsRepository.GetSessionById(_sessionId).MapToSessionToDto();
+                // var selectedTherapist = _unitOfWork.TherapistRepository.GetTherapistById(selectedSession.AssignedTherapistId).Id;
+                // var selectedTherapistSessions = _unitOfWork.SessionsRepository.GetTherapistSessions(selectedTherapist).MapSessionsToDto();
+                var selectedSession = _databaseManager.GetSpecificSession(_sessionId).MapToSessionToDto();
+                var selectedTherapist = _databaseManager.GetSpecificTherapistDb(selectedSession.AssignedTherapistId).MapToTherapistDto();
+                var selectedTherapistSessions = _databaseManager.GetTherapistSessions(selectedTherapist.Id).MapSessionsToDto();
                 
                 var newSession = _editSessionFormHelper.UpdateSession(cb_SessionHours.Text, selectedTime, selectedSession);
                 
@@ -44,11 +51,12 @@ namespace Clinic.UI
                 else
                 {
                     var newSessionDb = newSession.MapToSessionsDb();
-                    var sessionId = _unitOfWork.SessionsRepository.Update(newSessionDb);
+                    // var sessionId = _unitOfWork.SessionsRepository.Update(newSessionDb);
+                    var sessionId = _databaseManager.UpdateSession(newSessionDb);
                     if (sessionId != 0)
                     {
                         MessageBox.Show("A sua consulta foi mudada para a data escolhida");
-                        var form = new ClientViewForm(_unitOfWork, _clientId);
+                        var form = new ClientViewForm(_databaseManager, _clientDto.Id);
                         form.Show();
                         this.Close();
                     }

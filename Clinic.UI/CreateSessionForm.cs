@@ -9,21 +9,24 @@ namespace Clinic.UI
 {
     public partial class CreateSessionForm : Form
     {
-        private readonly UnitOfWork _unitOfWork;
-        private readonly int _clientId;
+        private readonly DatabaseManager _databaseManager;
+        // private readonly UnitOfWork _unitOfWork;
+        private  ClientDto _clientDto;
         private readonly CreateSessionFormHelper _createSessionFormHelper;
-        public CreateSessionForm(UnitOfWork unitOfWork, int clientId)
+        public CreateSessionForm(DatabaseManager databaseManager, ClientDto clientDto)
         {
-            _unitOfWork = unitOfWork;
-            _clientId = clientId;
+            // _unitOfWork = unitOfWork;
+            _databaseManager = databaseManager;
+            _clientDto = clientDto;
             _createSessionFormHelper = new CreateSessionFormHelper();
-            var clinicTherapists = _unitOfWork.TherapistRepository.GetAll();
+            // var clinicTherapists = _unitOfWork.TherapistRepository.GetAll();
+            var clinicTherapists = _databaseManager.GetAllTherapists();
             
             InitializeComponent();
 
             foreach (var therapist in clinicTherapists)
             {
-                cb_ChooseTherapist.Items.Add($"{therapist.FirstName} {therapist.LastName}");
+                cb_ChooseTherapist.Items.Add($"Id: {therapist.Id} {therapist.FirstName} {therapist.LastName}");
             }
             cb_sessionHours.Items.AddRange(new []{"9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"});
         }
@@ -32,18 +35,17 @@ namespace Clinic.UI
         {
             
             var selectedTime = Convert.ToDateTime(dtp_SessionDate.Text);
+            
             if (cb_ChooseTherapist.SelectedIndex > -1 && cb_sessionHours.SelectedIndex > -1 && (selectedTime >= DateTime.Now))
             {
-                //TODO ver se da para por estas 3 linhas no helper
                 var chosenTherapist = cb_ChooseTherapist.Text.Split(' ');
-                var therapistFirstName = chosenTherapist[0];
-                var therapistLastName = chosenTherapist[1];
+                var chosenTherapistId = chosenTherapist[1];
                 
-                var chosenTherapistBd = _unitOfWork.TherapistRepository.GetTherapistByFullName(therapistFirstName, therapistLastName);
-                var chosenTherapistSessions = _unitOfWork.SessionsRepository.GetTherapistSessions(chosenTherapistBd.Id).MapSessionsToDto();
-                
-                var sessao = _createSessionFormHelper.CreateSession(cb_sessionHours.Text, selectedTime, _clientId, chosenTherapistBd.Id);
-                var therapistAvailable = _createSessionFormHelper.TherapistAvailable(sessao.SessionDate, chosenTherapistSessions);
+                var chosenTherapistBd = _databaseManager.GetSpecificTherapistDb(Convert.ToInt32(chosenTherapistId));
+                var chosenTherapistSessions = _databaseManager.GetTherapistSessions(chosenTherapistBd.Id).MapSessionsToDto();
+
+                var session = _createSessionFormHelper.CreateSession(cb_sessionHours.Text, selectedTime, _clientDto.Id, chosenTherapistBd.Id);
+                var therapistAvailable = _createSessionFormHelper.TherapistAvailable(session.SessionDate, chosenTherapistSessions);
 
                 if (!therapistAvailable)
                 {
@@ -51,29 +53,50 @@ namespace Clinic.UI
                 }
                 else
                 {
-                    var sessionDb = sessao.MapToSessionsDb();
-                    var sessionId = _unitOfWork.SessionsRepository.Insert(sessionDb);
-                    if (sessionId != 0)
+                    var sessionDb = session.MapToSessionsDb();
+                    // var sessionId = _unitOfWork.SessionsRepository.Insert(sessionDb);
+                    var sessionId = _databaseManager.InsertNewSession(sessionDb);
+                    if (sessionId != 0) //quando consegue criar a sessão
                     {
-                        var currentClient = _unitOfWork.ClientRepository.GetClientById(_clientId);
+                        sessionDb.Id = sessionId;
+                        session.Id = sessionId;
+                        
+                        //Inicialmente era feito com o clientDto mas é mais rapido e facil usar o da Db pois tem menos lugares onde pode errar
+                        
+                        var currentClient = _databaseManager.GetSpecificClient(_clientDto.Id);
                         currentClient.ClientAppointments.Add(sessionId);
-                        _unitOfWork.ClientRepository.Update(currentClient);
-                        chosenTherapistBd.TherapistSessions.Add(sessionId);
-                        _unitOfWork.TherapistRepository.Update(chosenTherapistBd);
-                        MessageBox.Show(@"Sessão Marcada");
-                        var form = new ClientViewForm(_unitOfWork, _clientId);
-                        form.Show();
-                        this.Close();
+                        var updatedClient = _databaseManager.UpdateClient(currentClient);
+                        if (updatedClient != 0) //quando consegue adicionar a sessão à lista do cliente
+                        {
+                            chosenTherapistBd.TherapistSessions.Add(sessionId);
+                            // _unitOfWork.TherapistRepository.Update(chosenTherapistBd);
+                            var updatedTherapist = _databaseManager.UpdateTherapist(chosenTherapistBd);
+                            MessageBox.Show(@"Sessão Marcada");
+                            if (updatedTherapist != 0) //quando consegue adicionar a sessão à lista do terapeuta
+                            {
+                                var form = new ClientViewForm(_databaseManager, _clientDto.Id);
+                                form.Show();
+                                this.Close(); 
+                            }
+                            else
+                            {
+                                MessageBox.Show(@"Ocorreu um erro ao criar a sessã tente novamente!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show(@"Ocorreu um erro ao criar a sessão tente novamente");
+                        }
                     }
                     else //caso de erro ao acrescentar a BD
                     {
-                        MessageBox.Show("Ocorreu um erro ao criar esta sessao! Por favor tente novamente");
+                        MessageBox.Show(@"Ocorreu um erro ao criar esta sessao! Por favor tente novamente");
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Precisa de escolher a data,hora e o Terapeuta! A data tem de ser a partir de amanha");
+                MessageBox.Show(@"Precisa de escolher a data,hora e o Terapeuta! A data tem de ser a partir de amanha");
             }
         }
     }

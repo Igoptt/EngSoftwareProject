@@ -8,21 +8,24 @@ namespace Clinic.UI
 {
     public partial class ChangePrescriptionVisibilityForm : Form
     {
-        private readonly UnitOfWork _unitOfWork;
-        private int _currentClientId;
+        private readonly DatabaseManager _databaseManager;
+        // private readonly int _currentClientId;
+        private ClientDto _clientDto;
         private readonly int _prescriptionId;
-        // private readonly SessionsDto selectedSession;
-        public ChangePrescriptionVisibilityForm(UnitOfWork unitOfWork, int currentClientId, int prescriptionId)
+        public ChangePrescriptionVisibilityForm(DatabaseManager databaseManager, ClientDto clientDto, int prescriptionId)
         {
-            _unitOfWork = unitOfWork;
-            _currentClientId = currentClientId;
+            _databaseManager = databaseManager;
+            // _currentClientId = currentClientId;
+            _clientDto = clientDto;
             _prescriptionId = prescriptionId;
 
-            var chosenPrescription = _unitOfWork.PrescriptionsRepository.GetPrescriptionById(_prescriptionId);
+            // var chosenPrescription = _unitOfWork.PrescriptionsRepository.GetPrescriptionById(_prescriptionId);
+            var chosenPrescription = _databaseManager.GetChosenPrescriptionDb(_prescriptionId);
             InitializeComponent();
 
-            var therapists = _unitOfWork.TherapistRepository.GetAll();
-            var prescriptionInformation = $"Escolehu a prescrição com o Id:{_prescriptionId} emitida por: ";
+            // var therapists = _unitOfWork.TherapistRepository.GetAll();
+            var therapists = _databaseManager.GetAllTherapists();
+            var prescriptionInformation = $"Escolheu a prescrição com o Id:{_prescriptionId} emitida por: ";
             foreach (var therapist in therapists)
             {
                 if (therapist.Id != chosenPrescription.PrescriptionAuthorId)
@@ -45,29 +48,31 @@ namespace Clinic.UI
             {
                 var selectedTherapistId = Convert.ToInt32(cb_ChooseTherapist.Text.Split(':')[1]);
                 
-                // var prescriptionId = _prescriptionId;
-                var prescriptionDb = _unitOfWork.PrescriptionsRepository.GetPrescriptionById(_prescriptionId);
+                // var prescriptionDb = _unitOfWork.PrescriptionsRepository.GetPrescriptionById(_prescriptionId);
+                var prescriptionDb = _databaseManager.GetChosenPrescriptionDb(_prescriptionId);
+                
                 prescriptionDb.TherapistsWithAcess.Add(selectedTherapistId);
-                var updatePrescription = _unitOfWork.PrescriptionsRepository.Update(prescriptionDb);
-                if (updatePrescription != 0)
+                
+                // var updatePrescription = _unitOfWork.PrescriptionsRepository.Update(prescriptionDb);
+                var updatePrescription = _databaseManager.UpdatePrescription(prescriptionDb);
+                
+                if (updatePrescription != 0) //o update retorna 0 quando falha
                 {
                     MessageBox.Show(@"As suas alterações foram efetuadas");
-                    var form = new ClientViewForm(_unitOfWork, _currentClientId);
+                    var form = new ClientViewForm(_databaseManager, _clientDto.Id);
                     form.Show();
                     this.Close();
                     
                 }
                 else
                 {
-                    MessageBox.Show("Ocorreu um erro! Tente novamente");
+                    MessageBox.Show(@"Ocorreu um erro! Tente novamente");
                 }
             }
             else
             {
-                MessageBox.Show("Por favor escolha um terapeuta para atribuir acesso");
+                MessageBox.Show(@"Por favor escolha um terapeuta para atribuir acesso");
             }
-            
-            
             
         }
     }

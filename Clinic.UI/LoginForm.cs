@@ -15,16 +15,12 @@ namespace Clinic.UI
 {
     public partial class LoginForm : Form
     {
-        private readonly DatabaseContext _databaseContext;
-        private readonly UnitOfWork _unitOfWork;
         private readonly LoginFormHelper _loginFormHelper;
-
+        private readonly DatabaseManager _databaseManager;
         public LoginForm()
         {
             InitializeComponent();
-            _databaseContext = new DatabaseContext();
-            _databaseContext.LoadDatabase();
-            _unitOfWork = new UnitOfWork(_databaseContext);
+            _databaseManager = new DatabaseManager();
             _loginFormHelper = new LoginFormHelper();
 
         }
@@ -35,10 +31,11 @@ namespace Clinic.UI
             {
                 if (cb_AccountTypeLogin.SelectedIndex == 0) //cliente
                 {
-                    var clientLoggingIn = _unitOfWork.ClientRepository.GetClientByUsername(textBox_Username_Login.Text);
+                    // var clientLoggingIn = _unitOfWork.ClientRepository.GetClientByUsername(textBox_Username_Login.Text);
+                    var clientLoggingIn = _databaseManager.ClientLoggingIn(textBox_Username_Login.Text);
                     if (clientLoggingIn != null && clientLoggingIn.Password == textBox_Password_Login.Text)
                     {
-                        var form = new ClientViewForm(_unitOfWork, clientLoggingIn.Id);
+                        var form = new ClientViewForm(_databaseManager, clientLoggingIn.Id);
                         form.Show();
                         // MessageBox.Show($"Bem vindo {clientLoggingIn.FirstName}!");
                     }
@@ -47,15 +44,14 @@ namespace Clinic.UI
                         MessageBox.Show("Introduza um Username e Password validos");
                     }
                     
-
-
                 }
                 else if (cb_AccountTypeLogin.SelectedIndex == 1) //terapeuta
                 {
-                    var therapistLoggingIn = _unitOfWork.TherapistRepository.GetTherapistByUsername(textBox_Username_Login.Text);
+                    // var therapistLoggingIn = _unitOfWork.TherapistRepository.GetTherapistByUsername(textBox_Username_Login.Text);
+                    var therapistLoggingIn = _databaseManager.TherapistLoggingIn(textBox_Username_Login.Text);
                     if (therapistLoggingIn != null && therapistLoggingIn.Password == textBox_Password_Login.Text)
                     {
-                        var form = new TherapistViewForm(_unitOfWork, therapistLoggingIn.Id);
+                        var form = new TherapistViewForm(_databaseManager, therapistLoggingIn.Id);
                         form.Show();
                     }
                     else
@@ -72,7 +68,7 @@ namespace Clinic.UI
 
         private void btn_register_Click(object sender, EventArgs e)
         {
-            var registerForm = new RegisterForm(_unitOfWork);
+            var registerForm = new RegisterForm(_databaseManager);
             registerForm.Show();
         }
     }

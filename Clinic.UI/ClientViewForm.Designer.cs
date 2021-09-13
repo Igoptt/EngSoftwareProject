@@ -97,7 +97,7 @@ namespace Clinic.UI
             this.grid_PrescriptionsClientView.Name = "grid_PrescriptionsClientView";
             this.grid_PrescriptionsClientView.Size = new System.Drawing.Size(658, 271);
             this.grid_PrescriptionsClientView.TabIndex = 0;
-            this.grid_PrescriptionsClientView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.grid_PrescriptionsClientView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_PrescriptionsClientView_CellContentClick);
             // 
             // Mais
             // 

@@ -108,7 +108,7 @@ namespace UnitTests
                 TheraphistSessionNote = "teste",
                 // SessionActivities = ,
             };
-            var result = sessions.MapToSessionsDto();
+            var result = sessions.MapToSessionToDto();
             result.Id.Should().Be(sessions.Id);
             // result.SessionActivities.Should().Be(sessions.SessionActivities);
         }

@@ -8,13 +8,17 @@ namespace Clinic.UI
 {
     public partial class CreateServiceForm : Form
     {
-        private readonly UnitOfWork _unitOfWork;
+        // private readonly UnitOfWork _unitOfWork;
+        private readonly DatabaseManager _databaseManager;
         private readonly int _currentTherapistId;
         private readonly CreateServiceFormHelper _createServiceFormHelper;
-        public CreateServiceForm(UnitOfWork unitOfWork, int currentTherapistId)
+        private TherapistDto _currentTherapist;
+        public CreateServiceForm(DatabaseManager databaseManager, TherapistDto currentTherapist)
         {
-            _unitOfWork = unitOfWork;
-            _currentTherapistId = currentTherapistId;
+            // _unitOfWork = unitOfWork;
+            _databaseManager = databaseManager;
+            // _currentTherapistId = currentTherapistId;
+            _currentTherapist = currentTherapist;
             _createServiceFormHelper = new CreateServiceFormHelper();
             
             InitializeComponent();
@@ -49,22 +53,22 @@ namespace Clinic.UI
         
         private void btn_SaveExercise_Click(object sender, EventArgs e)
         {
-            var fieldsFilled = _createServiceFormHelper.ServiceFieldsFilled(textBox_ExerciseName.Text,
-                cb_ExerciseIntensity.Text, textBox_ExerciseSchedule.Text);
+            var fieldsFilled = _createServiceFormHelper.ServiceFieldsFilled(textBox_ExerciseName.Text, cb_ExerciseIntensity.Text, textBox_ExerciseSchedule.Text);
             if (fieldsFilled)
             {
                 var exerciseDto = _createServiceFormHelper.CreateExercise(textBox_ExerciseName.Text,cb_ExerciseIntensity.Text,textBox_ExerciseSchedule.Text);
                 if (exerciseDto == null)
                 {
-                    MessageBox.Show("Ocorreu um erro ao criar este serviço. Verifique que a intensidade é apenas um numero inteiro");
+                    MessageBox.Show(@"Ocorreu um erro ao criar este serviço. Verifique que a intensidade é apenas um numero inteiro");
                 }
                 else
                 {
                     var exerciseDb = exerciseDto.MapToExerciseDb();
-                    var createdExerciseId = _unitOfWork.ExercisesRepository.Insert(exerciseDb);
+                    // var createdExerciseId = _unitOfWork.ExercisesRepository.Insert(exerciseDb);
+                    var createdExerciseId = _databaseManager.InsertNewExercise(exerciseDb);
                     exerciseDto.Id = createdExerciseId;
                     MessageBox.Show("Exercicio criado!");
-                    var form = new AddPrescriptionForm(_unitOfWork,_currentTherapistId);
+                    var form = new AddPrescriptionForm(_databaseManager,_currentTherapist);
                     form.Show();
                     Close(); 
                 }
@@ -84,10 +88,11 @@ namespace Clinic.UI
             {
                 var medicineDto = _createServiceFormHelper.CreateMedicine(textBox_MedicineName.Text,textBox_MedicineDosage.Text,textBox_MedicineSchedule.Text);
                 var medicineDb = medicineDto.MapToMedicineDb();
-                var createdMedicineId = _unitOfWork.MedicinesRepository.Insert(medicineDb);
+                // var createdMedicineId = _unitOfWork.MedicinesRepository.Insert(medicineDb);
+                var createdMedicineId = _databaseManager.InsertNewMedicine(medicineDb);
                 medicineDto.Id = createdMedicineId;
                 MessageBox.Show("Medicamento criado!");
-                var form = new AddPrescriptionForm(_unitOfWork,_currentTherapistId);
+                var form = new AddPrescriptionForm(_databaseManager,_currentTherapist);
                 form.Show();
                 Close();
             }
@@ -105,10 +110,11 @@ namespace Clinic.UI
             {
                 var treatmentDto = _createServiceFormHelper.CreateTreatment(textBox_TreatmentName.Text,cb_TreatmentDuration.Text,textBox_TreatmentType.Text);
                 var treatmentDb = treatmentDto.MapToTreatmentDb();
-                var createdTreatmentId = _unitOfWork.TreatmentsRepository.Insert(treatmentDb);
+                // var createdTreatmentId = _unitOfWork.TreatmentsRepository.Insert(treatmentDb);
+                var createdTreatmentId = _databaseManager.InsertNewTreatment(treatmentDb);
                 treatmentDto.Id = createdTreatmentId;
                 MessageBox.Show("Tratamento criado!");
-                var form = new AddPrescriptionForm(_unitOfWork,_currentTherapistId);
+                var form = new AddPrescriptionForm(_databaseManager,_currentTherapist);
                 form.Show();
                 Close();
             }

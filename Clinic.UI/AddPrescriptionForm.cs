@@ -9,31 +9,33 @@ namespace Clinic.UI
 {
     public partial class AddPrescriptionForm : Form
     {
-        private readonly UnitOfWork _unitOfWork;
-        private TherapistDto currentTherapist;
+        // private readonly UnitOfWork _unitOfWork;
+        private readonly DatabaseManager _databaseManager;
+        private TherapistDto _currentTherapist;
         private readonly AddPrescriptionFormHelper _prescriptionFormHelper;
-        public AddPrescriptionForm(UnitOfWork unitOfWork, int currentTherapistId)
+        public AddPrescriptionForm(DatabaseManager databaseManager, TherapistDto currentTherapist)
         {
-            _unitOfWork = unitOfWork;
-            var _currentTherapistId = currentTherapistId;
+            // _unitOfWork = unitOfWork;
+            _databaseManager = databaseManager;
+            var _currentTherapistId = currentTherapist;
             _prescriptionFormHelper = new AddPrescriptionFormHelper();
             
-            //TODO por isto num helper
-            var therapistDb = _unitOfWork.TherapistRepository.GetTherapistById(_currentTherapistId);
-            var therapistDbSessions = _unitOfWork.SessionsRepository.GetTherapistSessions(_currentTherapistId);
-            var therapistDbPrescriptions = _unitOfWork.PrescriptionsRepository.GetPrescriptionsEmmitedCByTherapist(_currentTherapistId);
-            currentTherapist = therapistDb.MapToTherapistDto();
-            currentTherapist.TherapistPrescriptions = therapistDbPrescriptions.MapPrescriptionsToDto();
-            currentTherapist.TherapistSessions = therapistDbSessions.MapSessionsToDto();
-            
-            
-            var medicines = _unitOfWork.MedicinesRepository.GetAll();
-            var exercises = _unitOfWork.ExercisesRepository.GetAll();
-            var treatments = _unitOfWork.TreatmentsRepository.GetAll();
-            
+            //isto ja nao é preciso pq da o terapeuta logo
+            // var therapistDb = _unitOfWork.TherapistRepository.GetTherapistById(_currentTherapistId);
+            // var therapistDbSessions = _unitOfWork.SessionsRepository.GetTherapistSessions(_currentTherapistId);
+            // var therapistDbPrescriptions = _unitOfWork.PrescriptionsRepository.GetPrescriptionsEmmitedCByTherapist(_currentTherapistId);
+            // currentTherapist = therapistDb.MapToTherapistDto();
+            // currentTherapist.TherapistPrescriptions = therapistDbPrescriptions.MapPrescriptionsToDto();
+            // currentTherapist.TherapistSessions = therapistDbSessions.MapSessionsToDto();
+
+
+            var medicines = _databaseManager.GetAllMedicines();
+            var exercises = _databaseManager.GetAllExercises();
+            var treatments = _databaseManager.GetAllTreatments();
             
             InitializeComponent();
-
+            
+            //para popular a combo box das sessões
             foreach (var session in currentTherapist.TherapistSessions)
             {
                 if (session.SessionPrescriptionId == -1)
@@ -42,7 +44,7 @@ namespace Clinic.UI
                 }
                 
             }
-
+            //para popular as combo boxes com os varios serviços
             foreach (var medicine in medicines)
             {
                 cb_Medicines.Items.Add($"Id:{medicine.Id}: Medicamento: {medicine.Name}, Dose: {medicine.Dosage}, Quando tomar: {medicine.TimeOfDayToTakeMedicine}");
@@ -74,42 +76,45 @@ namespace Clinic.UI
                     if (medicineChosen)
                     {
                         var chosenMedicineId = cb_Medicines.Text.Split(':')[1];
-                        var medicineDto = _unitOfWork.MedicinesRepository.GetMedicineById(Convert.ToInt32(chosenMedicineId)).MapToMedicineDto();
+                        var medicineDto = _databaseManager.GetMedicineFromDb(Convert.ToInt32(chosenMedicineId)).MapToMedicineDto();
                         prescriptionServices.Add(medicineDto);
                     }
 
                     if (exerciseChosen)
                     {
                         var chosenExerciseId = cb_Exercises.Text.Split(':')[1];
-                        var exerciseDto = _unitOfWork.ExercisesRepository.GetExerciseById(Convert.ToInt32(chosenExerciseId)).MapToExerciseDto();
+                        var exerciseDto = _databaseManager.GetExerciseFromDb(Convert.ToInt32(chosenExerciseId)).MapToExerciseDto();
                         prescriptionServices.Add(exerciseDto);
                     }
 
                     if (treatmentChosen)
                     {
                         var chosenTreatmentId = cb_Treatments.Text.Split(':')[1];
-                        var treatmentDto = _unitOfWork.TreatmentsRepository.GetTreatmentById(Convert.ToInt32(chosenTreatmentId)).MapToTreatmentDto();
+                        var treatmentDto = _databaseManager.GetTreatmentFromDb(Convert.ToInt32(chosenTreatmentId)).MapToTreatmentDto();
                         prescriptionServices.Add(treatmentDto);
                     }
                     
                     //vai buscar a sessão á Bd atraves do seu Id
                     var chosenSessionId = cb_ChooseSession.Text.Split(':')[1];
-                    var chosenSession = _unitOfWork.SessionsRepository.GetSessionById(Convert.ToInt32(chosenSessionId)).MapToSessionsDto();
-                    var chosenSessionClientId = _unitOfWork.ClientRepository.GetClientById(chosenSession.AssignedClientId).MapToClientDto().Id;
+                    var chosenSession = _databaseManager.GetSpecificSession(Convert.ToInt32(chosenSessionId)).MapToSessionToDto();
+                    var chosenSessionClient = _databaseManager.GetSpecificClient(chosenSession.AssignedClientId).MapToClientDto();
                     
                     //cria a nova prescrição e adiciona á Bd
-                    var newPrescription = _prescriptionFormHelper.CreatePrescription(chosenSessionClientId,currentTherapist.Id,prescriptionServices);
+                    var newPrescription = _prescriptionFormHelper.CreatePrescription(chosenSessionClient.Id,_currentTherapist.Id,prescriptionServices);
                     var newPrescriptionDb = newPrescription.MapToPrescriptionDb();
-                    var newPrescriptionDbId = _unitOfWork.PrescriptionsRepository.Insert(newPrescriptionDb);
+                    // var newPrescriptionDbId = _unitOfWork.PrescriptionsRepository.Insert(newPrescriptionDb);
+                    var newPrescriptionDbId = _databaseManager.InsertNewPrescription(newPrescriptionDb);
                     newPrescription.Id = newPrescriptionDbId;
                     
                     //Atualiza a sessão para ter o Id da prescrição criada
                     chosenSession.SessionPrescriptionId = newPrescriptionDbId;
                     var chosenSessionDb = chosenSession.MapToSessionsDb();
-                    var updatedSession = _unitOfWork.SessionsRepository.Update(chosenSessionDb);
-                    currentTherapist.TherapistPrescriptions.Add(newPrescription);
-                    var updatedTherapistDb = currentTherapist.MapToTherapistDb();
-                    _unitOfWork.TherapistRepository.Update(updatedTherapistDb);
+                    // var updatedSession = _unitOfWork.SessionsRepository.Update(chosenSessionDb);
+                    var updatedSession = _databaseManager.UpdateSession(chosenSessionDb);
+                    _currentTherapist.TherapistPrescriptions.Add(newPrescription);
+                    var updatedTherapistDb = _currentTherapist.MapToTherapistDb();
+                    // _unitOfWork.TherapistRepository.Update(updatedTherapistDb);
+                    var updateTherapist = _databaseManager.UpdateTherapist(updatedTherapistDb);
                     
                     if (updatedSession == 0) //falhou o update
                     {
@@ -118,7 +123,7 @@ namespace Clinic.UI
                     else
                     {
                         MessageBox.Show(@"Prescrição adicionada");
-                        var form = new TherapistViewForm(_unitOfWork, currentTherapist.Id);
+                        var form = new TherapistViewForm(_databaseManager, _currentTherapist.Id);
                         form.Show();
                         this.Close();
                     }
@@ -136,7 +141,7 @@ namespace Clinic.UI
 
         private void btn_CreateService_Click(object sender, EventArgs e)
         {
-            var form = new CreateServiceForm(_unitOfWork,currentTherapist.Id);
+            var form = new CreateServiceForm(_databaseManager,_currentTherapist);
             form.Show();
             this.Close();
         }

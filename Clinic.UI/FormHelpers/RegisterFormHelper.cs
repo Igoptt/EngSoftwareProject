@@ -1,13 +1,9 @@
-﻿namespace Clinic.UI.FormHelpers
+﻿using Clinic.UI.DTO;
+
+namespace Clinic.UI.FormHelpers
 {
     public class RegisterFormHelper
     {
-
-        
-        public RegisterFormHelper( )
-        {
-        }
-        
         public bool VerifyRegisterFields(string textBox_FirstName_Text,string textBox_LastName_Text, string textBox_Username_Text, string textBox_Password_Text)
         {
             
@@ -17,7 +13,28 @@
                 return false;
             }
             return true;
-           
+        }
+
+        public ClientDto CreateNewClient(string firstname, string lastname, string username, string password)
+        {
+            return new ClientDto()
+            {
+                FirstName = firstname,
+                LastName = lastname,
+                Username = username,
+                Password = password,
+            };
+        }
+        
+        public TherapistDto CreateNewTherapist(string firstname, string lastname, string username, string password)
+        {
+            return new TherapistDto()
+            {
+                FirstName = firstname,
+                LastName = lastname,
+                Username = username,
+                Password = password,
+            };
         }
     }
 }

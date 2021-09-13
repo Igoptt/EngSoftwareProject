@@ -69,13 +69,13 @@ namespace Clinic.UI.DTO
             var sessionsDto = new List<SessionsDto>();
             foreach (var session in sessionsDb)
             {
-                sessionsDto.Add(session.MapToSessionsDto());
+                sessionsDto.Add(session.MapToSessionToDto());
             }
 
             return sessionsDto;
         }
 
-        public static SessionsDto MapToSessionsDto(this Sessions sessionsDb)
+        public static SessionsDto MapToSessionToDto(this Sessions sessionsDb)
         {
             return new SessionsDto()
             {
