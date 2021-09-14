@@ -47,43 +47,61 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="AddPrescriptionForm.cs">
+        <Compile Include="Admin\LoginForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="AddPrescriptionForm.Designer.cs">
-          <DependentUpon>AddPrescriptionForm.cs</DependentUpon>
+        <Compile Include="Admin\LoginForm.Designer.cs">
+          <DependentUpon>LoginForm.cs</DependentUpon>
         </Compile>
-        <Compile Include="ChangePrescriptionVisibilityForm.cs">
+        <Compile Include="Admin\RegisterForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="ChangePrescriptionVisibilityForm.Designer.cs">
+        <Compile Include="Admin\RegisterForm.Designer.cs">
+          <DependentUpon>RegisterForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Client\ChangePrescriptionVisibilityForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Client\ChangePrescriptionVisibilityForm.Designer.cs">
           <DependentUpon>ChangePrescriptionVisibilityForm.cs</DependentUpon>
         </Compile>
-        <Compile Include="CreateServiceForm.cs">
+        <Compile Include="Client\ClientViewForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="CreateServiceForm.Designer.cs">
-          <DependentUpon>CreateServiceForm.cs</DependentUpon>
+        <Compile Include="Client\ClientViewForm.Designer.cs">
+          <DependentUpon>ClientViewForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Client\CreateSessionForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Client\CreateSessionForm.Designer.cs">
+          <DependentUpon>CreateSessionForm.cs</DependentUpon>
+        </Compile>
+        <Compile Include="Client\EditSessionForm.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Client\EditSessionForm.Designer.cs">
+          <DependentUpon>EditSessionForm.cs</DependentUpon>
         </Compile>
         <Compile Include="DatabaseManager.cs" />
         <Compile Include="FormHelpers\CreateServiceFormHelper.cs" />
-        <Compile Include="ViewPrescriptionsForm.cs">
+        <Compile Include="Theraphist\AddPrescriptionForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="ViewPrescriptionsForm.Designer.cs">
-          <DependentUpon>ViewPrescriptionsForm.cs</DependentUpon>
+        <Compile Include="Theraphist\AddPrescriptionForm.Designer.cs">
+          <DependentUpon>AddPrescriptionForm.cs</DependentUpon>
         </Compile>
-        <Compile Include="ClientViewForm.cs">
+        <Compile Include="Theraphist\CreateServiceForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="ClientViewForm.Designer.cs">
-          <DependentUpon>ClientViewForm.cs</DependentUpon>
+        <Compile Include="Theraphist\CreateServiceForm.Designer.cs">
+          <DependentUpon>CreateServiceForm.cs</DependentUpon>
         </Compile>
-        <Compile Include="CreateSessionForm.cs">
+        <Compile Include="Theraphist\TherapistViewForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="CreateSessionForm.Designer.cs">
-          <DependentUpon>CreateSessionForm.cs</DependentUpon>
+        <Compile Include="Theraphist\TherapistViewForm.Designer.cs">
+          <DependentUpon>TherapistViewForm.cs</DependentUpon>
         </Compile>
         <Compile Include="DTO\ClientDto.cs" />
         <Compile Include="DTO\DataMapperDbToDto.cs" />
@@ -96,60 +114,45 @@
         <Compile Include="DTO\TherapistDto.cs" />
         <Compile Include="DTO\TreatmentDto.cs" />
         <Compile Include="DTO\UserDto.cs" />
-        <Compile Include="EditSessionForm.cs">
-          <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="EditSessionForm.Designer.cs">
-          <DependentUpon>EditSessionForm.cs</DependentUpon>
-        </Compile>
         <Compile Include="FormHelpers\AddPrescriptionFormHelper.cs" />
         <Compile Include="FormHelpers\CreateSessionFormHelper.cs" />
         <Compile Include="FormHelpers\EditSessionFormHelper.cs" />
         <Compile Include="FormHelpers\LoginFormHelper.cs" />
-        <Compile Include="LoginForm.cs">
-            <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="LoginForm.Designer.cs">
-            <DependentUpon>LoginForm.cs</DependentUpon>
-        </Compile>
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="RegisterForm.cs">
-          <SubType>Form</SubType>
-        </Compile>
-        <Compile Include="RegisterForm.Designer.cs">
-          <DependentUpon>RegisterForm.cs</DependentUpon>
-        </Compile>
         <Compile Include="FormHelpers\RegisterFormHelper.cs" />
-        <Compile Include="TherapistViewForm.cs">
+        <Compile Include="Theraphist\ViewPrescriptionsForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="TherapistViewForm.Designer.cs">
-          <DependentUpon>TherapistViewForm.cs</DependentUpon>
+        <Compile Include="Theraphist\ViewPrescriptionsForm.Designer.cs">
+          <DependentUpon>ViewPrescriptionsForm.cs</DependentUpon>
         </Compile>
-        <EmbeddedResource Include="AddPrescriptionForm.resx">
-          <DependentUpon>AddPrescriptionForm.cs</DependentUpon>
+        <EmbeddedResource Include="Admin\LoginForm.resx">
+          <DependentUpon>LoginForm.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="ChangePrescriptionVisibilityForm.resx">
+        <EmbeddedResource Include="Admin\RegisterForm.resx">
+          <DependentUpon>RegisterForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Client\ChangePrescriptionVisibilityForm.resx">
           <DependentUpon>ChangePrescriptionVisibilityForm.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="CreateServiceForm.resx">
-          <DependentUpon>CreateServiceForm.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="ViewPrescriptionsForm.resx">
-          <DependentUpon>ViewPrescriptionsForm.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="ClientViewForm.resx">
+        <EmbeddedResource Include="Client\ClientViewForm.resx">
           <DependentUpon>ClientViewForm.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="CreateSessionForm.resx">
+        <EmbeddedResource Include="Client\CreateSessionForm.resx">
           <DependentUpon>CreateSessionForm.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="EditSessionForm.resx">
+        <EmbeddedResource Include="Client\EditSessionForm.resx">
           <DependentUpon>EditSessionForm.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="LoginForm.resx">
-          <DependentUpon>LoginForm.cs</DependentUpon>
+        <EmbeddedResource Include="Theraphist\AddPrescriptionForm.resx">
+          <DependentUpon>AddPrescriptionForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Theraphist\CreateServiceForm.resx">
+          <DependentUpon>CreateServiceForm.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Theraphist\TherapistViewForm.resx">
+          <DependentUpon>TherapistViewForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
@@ -160,11 +163,8 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
-        <EmbeddedResource Include="RegisterForm.resx">
-          <DependentUpon>RegisterForm.cs</DependentUpon>
-        </EmbeddedResource>
-        <EmbeddedResource Include="TherapistViewForm.resx">
-          <DependentUpon>TherapistViewForm.cs</DependentUpon>
+        <EmbeddedResource Include="Theraphist\ViewPrescriptionsForm.resx">
+          <DependentUpon>ViewPrescriptionsForm.cs</DependentUpon>
         </EmbeddedResource>
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>
