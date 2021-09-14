@@ -9,25 +9,14 @@ namespace Clinic.UI
 {
     public partial class AddPrescriptionForm : Form
     {
-        // private readonly UnitOfWork _unitOfWork;
         private readonly DatabaseManager _databaseManager;
         private TherapistDto _currentTherapist;
         private readonly AddPrescriptionFormHelper _prescriptionFormHelper;
         public AddPrescriptionForm(DatabaseManager databaseManager, TherapistDto currentTherapist)
         {
-            // _unitOfWork = unitOfWork;
             _databaseManager = databaseManager;
-            // var _currentTherapistId = currentTherapist;
             _currentTherapist = currentTherapist;
             _prescriptionFormHelper = new AddPrescriptionFormHelper();
-            
-            //isto ja nao é preciso pq da o terapeuta logo
-            // var therapistDb = _unitOfWork.TherapistRepository.GetTherapistById(_currentTherapistId);
-            // var therapistDbSessions = _unitOfWork.SessionsRepository.GetTherapistSessions(_currentTherapistId);
-            // var therapistDbPrescriptions = _unitOfWork.PrescriptionsRepository.GetPrescriptionsEmmitedCByTherapist(_currentTherapistId);
-            // currentTherapist = therapistDb.MapToTherapistDto();
-            // currentTherapist.TherapistPrescriptions = therapistDbPrescriptions.MapPrescriptionsToDto();
-            // currentTherapist.TherapistSessions = therapistDbSessions.MapSessionsToDto();
 
 
             var medicines = _databaseManager.GetAllMedicines();
@@ -53,7 +42,7 @@ namespace Clinic.UI
             
             foreach (var exercise in exercises)
             {
-                cb_Exercises.Items.Add($"Id:{exercise.Id}: Exercicio: {exercise.Name}, Intensidade: {exercise.Intensity}, Horario sugerido: {exercise.SuggestedSchedule}");
+                cb_Exercises.Items.Add($"Id:{exercise.Id}: Exercício: {exercise.Name}, Intensidade: {exercise.Intensity}, Horário sugerido: {exercise.SuggestedSchedule}");
             }
             
             foreach (var treatment in treatments)
@@ -103,23 +92,23 @@ namespace Clinic.UI
                     //cria a nova prescrição e adiciona á Bd
                     var newPrescription = _prescriptionFormHelper.CreatePrescription(chosenSessionClient.Id,_currentTherapist.Id,prescriptionServices);
                     var newPrescriptionDb = newPrescription.MapToPrescriptionDb();
-                    // var newPrescriptionDbId = _unitOfWork.PrescriptionsRepository.Insert(newPrescriptionDb);
+
                     var newPrescriptionDbId = _databaseManager.InsertNewPrescription(newPrescriptionDb);
                     newPrescription.Id = newPrescriptionDbId;
                     
                     //Atualiza a sessão para ter o Id da prescrição criada
                     chosenSession.SessionPrescriptionId = newPrescriptionDbId;
                     var chosenSessionDb = chosenSession.MapToSessionsDb();
-                    // var updatedSession = _unitOfWork.SessionsRepository.Update(chosenSessionDb);
+
                     var updatedSession = _databaseManager.UpdateSession(chosenSessionDb);
                     _currentTherapist.TherapistPrescriptions.Add(newPrescription);
                     var updatedTherapistDb = _currentTherapist.MapToTherapistDb();
-                    // _unitOfWork.TherapistRepository.Update(updatedTherapistDb);
+
                     var updateTherapist = _databaseManager.UpdateTherapist(updatedTherapistDb);
                     
                     if (updatedSession == 0) //falhou o update
                     {
-                        MessageBox.Show("Ocorreu um erro ao adicionar esta prescrição á sessao. Por favor tente novamente");
+                        MessageBox.Show("Ocorreu um erro ao adicionar esta prescrição à sessão. Por favor tente novamente.");
                     }
                     else
                     {
@@ -131,12 +120,12 @@ namespace Clinic.UI
                 }
                 else //quando escolhe a sessão mas nao escolhe nenhum serviço
                 {
-                    MessageBox.Show("Escolha um dos serviços para adicionar! \n Caso nao tenha nenhum serviço por favor crie um.");
+                    MessageBox.Show("Escolha um dos serviços para adicionar! \n Caso não tenha nenhum serviço, por favor crie um.");
                 }
             }
             else //quando tenta criar prescrição sem escolher a sessão
             {
-                MessageBox.Show("Por favor escolha uma sesão para adicionar a prescrição");
+                MessageBox.Show("Por favor escolha uma sessão para adicionar a prescrição.");
             }
         }
 
@@ -144,7 +133,7 @@ namespace Clinic.UI
         {
             var form = new CreateServiceForm(_databaseManager,_currentTherapist);
             form.Show();
-            this.Close();
+            Close();
         }
     }
 }

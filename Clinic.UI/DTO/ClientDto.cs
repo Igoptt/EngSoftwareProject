@@ -14,13 +14,7 @@ namespace Clinic.UI.DTO
         public List<SessionsDto> ClientAppointments { get; set; }
         public List<PrescriptionDto> ClientPrescriptions { get; set; }
         
-        //public UserTypeDto UserType { get; set; }
 
     }
-
-    // public enum UserTypeDto
-    // {
-    //     Client,
-    //     Therapist
-    // }
+    
 }

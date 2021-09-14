@@ -44,10 +44,5 @@ namespace Clinic.Data.Repositories
 
             return 0;
         }
-        // public List<Exercise> GetRecommendedHours(int clientId, int exerciseId)
-        // {
-        //     
-        // }
-
     }
 }

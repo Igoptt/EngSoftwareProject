@@ -31,14 +31,11 @@ namespace Clinic.UI
             {
                 if (cb_AccountTypeLogin.SelectedIndex == 0) //cliente
                 {
-                    // var clientLoggingIn = _unitOfWork.ClientRepository.GetClientByUsername(textBox_Username_Login.Text);
                     var clientLoggingIn = _databaseManager.ClientLoggingIn(textBox_Username_Login.Text);
                     if (clientLoggingIn != null && clientLoggingIn.Password == textBox_Password_Login.Text)
                     {
                         var form = new ClientViewForm(_databaseManager, clientLoggingIn.Id);
                         form.Show();
-                        //Hide();
-                        // MessageBox.Show($"Bem vindo {clientLoggingIn.FirstName}!");
                     }
                     else
                     {
@@ -48,13 +45,11 @@ namespace Clinic.UI
                 }
                 else if (cb_AccountTypeLogin.SelectedIndex == 1) //terapeuta
                 {
-                    // var therapistLoggingIn = _unitOfWork.TherapistRepository.GetTherapistByUsername(textBox_Username_Login.Text);
                     var therapistLoggingIn = _databaseManager.TherapistLoggingIn(textBox_Username_Login.Text);
                     if (therapistLoggingIn != null && therapistLoggingIn.Password == textBox_Password_Login.Text)
                     {
                         var form = new TherapistViewForm(_databaseManager, therapistLoggingIn.Id);
                         form.Show();
-                        //Hide();
                     }
                     else
                     {

@@ -5,12 +5,6 @@ namespace Clinic.Data.Repositories.Interfaces
 {
     public interface IClientRepository:IRepository<Client>
     {
-        // TEntity Get(int id);
-        // IEnumerable<TEntity> GetAll();
-        // //IEnumerable<TEntity> FindByCondition (E)
-        // void Add(TEntity entity);
-        // void Remove(TEntity entity);
-        // void Update(TEntity entity);
         int Insert(Client client);
         List<Client> GetAll();
         int Update(Client client);

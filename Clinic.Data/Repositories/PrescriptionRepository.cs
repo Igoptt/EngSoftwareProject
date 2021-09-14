@@ -58,19 +58,12 @@ namespace Clinic.Data.Repositories
             return Database.Therapists.FirstOrDefault(t => t.Id == prescription.PrescriptionAuthorId);
         }
         
-        // public List<Therapist> GetTherapistsWithAcess(int prescriptionId)
-        // {
-        //     
-        // }
-        
-        //metodo para mudar a visibilidade da prescriçao, adicionar therapists a lista TherapistsWithAcess
 
         public Client GetPrescriptionClient(Prescription prescription)
         {
             return Database.Clients.FirstOrDefault(c => c.Id == prescription.ClientId);
         }
         
-        //metodo para ir buscar os serviços da prescriçao 
-        
+
     }
 }

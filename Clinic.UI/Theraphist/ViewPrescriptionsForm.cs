@@ -9,17 +9,13 @@ namespace Clinic.UI
 {
     public partial class ClientPrescriptionsForm : Form
     {
-        // private readonly UnitOfWork _unitOfWork;
         private readonly DatabaseManager _databaseManager;
-        // private readonly int _currentTherapistId;
         private TherapistDto _currentTherapist;
         private List<Prescription> acessiblePrescriptions;
         private TherapistDto dummyTherapist;
         public ClientPrescriptionsForm(DatabaseManager databaseManager, TherapistDto currentTherapist)
         {
-            // _unitOfWork = unitOfWork;
             _databaseManager = databaseManager;
-            // _currentTherapistId = currentTherapistId;
             _currentTherapist = currentTherapist;
             acessiblePrescriptions = new List<Prescription>();
             
@@ -39,8 +35,7 @@ namespace Clinic.UI
 
             dummyTherapist.TherapistPrescriptions = acessiblePrescriptions.MapPrescriptionsToDto();
             dummyTherapist.TherapistPrescriptions = _databaseManager.TherapistPrescriptionsWithServicesDto(acessiblePrescriptions,dummyTherapist);
-            // var acessiblePrescriptionsDto = acessiblePrescriptions.MapPrescriptionsToDto();
-            
+
             var emittedPrescriptionsSource = new BindingSource();
             emittedPrescriptionsSource.DataSource = _currentTherapist.TherapistPrescriptions;
 
@@ -66,7 +61,7 @@ namespace Clinic.UI
                 }
                 else
                 {
-                    MessageBox.Show(@"Nao foi encontrada informação acerca desta prescrição");
+                    MessageBox.Show(@"Não foi encontrada informação acerca desta prescrição");
                 }
             }
         }
@@ -84,7 +79,7 @@ namespace Clinic.UI
                 }
                 else
                 {
-                    MessageBox.Show(@"Nao foi encontrada informação acerca desta prescrição");
+                    MessageBox.Show(@"Não foi encontrada informação acerca desta prescrição");
                 }
             }
         }

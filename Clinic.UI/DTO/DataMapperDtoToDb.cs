@@ -4,11 +4,6 @@ namespace Clinic.UI.DTO
 {
     public static class DataMapperDtoToDb
     {
-        //TODO dar double check do MapperToDb se é preciso ter os Ids
-        //MapToClientDb(clientDto)
-        // public static Client MapToClientDb2(ClientDto dto)
-        //or
-        //clientDto.MapToClientDb()
         public static Client MapToClientDb(this ClientDto dto) 
         {
             var clientDb = new Client();
@@ -40,7 +35,6 @@ namespace Clinic.UI.DTO
                 
                 Id = dto.Id,
                 Name = dto.Name,
-                // PrescriptionId = dto.PrescriptionId,
                 Intensity = dto.Intensity,
                 SuggestedSchedule = dto.SuggestedSchedule,
                 
@@ -53,7 +47,6 @@ namespace Clinic.UI.DTO
             {
                 Id = dto.Id,
                 Name = dto.Name,
-                // PrescriptionId = dto.PrescriptionId,
                 Dosage = dto.Dosage,
                 TimeOfDayToTakeMedicine = dto.TimeOfDayToTakeMedicine,
             };
@@ -65,7 +58,6 @@ namespace Clinic.UI.DTO
             prescriptionDb.Id = dto.Id;
             prescriptionDb.ClientId = dto.ClientId;
             prescriptionDb.PrescriptionAuthorId = dto.PrescriptionAuthorId;
-            // prescriptionDb.TherapistsWithAcess = dto.TherapistsWithAcess;
             for (int i = 0; i < dto.PrescribedServices.Count; i++)
             {
                 int prescribedServiceId = dto.PrescribedServices[i].Id;
@@ -124,7 +116,6 @@ namespace Clinic.UI.DTO
             {
                 Id = dto.Id,
                 Name = dto.Name,
-                // PrescriptionId = dto.PrescriptionId,
                 Duration = dto.Duration,
                 Type = dto.Type,
             };

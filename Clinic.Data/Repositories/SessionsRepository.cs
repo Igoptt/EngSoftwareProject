@@ -64,14 +64,6 @@ namespace Clinic.Data.Repositories
 
             return 0;
         }
-        
-        
-        //metodo para apagar a sessao
-        
-        
-        
-        
-        
-        
+  
     }
 }

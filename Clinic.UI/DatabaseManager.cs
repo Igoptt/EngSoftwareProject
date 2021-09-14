@@ -192,9 +192,9 @@ namespace Clinic.UI
             {
                 var exerciseDto = exerciseBd.MapToExerciseDto();
                 exerciseDetails +=
-                    $"Este serviço era um exercicio, chamadado de: {exerciseDto.Name}" +
-                    $" \n Tem uma intensidade de:{exerciseDto.Intensity}" +
-                    $" \n O horario sugerido para fazer este exercicio é: {exerciseDto.SuggestedSchedule} \n";
+                    $"Este serviço é um exercicio, chamado de: {exerciseDto.Name}" +
+                    $" \nTem uma intensidade de:{exerciseDto.Intensity}" +
+                    $" \nO horário sugerido para fazer este exercício é: {exerciseDto.SuggestedSchedule} \n";
             }
 
             return exerciseDetails;
@@ -213,9 +213,9 @@ namespace Clinic.UI
             {
                 var treatmentDto = treatmentDb.MapToTreatmentDto();
                 treatmentDetails +=
-                    $"Este serviço era um tratamento, chamdado de: {treatmentDto.Name}" +
-                    $" \n Era do tipo:{treatmentDto.Type}" +
-                    $" \n Este tratamento tem uma duração de: {treatmentDto.Duration} \n";
+                    $"Este serviço é um tratamento, chamado de: {treatmentDto.Name}" +
+                    $" \nDo tipo:{treatmentDto.Type}" +
+                    $" \nEste tratamento tem uma duração de: {treatmentDto.Duration} \n";
             }
 
             return treatmentDetails;
@@ -234,9 +234,9 @@ namespace Clinic.UI
             {
                 var medicineDto = medicineBd.MapToMedicineDto();
                 medicineDetails +=
-                    $"Este serviço era um medicamento, chamdado de: {medicineDto.Name}" +
-                    $" \n Tem uma dosagem de:{medicineDto.Dosage}" +
-                    $" \n O horario sugerido para tomar este medicamento é: {medicineDto.TimeOfDayToTakeMedicine} \n";
+                    $"Este serviço é um medicamento, chamado de: {medicineDto.Name}" +
+                    $" \nTem uma dosagem de:{medicineDto.Dosage}" +
+                    $" \nO horario sugerido para tomar este medicamento é: {medicineDto.TimeOfDayToTakeMedicine} \n";
             }
 
             return medicineDetails;

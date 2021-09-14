@@ -10,16 +10,13 @@ namespace Clinic.UI
     public partial class CreateSessionForm : Form
     {
         private readonly DatabaseManager _databaseManager;
-        // private readonly UnitOfWork _unitOfWork;
         private  ClientDto _clientDto;
         private readonly CreateSessionFormHelper _createSessionFormHelper;
         public CreateSessionForm(DatabaseManager databaseManager, ClientDto clientDto)
         {
-            // _unitOfWork = unitOfWork;
             _databaseManager = databaseManager;
             _clientDto = clientDto;
             _createSessionFormHelper = new CreateSessionFormHelper();
-            // var clinicTherapists = _unitOfWork.TherapistRepository.GetAll();
             var clinicTherapists = _databaseManager.GetAllTherapists();
             
             InitializeComponent();
@@ -55,7 +52,6 @@ namespace Clinic.UI
                 else
                 {
                     var sessionDb = session.MapToSessionsDb();
-                    // var sessionId = _unitOfWork.SessionsRepository.Insert(sessionDb);
                     var sessionId = _databaseManager.InsertNewSession(sessionDb);
                     if (sessionId != 0) //quando consegue criar a sessão
                     {

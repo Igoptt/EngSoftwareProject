@@ -21,8 +21,5 @@ namespace Clinic.Data.Models
         //foreign key for the Therapist who emmited this prescription
         public int PrescriptionAuthorId { get; set; }
         
-        
-
-        //um enum para o tipo de prescrição em vez de ter serviços e dps aqeles 3?
     }
 }

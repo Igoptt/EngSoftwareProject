@@ -51,8 +51,6 @@ namespace Clinic.Data.Repositories
 
             return 0;
         }
-        
-        
-        //metodo para ir buscar todas as sessoes marcadas para o therapist com Id X        
+     
     }
 }

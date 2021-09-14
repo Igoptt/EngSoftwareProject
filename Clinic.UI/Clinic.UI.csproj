@@ -47,16 +47,16 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Admin\LoginForm.cs">
+        <Compile Include="Account\LoginForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="Admin\LoginForm.Designer.cs">
+        <Compile Include="Account\LoginForm.Designer.cs">
           <DependentUpon>LoginForm.cs</DependentUpon>
         </Compile>
-        <Compile Include="Admin\RegisterForm.cs">
+        <Compile Include="Account\RegisterForm.cs">
           <SubType>Form</SubType>
         </Compile>
-        <Compile Include="Admin\RegisterForm.Designer.cs">
+        <Compile Include="Account\RegisterForm.Designer.cs">
           <DependentUpon>RegisterForm.cs</DependentUpon>
         </Compile>
         <Compile Include="Client\ChangePrescriptionVisibilityForm.cs">
@@ -127,10 +127,10 @@
         <Compile Include="Theraphist\ViewPrescriptionsForm.Designer.cs">
           <DependentUpon>ViewPrescriptionsForm.cs</DependentUpon>
         </Compile>
-        <EmbeddedResource Include="Admin\LoginForm.resx">
+        <EmbeddedResource Include="Account\LoginForm.resx">
           <DependentUpon>LoginForm.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="Admin\RegisterForm.resx">
+        <EmbeddedResource Include="Account\RegisterForm.resx">
           <DependentUpon>RegisterForm.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Client\ChangePrescriptionVisibilityForm.resx">

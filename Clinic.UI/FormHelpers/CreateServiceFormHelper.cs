@@ -49,21 +49,14 @@ namespace Clinic.UI.FormHelpers
         
         public TreatmentDto CreateTreatment(string treatmentName, string duration, string type)
         {
-            // var durationNumber = Convert.ToInt32(duration);
-            // if (durationNumber != 0)
-            // {
-                var treatment = new TreatmentDto()
-                {
-                    Name = treatmentName,
-                    Id = 0,
-                    // Duration = durationNumber,
-                    Duration = duration,
-                    Type = type
-                };
-                return treatment;
-            // }
-
-            return null;
+            var treatment = new TreatmentDto()
+            {
+                Name = treatmentName,
+                Id = 0,
+                Duration = duration,
+                Type = type
+            };
+            return treatment;
         }
     }
 }

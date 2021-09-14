@@ -17,8 +17,7 @@ namespace Clinic.Data.Models
             Exercises = new List<Exercise>();
             Medicines = new List<Medicine>();
             Services = new List<Service>();
-            // Users = new List<User>();
-            
+
         }
         
         public List<Client> Clients { get; set; }
@@ -30,12 +29,7 @@ namespace Clinic.Data.Models
         public List<Sessions> Sessions { get; set; }
         public List<Prescription> Prescriptions { get; set; }
 
-        // public List<User> Users { get; set; }
-        
-        
-        
-        
-        //nao iriam herdar o Id do User?
+
         public int LastInsertedClientId = 0;
         public int LastInsertedTherapistId = 0;
         public int LastInsertedExerciseId = 0;

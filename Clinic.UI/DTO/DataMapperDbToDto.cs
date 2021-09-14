@@ -24,7 +24,6 @@ namespace Clinic.UI.DTO
                 
                 Id = exerciseDb.Id,
                 Name = exerciseDb.Name,
-                // PrescriptionId = exerciseDb.PrescriptionId,
                 Intensity = exerciseDb.Intensity,
                 SuggestedSchedule = exerciseDb.SuggestedSchedule,
                 
@@ -37,7 +36,6 @@ namespace Clinic.UI.DTO
             {
                 Id = medicineDb.Id,
                 Name = medicineDb.Name,
-                // PrescriptionId = medicineDb.PrescriptionId,
                 Dosage = medicineDb.Dosage,
                 TimeOfDayToTakeMedicine = medicineDb.TimeOfDayToTakeMedicine,
             };
@@ -107,7 +105,6 @@ namespace Clinic.UI.DTO
             {
                 Id = treatmentDb.Id,
                 Name = treatmentDb.Name,
-                // PrescriptionId = treatmentDb.PrescriptionId,
                 Duration = treatmentDb.Duration,
                 Type = treatmentDb.Type,
             };

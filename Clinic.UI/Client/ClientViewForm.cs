@@ -8,12 +8,9 @@ namespace Clinic.UI
 {
     public partial class ClientViewForm : Form
     {
-        // private readonly UnitOfWork _unitOfWork;
         private readonly DatabaseManager _databaseManager;
         private readonly ClientDto _currentClient;
-        
-        // private BindingSource clientSessions_Source;
-        // private BindingSource clientPrescriptions_Source;
+
         public ClientViewForm(DatabaseManager databaseManager, int clientId)
         
         {
@@ -73,13 +70,11 @@ namespace Clinic.UI
             if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "DetalhesClientView")
             {
                 var sessionTherapist = Convert.ToInt32(grid_ClientSessions.CurrentRow.Cells["AssignedTherapistId"].Value);
-                // var therapistDto = _unitOfWork.TherapistRepository.GetTherapistById(sessionTherapist).MapToTherapistDto();
                 var therapistDto = _databaseManager.GetSpecificTherapistDb(sessionTherapist).MapToTherapistDto();
                 MessageBox.Show($"A sessão tem uma duração de 1 hora com o terapeuta {therapistDto.FirstName} {therapistDto.LastName} ");
             }
             else if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "EditarSessao")
             {
-                
                 //atualiza a sessao com este Id
                 var selectedSessionId = Convert.ToInt32(grid_ClientSessions.CurrentRow.Cells["Id"].Value);
 
@@ -93,8 +88,6 @@ namespace Clinic.UI
                 {
                     MessageBox.Show(@"Escolheu uma sessão que ja aconteceu!");
                 }
-                
-                
             }
             else if (grid_ClientSessions.Columns[e.ColumnIndex].Name == "DesmarcarClientView")
             {
@@ -102,7 +95,6 @@ namespace Clinic.UI
                 if (confirmation == DialogResult.Yes)
                 {
                     var selectedRowId = Convert.ToInt32(grid_ClientSessions.CurrentRow.Cells["Id"].Value);
-                    // var sessionToDelete = _unitOfWork.SessionsRepository.GetSessionById(selectedRowId);
                     var sessionToDelete = _databaseManager.GetSpecificSession(selectedRowId);
                     var sessionToDeleteDto = sessionToDelete.MapToSessionToDto();
                     if (sessionToDelete.SessionDate <= DateTime.Now)
