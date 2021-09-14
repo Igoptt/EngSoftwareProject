@@ -133,6 +133,8 @@ namespace Clinic.UI
             // 
             this.More.HeaderText = "Mais";
             this.More.Name = "More";
+            this.More.Text = "Mais";
+            this.More.UseColumnTextForButtonValue = true;
             // 
             // ClientPrescriptionsForm
             // 
@@ -144,7 +146,6 @@ namespace Clinic.UI
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "ClientPrescriptionsForm";
             this.Text = "View Client Prescription";
-            //this.Load += new System.EventHandler(this.ClientPrescriptionsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid_EmitedPrescriptions)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
