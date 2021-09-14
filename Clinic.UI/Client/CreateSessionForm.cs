@@ -45,11 +45,12 @@ namespace Clinic.UI
                 var chosenTherapistSessions = _databaseManager.GetTherapistSessions(chosenTherapistBd.Id).MapSessionsToDto();
 
                 var session = _createSessionFormHelper.CreateSession(cb_sessionHours.Text, selectedTime, _clientDto.Id, chosenTherapistBd.Id);
-                var therapistAvailable = _createSessionFormHelper.TherapistAvailable(session.SessionDate, chosenTherapistSessions);
+                var therapistAvailable = _createSessionFormHelper.IsAvailable(session.SessionDate, chosenTherapistSessions);
+                var clientAvailable = _createSessionFormHelper.IsAvailable(session.SessionDate, _clientDto.ClientAppointments);
 
-                if (!therapistAvailable)
+                if (!therapistAvailable && !clientAvailable)
                 {
-                    MessageBox.Show("Este terapeuta esta ocupado na data e hora escolhidos");
+                    MessageBox.Show(@"Este terapeuta esta ocupado na data e hora escolhidos");
                 }
                 else
                 {
@@ -69,7 +70,6 @@ namespace Clinic.UI
                         if (updatedClient != 0) //quando consegue adicionar a sessão à lista do cliente
                         {
                             chosenTherapistBd.TherapistSessions.Add(sessionId);
-                            // _unitOfWork.TherapistRepository.Update(chosenTherapistBd);
                             var updatedTherapist = _databaseManager.UpdateTherapist(chosenTherapistBd);
                             MessageBox.Show(@"Sessão Marcada");
                             if (updatedTherapist != 0) //quando consegue adicionar a sessão à lista do terapeuta

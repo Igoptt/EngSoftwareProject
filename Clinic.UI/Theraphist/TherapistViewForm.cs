@@ -117,19 +117,19 @@ namespace Clinic.UI
                     var sessionDb = sessionDto.MapToSessionsDb();
                     // _unitOfWork.SessionsRepository.Update(sessionDb);
                     var updatedSession = _databaseManager.UpdateSession(sessionDb);
-
                 }
-            }
-            if (grid_SessionsTherapistView.Columns[e.ColumnIndex].Name == "Prescription")
-            {
-                var form = new ClientPrescriptionsForm(_databaseManager,_currentTherapist);
-                form.Show();
             }
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btn_ShowPrescriptions_Click(object sender, EventArgs e)
+        {
+            var form = new ClientPrescriptionsForm(_databaseManager,_currentTherapist);
+            form.Show();
         }
     }
 }

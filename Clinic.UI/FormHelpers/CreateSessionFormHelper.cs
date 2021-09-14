@@ -8,7 +8,7 @@ namespace Clinic.UI.FormHelpers
 {
     public class CreateSessionFormHelper
     {
-        public bool TherapistAvailable(DateTime chosenDateHour, List<SessionsDto> therapistSessions)
+        public bool IsAvailable(DateTime chosenDateHour, List<SessionsDto> therapistSessions)
         {
             var therapistAvailable = true;
             foreach (var therapistSession in therapistSessions)

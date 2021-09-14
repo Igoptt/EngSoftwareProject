@@ -43,8 +43,9 @@ namespace Clinic.UI
                 
                 var newSession = _editSessionFormHelper.UpdateSession(cb_SessionHours.Text, selectedTime, selectedSession);
                 
-                var therapistAvailable = _createSessionFormHelper.TherapistAvailable(newSession.SessionDate, selectedTherapistSessions);
-                if (!therapistAvailable)
+                var therapistAvailable = _createSessionFormHelper.IsAvailable(newSession.SessionDate, selectedTherapistSessions);
+                var clientAvailable = _createSessionFormHelper.IsAvailable(newSession.SessionDate, _clientDto.ClientAppointments);
+                if (!therapistAvailable && !clientAvailable)
                 {
                     MessageBox.Show("O seu terapeuta nao pode nesta hora");
                 }
