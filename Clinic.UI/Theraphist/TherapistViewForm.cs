@@ -127,9 +127,9 @@ namespace Clinic.UI
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_logout_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Close();
         }
     }
 }

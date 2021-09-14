@@ -166,10 +166,10 @@ namespace Clinic.UI
                 }
             }
         }
-
-        private void ClientPrescriptionsForm_Load(object sender, EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
+        //
+        // private void ClientPrescriptionsForm_Load(object sender, EventArgs e)
+        // {
+        //     throw new System.NotImplementedException();
+        // }
     }
 }

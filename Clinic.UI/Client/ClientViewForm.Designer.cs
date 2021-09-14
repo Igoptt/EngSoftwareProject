@@ -214,7 +214,6 @@ namespace Clinic.UI
             this.btn_logout.TabIndex = 4;
             this.btn_logout.Text = "Sair";
             this.btn_logout.UseVisualStyleBackColor = true;
-            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // btn_sair
             // 
@@ -222,9 +221,9 @@ namespace Clinic.UI
             this.btn_sair.Name = "btn_sair";
             this.btn_sair.Size = new System.Drawing.Size(95, 40);
             this.btn_sair.TabIndex = 5;
-            this.btn_sair.Text = "Sair";
+            this.btn_sair.Text = "Logout";
             this.btn_sair.UseVisualStyleBackColor = true;
-            this.btn_sair.Click += new System.EventHandler(this.button1_Click);
+            this.btn_sair.Click += new System.EventHandler(this.btn_sair_Click);
             // 
             // ClientViewForm
             // 

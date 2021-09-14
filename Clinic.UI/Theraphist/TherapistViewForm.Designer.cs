@@ -171,9 +171,9 @@ namespace Clinic.UI
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Size = new System.Drawing.Size(88, 34);
             this.btn_logout.TabIndex = 3;
-            this.btn_logout.Text = "Sair\r\n";
+            this.btn_logout.Text = "Logout";
             this.btn_logout.UseVisualStyleBackColor = true;
-            this.btn_logout.Click += new System.EventHandler(this.button1_Click);
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // TherapistViewForm
             // 
