@@ -1,4 +1,4 @@
-# ProjetoEngenhariaSoftware
+# Projeto Engenharia Software
 
 Rodrigo Vieira nº2044578
 João Martins nº2047818
