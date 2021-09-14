@@ -15,6 +15,7 @@ namespace Clinic.UI
         // private BindingSource clientSessions_Source;
         // private BindingSource clientPrescriptions_Source;
         public ClientViewForm(DatabaseManager databaseManager, int clientId)
+        
         {
             _databaseManager = databaseManager;
             _currentClient = _databaseManager.ClientViewingForm(clientId);
@@ -131,6 +132,18 @@ namespace Clinic.UI
                     }
                 }
             }
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+            
         }
     }
 }

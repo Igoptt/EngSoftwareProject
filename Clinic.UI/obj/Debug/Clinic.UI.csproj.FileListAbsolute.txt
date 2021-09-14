@@ -31,7 +31,6 @@ C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\bin\Debug\Clinic.Data.
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.csproj.AssemblyReference.cache
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.AddPrescriptionForm.resources
-C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.ChangePrescriptionContentsForm.resources
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.ChangePrescriptionVisibilityForm.resources
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.ClientPrescriptionsForm.resources
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.ClientViewForm.resources
@@ -48,3 +47,4 @@ C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.ex
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.pdb
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.CreateServiceForm.resources
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\bin\Debug\clinic.json
+C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.CreateServiceForm.resources

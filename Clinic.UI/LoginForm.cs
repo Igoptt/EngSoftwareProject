@@ -37,6 +37,7 @@ namespace Clinic.UI
                     {
                         var form = new ClientViewForm(_databaseManager, clientLoggingIn.Id);
                         form.Show();
+                        Hide();
                         // MessageBox.Show($"Bem vindo {clientLoggingIn.FirstName}!");
                     }
                     else
@@ -53,6 +54,7 @@ namespace Clinic.UI
                     {
                         var form = new TherapistViewForm(_databaseManager, therapistLoggingIn.Id);
                         form.Show();
+                        Hide();
                     }
                     else
                     {

@@ -153,7 +153,7 @@ namespace Clinic.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(908, 561);
             this.Controls.Add(this.grpBox_Register);
             this.Controls.Add(this.cb_AccountTypeRegister);
             this.Name = "RegisterForm";

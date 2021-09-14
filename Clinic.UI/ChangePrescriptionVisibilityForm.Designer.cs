@@ -39,7 +39,7 @@ namespace Clinic.UI
             // 
             // btn_SavePrescriptionVisibilityChanges
             // 
-            this.btn_SavePrescriptionVisibilityChanges.Location = new System.Drawing.Point(239, 244);
+            this.btn_SavePrescriptionVisibilityChanges.Location = new System.Drawing.Point(318, 286);
             this.btn_SavePrescriptionVisibilityChanges.Name = "btn_SavePrescriptionVisibilityChanges";
             this.btn_SavePrescriptionVisibilityChanges.Size = new System.Drawing.Size(312, 87);
             this.btn_SavePrescriptionVisibilityChanges.TabIndex = 1;
@@ -50,7 +50,7 @@ namespace Clinic.UI
             // cb_ChooseTherapist
             // 
             this.cb_ChooseTherapist.FormattingEnabled = true;
-            this.cb_ChooseTherapist.Location = new System.Drawing.Point(239, 190);
+            this.cb_ChooseTherapist.Location = new System.Drawing.Point(318, 232);
             this.cb_ChooseTherapist.Name = "cb_ChooseTherapist";
             this.cb_ChooseTherapist.Size = new System.Drawing.Size(312, 21);
             this.cb_ChooseTherapist.TabIndex = 3;
@@ -58,14 +58,14 @@ namespace Clinic.UI
             // 
             // textBox_PrescriptionInformation
             // 
-            this.textBox_PrescriptionInformation.Location = new System.Drawing.Point(239, 143);
+            this.textBox_PrescriptionInformation.Location = new System.Drawing.Point(318, 185);
             this.textBox_PrescriptionInformation.Name = "textBox_PrescriptionInformation";
             this.textBox_PrescriptionInformation.Size = new System.Drawing.Size(312, 20);
             this.textBox_PrescriptionInformation.TabIndex = 4;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(239, 117);
+            this.label1.Location = new System.Drawing.Point(318, 159);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(312, 23);
             this.label1.TabIndex = 5;
@@ -76,7 +76,7 @@ namespace Clinic.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(908, 561);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_PrescriptionInformation);
             this.Controls.Add(this.cb_ChooseTherapist);

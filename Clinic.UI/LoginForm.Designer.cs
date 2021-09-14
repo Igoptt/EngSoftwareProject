@@ -40,9 +40,9 @@
             // 
             // btn_register
             // 
-            this.btn_register.Location = new System.Drawing.Point(21, 232);
+            this.btn_register.Location = new System.Drawing.Point(316, 346);
             this.btn_register.Name = "btn_register";
-            this.btn_register.Size = new System.Drawing.Size(238, 39);
+            this.btn_register.Size = new System.Drawing.Size(305, 50);
             this.btn_register.TabIndex = 0;
             this.btn_register.Text = "Criar Conta";
             this.btn_register.UseVisualStyleBackColor = true;
@@ -50,9 +50,9 @@
             // 
             // btn_login
             // 
-            this.btn_login.Location = new System.Drawing.Point(21, 153);
+            this.btn_login.Location = new System.Drawing.Point(316, 278);
             this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(238, 64);
+            this.btn_login.Size = new System.Drawing.Size(305, 49);
             this.btn_login.TabIndex = 0;
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = true;
@@ -62,40 +62,40 @@
             // 
             this.cb_AccountTypeLogin.FormattingEnabled = true;
             this.cb_AccountTypeLogin.Items.AddRange(new object[] { "Cliente", "Terapeuta" });
-            this.cb_AccountTypeLogin.Location = new System.Drawing.Point(20, 13);
+            this.cb_AccountTypeLogin.Location = new System.Drawing.Point(315, 138);
             this.cb_AccountTypeLogin.Name = "cb_AccountTypeLogin";
-            this.cb_AccountTypeLogin.Size = new System.Drawing.Size(239, 21);
+            this.cb_AccountTypeLogin.Size = new System.Drawing.Size(306, 21);
             this.cb_AccountTypeLogin.TabIndex = 1;
             this.cb_AccountTypeLogin.Text = "Escolha o tipo de conta";
             // 
             // textBox_Username_Login
             // 
-            this.textBox_Username_Login.Location = new System.Drawing.Point(20, 64);
+            this.textBox_Username_Login.Location = new System.Drawing.Point(315, 189);
             this.textBox_Username_Login.Name = "textBox_Username_Login";
-            this.textBox_Username_Login.Size = new System.Drawing.Size(239, 20);
+            this.textBox_Username_Login.Size = new System.Drawing.Size(306, 20);
             this.textBox_Username_Login.TabIndex = 2;
             // 
             // textBox_Password_Login
             // 
-            this.textBox_Password_Login.Location = new System.Drawing.Point(21, 113);
+            this.textBox_Password_Login.Location = new System.Drawing.Point(316, 238);
             this.textBox_Password_Login.Name = "textBox_Password_Login";
             this.textBox_Password_Login.PasswordChar = '*';
-            this.textBox_Password_Login.Size = new System.Drawing.Size(238, 20);
+            this.textBox_Password_Login.Size = new System.Drawing.Size(305, 20);
             this.textBox_Password_Login.TabIndex = 3;
             // 
             // label_Username
             // 
-            this.label_Username.Location = new System.Drawing.Point(20, 37);
+            this.label_Username.Location = new System.Drawing.Point(315, 162);
             this.label_Username.Name = "label_Username";
-            this.label_Username.Size = new System.Drawing.Size(112, 24);
+            this.label_Username.Size = new System.Drawing.Size(179, 24);
             this.label_Username.TabIndex = 4;
             this.label_Username.Text = "Username";
             // 
             // label_Password
             // 
-            this.label_Password.Location = new System.Drawing.Point(21, 87);
+            this.label_Password.Location = new System.Drawing.Point(316, 212);
             this.label_Password.Name = "label_Password";
-            this.label_Password.Size = new System.Drawing.Size(112, 24);
+            this.label_Password.Size = new System.Drawing.Size(179, 24);
             this.label_Password.TabIndex = 5;
             this.label_Password.Text = "Password";
             // 
@@ -104,7 +104,7 @@
             this.AcceptButton = this.btn_login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 275);
+            this.ClientSize = new System.Drawing.Size(908, 561);
             this.Controls.Add(this.label_Password);
             this.Controls.Add(this.label_Username);
             this.Controls.Add(this.textBox_Password_Login);

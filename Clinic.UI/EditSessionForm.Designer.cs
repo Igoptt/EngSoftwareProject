@@ -40,24 +40,24 @@ namespace Clinic.UI
             // 
             // dtp_SessionDate
             // 
-            this.dtp_SessionDate.Location = new System.Drawing.Point(285, 193);
+            this.dtp_SessionDate.Location = new System.Drawing.Point(293, 213);
             this.dtp_SessionDate.Name = "dtp_SessionDate";
-            this.dtp_SessionDate.Size = new System.Drawing.Size(198, 20);
+            this.dtp_SessionDate.Size = new System.Drawing.Size(297, 20);
             this.dtp_SessionDate.TabIndex = 0;
             // 
             // cb_SessionHours
             // 
             this.cb_SessionHours.FormattingEnabled = true;
-            this.cb_SessionHours.Location = new System.Drawing.Point(285, 244);
+            this.cb_SessionHours.Location = new System.Drawing.Point(293, 264);
             this.cb_SessionHours.Name = "cb_SessionHours";
-            this.cb_SessionHours.Size = new System.Drawing.Size(198, 21);
+            this.cb_SessionHours.Size = new System.Drawing.Size(297, 21);
             this.cb_SessionHours.TabIndex = 1;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(285, 132);
+            this.label1.Location = new System.Drawing.Point(293, 152);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 37);
+            this.label1.Size = new System.Drawing.Size(297, 37);
             this.label1.TabIndex = 2;
             this.label1.Text = "Escolha a data e hora para os quais quer mudar a sessão";
             // 
@@ -72,9 +72,9 @@ namespace Clinic.UI
             // 
             // btn_SaveSessionChanges
             // 
-            this.btn_SaveSessionChanges.Location = new System.Drawing.Point(285, 308);
+            this.btn_SaveSessionChanges.Location = new System.Drawing.Point(293, 328);
             this.btn_SaveSessionChanges.Name = "btn_SaveSessionChanges";
-            this.btn_SaveSessionChanges.Size = new System.Drawing.Size(198, 71);
+            this.btn_SaveSessionChanges.Size = new System.Drawing.Size(297, 71);
             this.btn_SaveSessionChanges.TabIndex = 3;
             this.btn_SaveSessionChanges.Text = "Guardar";
             this.btn_SaveSessionChanges.UseVisualStyleBackColor = true;
@@ -85,7 +85,7 @@ namespace Clinic.UI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(908, 561);
             this.Controls.Add(this.btn_SaveSessionChanges);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cb_SessionHours);

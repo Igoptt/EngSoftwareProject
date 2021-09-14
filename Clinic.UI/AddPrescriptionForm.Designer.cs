@@ -47,13 +47,12 @@ namespace Clinic.UI
             this.cb_ChooseSession.Size = new System.Drawing.Size(776, 21);
             this.cb_ChooseSession.TabIndex = 4;
             this.cb_ChooseSession.Text = "Escolha a sessão para adicionar uma prescrição";
-            // this.cb_ChooseSession.SelectedIndexChanged += new System.EventHandler(this.cb_ChooseSession_SelectedIndexChanged);
             // 
             // btn_CreateService
             // 
-            this.btn_CreateService.Location = new System.Drawing.Point(12, 24);
+            this.btn_CreateService.Location = new System.Drawing.Point(12, 49);
             this.btn_CreateService.Name = "btn_CreateService";
-            this.btn_CreateService.Size = new System.Drawing.Size(210, 84);
+            this.btn_CreateService.Size = new System.Drawing.Size(184, 51);
             this.btn_CreateService.TabIndex = 5;
             this.btn_CreateService.Text = "Criar Serviço";
             this.btn_CreateService.UseVisualStyleBackColor = true;
@@ -67,13 +66,12 @@ namespace Clinic.UI
             this.cb_Medicines.Size = new System.Drawing.Size(776, 21);
             this.cb_Medicines.TabIndex = 6;
             this.cb_Medicines.Text = "Escolha o medicamento para adicionar";
-            // this.cb_Medicines.SelectedIndexChanged += new System.EventHandler(this.cb_Services_SelectedIndexChanged);
             // 
             // btn_SavePrescription
             // 
-            this.btn_SavePrescription.Location = new System.Drawing.Point(242, 331);
+            this.btn_SavePrescription.Location = new System.Drawing.Point(351, 309);
             this.btn_SavePrescription.Name = "btn_SavePrescription";
-            this.btn_SavePrescription.Size = new System.Drawing.Size(216, 107);
+            this.btn_SavePrescription.Size = new System.Drawing.Size(163, 61);
             this.btn_SavePrescription.TabIndex = 7;
             this.btn_SavePrescription.Text = "Guardar";
             this.btn_SavePrescription.UseVisualStyleBackColor = true;
@@ -101,7 +99,7 @@ namespace Clinic.UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(908, 561);
             this.Controls.Add(this.cb_Treatments);
             this.Controls.Add(this.cb_Exercises);
             this.Controls.Add(this.btn_SavePrescription);

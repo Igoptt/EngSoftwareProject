@@ -49,6 +49,8 @@ namespace Clinic.UI
             this.Desmarcar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.lb_ClientName = new System.Windows.Forms.Label();
+            this.btn_logout = new System.Windows.Forms.Button();
+            this.btn_sair = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab_Prescriptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_PrescriptionsClientView)).BeginInit();
@@ -74,7 +76,7 @@ namespace Clinic.UI
             this.tabControl1.Location = new System.Drawing.Point(12, 100);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(672, 303);
+            this.tabControl1.Size = new System.Drawing.Size(893, 457);
             this.tabControl1.TabIndex = 1;
             // 
             // tab_Prescriptions
@@ -83,7 +85,7 @@ namespace Clinic.UI
             this.tab_Prescriptions.Location = new System.Drawing.Point(4, 22);
             this.tab_Prescriptions.Name = "tab_Prescriptions";
             this.tab_Prescriptions.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Prescriptions.Size = new System.Drawing.Size(664, 277);
+            this.tab_Prescriptions.Size = new System.Drawing.Size(885, 431);
             this.tab_Prescriptions.TabIndex = 0;
             this.tab_Prescriptions.Text = "Prescrições";
             this.tab_Prescriptions.UseVisualStyleBackColor = true;
@@ -95,7 +97,7 @@ namespace Clinic.UI
             this.grid_PrescriptionsClientView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.Mais, this.Visibilidade });
             this.grid_PrescriptionsClientView.Location = new System.Drawing.Point(3, 3);
             this.grid_PrescriptionsClientView.Name = "grid_PrescriptionsClientView";
-            this.grid_PrescriptionsClientView.Size = new System.Drawing.Size(658, 271);
+            this.grid_PrescriptionsClientView.Size = new System.Drawing.Size(879, 425);
             this.grid_PrescriptionsClientView.TabIndex = 0;
             this.grid_PrescriptionsClientView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_PrescriptionsClientView_CellContentClick);
             // 
@@ -121,7 +123,7 @@ namespace Clinic.UI
             this.tab_Sessions.Location = new System.Drawing.Point(4, 22);
             this.tab_Sessions.Name = "tab_Sessions";
             this.tab_Sessions.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_Sessions.Size = new System.Drawing.Size(664, 277);
+            this.tab_Sessions.Size = new System.Drawing.Size(885, 431);
             this.tab_Sessions.TabIndex = 1;
             this.tab_Sessions.Text = "Sessões";
             this.tab_Sessions.UseVisualStyleBackColor = true;
@@ -133,7 +135,7 @@ namespace Clinic.UI
             this.grid_ClientSessions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { this.DetalhesClientView, this.DesmarcarClientView, this.EditarSessao });
             this.grid_ClientSessions.Location = new System.Drawing.Point(3, 3);
             this.grid_ClientSessions.Name = "grid_ClientSessions";
-            this.grid_ClientSessions.Size = new System.Drawing.Size(658, 271);
+            this.grid_ClientSessions.Size = new System.Drawing.Size(879, 425);
             this.grid_ClientSessions.TabIndex = 0;
             this.grid_ClientSessions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_ClientSessions_CellContentClick);
             // 
@@ -199,16 +201,38 @@ namespace Clinic.UI
             // 
             // lb_ClientName
             // 
-            this.lb_ClientName.Location = new System.Drawing.Point(102, 8);
+            this.lb_ClientName.Location = new System.Drawing.Point(103, 8);
             this.lb_ClientName.Name = "lb_ClientName";
             this.lb_ClientName.Size = new System.Drawing.Size(253, 23);
             this.lb_ClientName.TabIndex = 3;
+            // 
+            // btn_logout
+            // 
+            this.btn_logout.Location = new System.Drawing.Point(924, 600);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(103, 30);
+            this.btn_logout.TabIndex = 4;
+            this.btn_logout.Text = "Sair";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
+            // btn_sair
+            // 
+            this.btn_sair.Location = new System.Drawing.Point(801, 34);
+            this.btn_sair.Name = "btn_sair";
+            this.btn_sair.Size = new System.Drawing.Size(95, 40);
+            this.btn_sair.TabIndex = 5;
+            this.btn_sair.Text = "Sair";
+            this.btn_sair.UseVisualStyleBackColor = true;
+            this.btn_sair.Click += new System.EventHandler(this.button1_Click);
             // 
             // ClientViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 407);
+            this.ClientSize = new System.Drawing.Size(908, 561);
+            this.Controls.Add(this.btn_sair);
+            this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.lb_ClientName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl1);
@@ -222,6 +246,12 @@ namespace Clinic.UI
             ((System.ComponentModel.ISupportInitialize)(this.grid_ClientSessions)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button btn_sair;
+
+        private System.Windows.Forms.Button button1;
+
+        private System.Windows.Forms.Button btn_logout;
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lb_ClientName;
