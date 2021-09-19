@@ -19,6 +19,9 @@ When registering, we can create an account as a therapist or as a client.
 
 The customer can:
 create a session
+
+![image](https://user-images.githubusercontent.com/50104175/133940117-ddcc2d04-556d-4d95-b854-5a16b9d39d25.png)
+
 See prescribing information.
 Give visibility about a certain prescription to another therapist. 
 Know the duration and who the therapist is. 
