@@ -27,9 +27,24 @@ And change the day of the session.
 
 ![image](https://user-images.githubusercontent.com/50104175/133297904-069cc4bb-a5bc-48c4-8114-b2d4f1d2a766.png)
 
-![image](https://user-images.githubusercontent.com/50104175/133298691-e7236128-8f97-4f11-967b-38d1c26ef347.png)
+
+If the client clicks on the "Mais" (more) button, he can see the prescription information.
+
+![Screenshot_3](https://user-images.githubusercontent.com/50104175/133939803-61499ff2-e657-4e86-84e0-5fa61db96cb3.png)
+
+The client can give visibility to another therapist for their prescriptions.
+
+![Screenshot_4](https://user-images.githubusercontent.com/50104175/133939886-1df2aeda-9ee9-4c38-ae79-ac7168747211.png)
+
+The client also can get appointment details from "Detalhes" button.
+
+![Screenshot_5](https://user-images.githubusercontent.com/50104175/133939938-21fd0da0-4167-4983-97f3-515d4fe1bf9b.png)
+
+
+
 
 Therapist View
+
 ![image](https://user-images.githubusercontent.com/50104175/133939135-5f88de3a-830d-4ab2-8ae4-46b80949145e.png)
 
 The therapist can: 
