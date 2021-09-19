@@ -29,6 +29,9 @@ And change the day of the session.
 
 ![image](https://user-images.githubusercontent.com/50104175/133298691-e7236128-8f97-4f11-967b-38d1c26ef347.png)
 
+Therapist View
+![image](https://user-images.githubusercontent.com/50104175/133939135-5f88de3a-830d-4ab2-8ae4-46b80949145e.png)
+
 The therapist can: 
 Cancel the session. 
 It is possible for the therapist to add a note to the session. 
@@ -36,3 +39,7 @@ The therapist has the possibility to add a prescription to the session.
 And see the issued prescriptions and those that have access from other clients
 
 ![image](https://user-images.githubusercontent.com/50104175/133300249-bc88a281-5400-449f-ac95-578dfdffd310.png)
+
+Therapsit can also create a service to add to the prescription, like medicines, exercicies and treatments 
+
+![image](https://user-images.githubusercontent.com/50104175/133939184-c011c258-0cff-44b0-8dfc-41ceebfc174d.png)
