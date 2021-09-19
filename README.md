@@ -52,6 +52,8 @@ Therapsit can also create a service to add to the prescription, like medicines, 
 To add a prescription to a session, it is only possible to a session that has already taken place.
 If you want to test, adding the prescription to the session, you must double click above the date. Disable "Automatically set time" and then change time "Manually set date and time".
 
+After changing the windows date to a later date than the appointment, it is now possible to add the prescription to the session. Because the prescription is added after its occurrence
+
 ![image](https://user-images.githubusercontent.com/50104175/133939481-45de9d34-79de-4ea1-9479-5ba8bebf706a.png)
 
 ![Screenshot_1](https://user-images.githubusercontent.com/50104175/133939412-1c3db122-4f77-4d7f-8d4c-59936ead421e.png)
