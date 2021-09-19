@@ -43,3 +43,16 @@ And see the issued prescriptions and those that have access from other clients
 Therapsit can also create a service to add to the prescription, like medicines, exercicies and treatments 
 
 ![image](https://user-images.githubusercontent.com/50104175/133939184-c011c258-0cff-44b0-8dfc-41ceebfc174d.png)
+
+
+To add a prescription to a session, it is only possible to a session that has already taken place.
+If you want to test, adding the prescription to the session, you must double click above the date. Disable "Automatically set time" and then change time "Manually set date and time".
+
+
+![Screenshot_1](https://user-images.githubusercontent.com/50104175/133939412-1c3db122-4f77-4d7f-8d4c-59936ead421e.png)
+
+![Screenshot_2](https://user-images.githubusercontent.com/50104175/133939423-03d271d3-df6c-4000-8bc6-e96714bd9fb0.png)
+
+
+
+
