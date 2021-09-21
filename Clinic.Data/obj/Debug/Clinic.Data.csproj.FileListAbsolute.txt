@@ -16,3 +16,12 @@ C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.Data\obj\Debug\Clinic.Dat
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.Data\obj\Debug\Clinic.Data.csproj.CopyComplete
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.Data\obj\Debug\Clinic.Data.dll
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.Data\obj\Debug\Clinic.Data.pdb
+C:\Users\Rodrigo\Desktop\Tester\Clinic.Data\bin\Debug\Clinic.Data.dll
+C:\Users\Rodrigo\Desktop\Tester\Clinic.Data\bin\Debug\Clinic.Data.pdb
+C:\Users\Rodrigo\Desktop\Tester\Clinic.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Rodrigo\Desktop\Tester\Clinic.Data\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Rodrigo\Desktop\Tester\Clinic.Data\obj\Debug\Clinic.Data.csproj.AssemblyReference.cache
+C:\Users\Rodrigo\Desktop\Tester\Clinic.Data\obj\Debug\Clinic.Data.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\Desktop\Tester\Clinic.Data\obj\Debug\Clinic.Data.csproj.CopyComplete
+C:\Users\Rodrigo\Desktop\Tester\Clinic.Data\obj\Debug\Clinic.Data.dll
+C:\Users\Rodrigo\Desktop\Tester\Clinic.Data\obj\Debug\Clinic.Data.pdb

@@ -28,7 +28,7 @@ namespace Clinic.UI
             //para popular a combo box das sessões
             foreach (var session in currentTherapist.TherapistSessions)
             {
-                if (session.SessionPrescriptionId == -1)
+                if (session.SessionPrescriptionId == -1 && session.SessionDate <= DateTime.Now)
                 {
                     cb_ChooseSession.Items.Add($"Id da Sessão:{session.Id}: horario da sessão: {session.SessionDate}");
                 }

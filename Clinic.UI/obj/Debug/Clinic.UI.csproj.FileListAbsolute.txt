@@ -48,3 +48,28 @@ C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.pd
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.CreateServiceForm.resources
 C:\Users\Rodrigo\Desktop\Rider Projects\EngSoftware\EngSoftwareProject\Clinic.UI\bin\Debug\clinic.json
 C:\Users\joao-\RiderProjects\EngSoftwareProject\Clinic.UI\obj\Debug\Clinic.UI.CreateServiceForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\bin\Debug\clinic.json
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\bin\Debug\Clinic.UI.exe.config
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\bin\Debug\Clinic.UI.exe
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\bin\Debug\Clinic.UI.pdb
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\bin\Debug\Clinic.Data.dll
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\bin\Debug\Clinic.Data.pdb
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.csproj.AssemblyReference.cache
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.LoginForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.RegisterForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.ChangePrescriptionVisibilityForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.ClientViewForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.CreateSessionForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.EditSessionForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.AddPrescriptionForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.CreateServiceForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.TherapistViewForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.Properties.Resources.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.ClientPrescriptionsForm.resources
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.csproj.GenerateResource.cache
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.csproj.CoreCompileInputs.cache
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.csproj.CopyComplete
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.exe
+C:\Users\Rodrigo\Desktop\Tester\Clinic.UI\obj\Debug\Clinic.UI.pdb
